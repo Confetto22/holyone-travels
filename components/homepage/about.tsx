@@ -1,0 +1,290 @@
+"use client";
+
+import Image from "next/image";
+import {
+  Shield,
+  Users,
+  Award,
+  Calendar,
+  Play,
+  Backpack,
+  Sparkles,
+  ThumbsUp,
+  PersonStanding,
+} from "lucide-react";
+
+const About = () => {
+  const features = [
+    {
+      icon: Shield,
+      title: "Safety First Always",
+      bgColor: "bg-[#e8f5e9]",
+      iconColor: "text-[#63ab45]",
+    },
+    {
+      icon: Users,
+      title: "Trusted Travel Guide",
+      bgColor: "bg-[#f5f5dc]",
+      iconColor: "text-[#63ab45]",
+    },
+    {
+      icon: Award,
+      title: "Expertise And Experience",
+      bgColor: "bg-[#f5f5dc]",
+      iconColor: "text-[#63ab45]",
+    },
+    {
+      icon: Calendar,
+      title: "Time And Stress Savings",
+      bgColor: "bg-[#e8f5e9]",
+      iconColor: "text-[#63ab45]",
+    },
+  ];
+
+  const statistics = [
+    {
+      value: "1.6",
+      label: "Happy Traveler",
+      icon: Backpack,
+      suffix: "k+",
+    },
+    {
+      value: "1.2",
+      label: "Tours Success",
+      icon: Sparkles,
+      suffix: "k+",
+    },
+    {
+      value: "98",
+      label: "Positives Review",
+      icon: ThumbsUp,
+      suffix: "%",
+    },
+    {
+      value: "25",
+      label: "Travel Guide",
+      icon: PersonStanding,
+      suffix: "+",
+    },
+  ];
+
+  return (
+    <section className="bg-white py-16 px-4">
+      <div className="container mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Section */}
+          <div>
+            {/* About Us Tag */}
+            <div className="mb-6">
+              <div className="relative inline-block">
+                <svg
+                  width="140"
+                  height="50"
+                  viewBox="0 0 140 50"
+                  className="absolute inset-0 -translate-x-2 -translate-y-1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 25 Q30 8, 60 25 T120 25 Q130 25, 130 25"
+                    stroke="#a8d5ba"
+                    strokeWidth="3"
+                    fill="#a8d5ba"
+                    fillOpacity="0.2"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M10 25 Q30 42, 60 25 T120 25 Q130 25, 130 25"
+                    stroke="#a8d5ba"
+                    strokeWidth="3"
+                    fill="#a8d5ba"
+                    fillOpacity="0.2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <div className="relative px-6 py-2">
+                  <span className="text-[#63ab45] text-lg font-handwriting italic font-semibold">
+                    About Us
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Main Heading */}
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              We provide the best tour facilities.
+            </h2>
+
+            {/* Paragraph */}
+            <p className="text-gray-600 text-base mb-8 leading-relaxed">
+              Etiam ac tortor id purus commodo vulputate. Vestibulum porttitor
+              erat felis and sed vehicula tortor malesuada gravida. Mauris
+              volutpat enim quis pulv gont congue. Suspendisse ullamcorper.
+            </p>
+
+            {/* Feature Boxes */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              {features.map((feature, index) => {
+                const IconComponent = feature.icon;
+                return (
+                  <div
+                    key={index}
+                    className={`${feature.bgColor} rounded-lg p-4 flex items-center gap-3`}
+                  >
+                    <div className={`${feature.iconColor}`}>
+                      <IconComponent size={24} />
+                    </div>
+                    <span className="text-gray-800 font-medium text-sm">
+                      {feature.title}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4">
+              <button className="bg-[#63ab45] hover:bg-[#5a9a3d] text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md">
+                Find Out More
+              </button>
+              <button className="flex items-center gap-3 text-gray-700 hover:text-[#63ab45] transition-colors group">
+                <div className="w-12 h-12 rounded-full border-2 border-gray-300 group-hover:border-[#63ab45] flex items-center justify-center transition-colors">
+                  <Play
+                    size={20}
+                    className="text-gray-700 group-hover:text-[#63ab45] ml-1 transition-colors"
+                    fill="currentColor"
+                  />
+                </div>
+                <span className="font-medium">Watch Tour</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Right Section */}
+          <div className="relative">
+            {/* Decorative Brushstroke Shapes */}
+            <div className="absolute -top-8 -left-8 -z-10">
+              <svg
+                width="200"
+                height="200"
+                viewBox="0 0 200 200"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 100 Q50 50, 100 100 T180 100"
+                  stroke="#a8d5ba"
+                  strokeWidth="8"
+                  fill="none"
+                  strokeLinecap="round"
+                  opacity="0.3"
+                />
+                <path
+                  d="M20 100 Q50 150, 100 100 T180 100"
+                  stroke="#a8d5ba"
+                  strokeWidth="8"
+                  fill="none"
+                  strokeLinecap="round"
+                  opacity="0.3"
+                />
+              </svg>
+            </div>
+            <div className="absolute -bottom-8 -right-8 -z-10">
+              <svg
+                width="200"
+                height="200"
+                viewBox="0 0 200 200"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 100 Q50 50, 100 100 T180 100"
+                  stroke="#a8d5ba"
+                  strokeWidth="8"
+                  fill="none"
+                  strokeLinecap="round"
+                  opacity="0.3"
+                />
+                <path
+                  d="M20 100 Q50 150, 100 100 T180 100"
+                  stroke="#a8d5ba"
+                  strokeWidth="8"
+                  fill="none"
+                  strokeLinecap="round"
+                  opacity="0.3"
+                />
+              </svg>
+            </div>
+
+            {/* Airplane Icon */}
+            <div className="absolute top-4 right-4 opacity-20">
+              <svg
+                width="80"
+                height="80"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 16V14L15 9V7C15 6.45 14.55 6 14 6H10C9.45 6 9 6.45 9 7V9L3 14V16L9 15V19L7 21V23L12 22L17 23V21L15 19V15L21 16Z"
+                  stroke="#63ab45"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
+            {/* Main Image */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative h-[500px] md:h-[600px]">
+                <Image
+                  src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80"
+                  alt="Travelers exploring"
+                  fill
+                  className="object-cover"
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+
+                {/* Experience Badge */}
+                <div className="absolute bottom-6 right-6 bg-[#63ab45] rounded-xl px-6 py-4 shadow-xl">
+                  <div className="text-white">
+                    <div className="text-4xl font-bold mb-1">05</div>
+                    <div className="text-sm font-medium opacity-90">
+                      Years of experience
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Statistics Section */}
+        <div className="mt-20 pt-12 border-t border-gray-200">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {statistics.map((stat) => (
+              <div
+                key={stat.label}
+                className="flex items-center gap-1 relative border-r border-gray-200 last-of-type:border-r-0"
+              >
+                <span className="mb-4 text-[#63ab45]">
+                  <stat.icon size={26} />
+                </span>
+                <div>
+                  <div className="text-xl md:text-2xl font-bold text-gray-900">
+                    {stat.value}
+                    {stat.suffix}
+                  </div>
+                  <div className="text-gray-600 text-sm md:text-base">
+                    {stat.label}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;

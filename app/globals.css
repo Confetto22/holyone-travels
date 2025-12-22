@@ -12,3 +12,16 @@
 .cover {
   @apply bg-[#0000007f] w-full h-full
 }
+
+.filter_type, .filter_options {
+  background: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  /* border: 1px solid rgba(255, 255, 255, 0.3); */
+}
+
+.font-handwriting {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  font-style: italic;
+}
