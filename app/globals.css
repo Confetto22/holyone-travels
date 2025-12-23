@@ -143,3 +143,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* .contact_form input,
+.contact_form textarea {
+  border: 1px solid black
+} */

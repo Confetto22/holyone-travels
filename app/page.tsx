@@ -5,8 +5,8 @@ import Activities from "@/components/homepage/activities";
 import Packages from "@/components/homepage/packages";
 import Testimonials from "@/components/homepage/testimonials";
 import Features from "@/components/homepage/features";
-import FAQ from "@/components/homepage/faq";
 import Link from "next/link";
+import Faq from "@/components/homepage/faq";
 
 export default function Home() {
   return (
@@ -34,7 +34,7 @@ export default function Home() {
         </div>
       </section>
       <Testimonials />
-      <FAQ />
+      <Faq />
     </main>
   );
 }

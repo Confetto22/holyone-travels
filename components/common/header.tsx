@@ -41,10 +41,10 @@ const Header = () => {
               ABOUT
             </Link>
             <Link
-              href="/tours"
+              href="/services"
               className="text-white hover:text-[#63ab45] transition-colors"
             >
-              TOURS +
+              SERVICES
             </Link>
             <Link
               href="/destination"

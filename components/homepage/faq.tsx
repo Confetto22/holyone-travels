@@ -13,7 +13,7 @@ type FAQItem = {
   answer: string;
 };
 
-const FAQ = () => {
+const Faq = () => {
   const faqs: FAQItem[] = [
     {
       id: "services",
@@ -88,5 +88,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
-
+export default Faq;
