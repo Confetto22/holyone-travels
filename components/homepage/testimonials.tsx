@@ -1,0 +1,241 @@
+"use client";
+
+import Image from "next/image";
+import { Star, Play } from "lucide-react";
+
+type Testimonial = {
+  id: string;
+  name: string;
+  role: string;
+  avatar: string;
+  rating: number;
+  title: string;
+  review: string;
+  hasVideo?: boolean;
+};
+
+const Testimonials = () => {
+  const testimonials: Testimonial[] = [
+    {
+      id: "1",
+      name: "James Bonde",
+      role: "GoFly Traveler",
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
+      rating: 5,
+      title: "Average Experience",
+      review:
+        "The tour was well-organized, and we enjoyed every bit of it. However, I wish we had more free time to explore on our own. Overall, a great experience!",
+      hasVideo: true,
+    },
+    {
+      id: "2",
+      name: "James Bonde",
+      role: "GoFly Traveler",
+      avatar:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
+      rating: 5,
+      title: "Average Experience",
+      review:
+        "The tour was well-organized, and we enjoyed every bit of it. However, I wish we had more free time to explore on our own. Overall, a great experience!",
+    },
+    {
+      id: "3",
+      name: "James Bonde",
+      role: "GoFly Traveler",
+      avatar:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
+      rating: 5,
+      title: "Average Experience",
+      review:
+        "The tour was well-organized, and we enjoyed every bit of it. However, I wish we had more free time to explore on our own. Overall, a great experience!",
+    },
+  ];
+
+  return (
+    <section className="bg-[#f0f8ff] py-16 px-4 relative overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <svg
+          className="absolute top-20 right-20"
+          width="100"
+          height="100"
+          viewBox="0 0 100 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M50 10L60 40L90 50L60 60L50 90L40 60L10 50L40 40L50 10Z"
+            stroke="#63ab45"
+            strokeWidth="2"
+          />
+        </svg>
+        <svg
+          className="absolute bottom-20 left-20"
+          width="120"
+          height="80"
+          viewBox="0 0 120 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 40L30 20L50 30L70 10L90 30L110 20L110 50L90 60L70 50L50 70L30 50L10 60L10 40Z"
+            stroke="#63ab45"
+            strokeWidth="2"
+          />
+        </svg>
+      </div>
+
+      <div className="container mx-auto max-w-7xl relative z-10">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Hear It from Travelers
+          </h2>
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+            We go beyond just booking trips—we create unforgettable travel
+            experiences that match your dreams!
+          </p>
+        </div>
+
+        {/* Testimonial Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {testimonials.map((testimonial) => (
+            <div
+              key={testimonial.id}
+              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+            >
+              {/* User Profile */}
+              <div className="flex items-center gap-4 mb-4">
+                <div className="relative">
+                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-gray-200">
+                    <Image
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      width={64}
+                      height={64}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  {testimonial.hasVideo && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-full">
+                      <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
+                        <Play
+                          size={20}
+                          className="text-gray-900 ml-1"
+                          fill="currentColor"
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                  <p className="text-sm text-gray-600">{testimonial.role}</p>
+                </div>
+              </div>
+
+              {/* Star Rating */}
+              <div className="flex gap-1 mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star
+                    key={i}
+                    size={20}
+                    className="text-[#63ab45] fill-[#63ab45]"
+                  />
+                ))}
+              </div>
+
+              {/* Review Content */}
+              <h5 className="font-bold text-gray-900 mb-2">
+                {testimonial.title}
+              </h5>
+              <p className="text-gray-700 text-sm leading-relaxed">
+                {testimonial.review}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Footer Rating Section */}
+        <div className="bg-white rounded-xl p-8 shadow-lg">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            {/* Tripadvisor */}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="12" cy="12" r="10" fill="#63ab45" />
+                  <path
+                    d="M12 2L14.5 8.5L21 9L15.5 13L17 20L12 16.5L7 20L8.5 13L3 9L9.5 8.5L12 2Z"
+                    fill="white"
+                  />
+                </svg>
+                <div>
+                  <div className="font-bold text-gray-900">Tripadvisor</div>
+                  <div className="text-sm text-gray-600">Reviews</div>
+                </div>
+              </div>
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-3 h-3 rounded-full bg-[#63ab45]"
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Separator */}
+            <div className="hidden md:block w-px h-16 bg-gray-300" />
+
+            {/* Rating Number */}
+            <div className="text-6xl font-bold text-gray-900">4.5</div>
+
+            {/* Separator */}
+            <div className="hidden md:block w-px h-16 bg-gray-300" />
+
+            {/* Trustpilot */}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2L15.09 8.26L22 9L15.09 9.74L12 16L8.91 9.74L2 9L8.91 8.26L12 2Z"
+                    fill="#63ab45"
+                  />
+                </svg>
+                <div>
+                  <div className="font-bold text-[#63ab45]">Trustpilot</div>
+                  <div className="text-sm text-gray-600">Reviews</div>
+                </div>
+              </div>
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    size={20}
+                    className="text-[#63ab45] fill-[#63ab45]"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Testimonials;
+
