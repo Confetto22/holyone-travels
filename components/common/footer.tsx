@@ -1,93 +1,67 @@
-import { MessageCircle, Mail, Phone, Facebook, Twitter, Youtube, Linkedin } from "lucide-react";
+"use client"
+import {
+  Mail,
+  Phone,
+  Facebook,
+  Twitter,
+  Youtube,
+  Linkedin,
+  MessageCircle,
+  Smartphone,
+  MapPin,
+  ArrowUp,
+  Globe
+} from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
   const contactInfo = [
     {
-      icon: MessageCircle,
+      icon: <MessageCircle className="w-8 h-8 text-[#007bff]" />,
       title: "To More Inquiry",
       subtitle: "Don't hesitate Call to GoFly.",
-      bgColor: "bg-blue-600"
     },
     {
-      icon: MessageCircle,
+      icon: <div className="bg-white rounded-full p-0.5"><div className="bg-[#25D366] rounded-full p-1"><Smartphone className="w-5 h-5 text-white fill-current" /></div></div>, // WhatsApp proxy
       title: "WhatsApp",
       subtitle: "+91 345 533 865",
-      bgColor: "bg-green-600"
     },
     {
-      icon: Mail,
+      icon: <div className="bg-white rounded-full p-0.5"><div className="bg-[#007bff] rounded-full p-1"><Mail className="w-5 h-5 text-white" /></div></div>,
       title: "Mail Us",
       subtitle: "info@example.com",
-      bgColor: "bg-blue-500"
     },
     {
-      icon: Phone,
+      icon: <div className="bg-white rounded-full p-0.5"><div className="bg-[#007bff] rounded-full p-1"><Phone className="w-5 h-5 text-white" /></div></div>,
       title: "Call Us",
       subtitle: "+91 456 453 345",
-      bgColor: "bg-blue-600"
-    }
-  ];
-
-  const topDestinations = [
-    "Maldives Tour",
-    "Bali, Indonesia Tour",
-    "Thailand Tour",
-    "Philippines Tour",
-    "Hawaii, USA Tour",
-    "Switzerland Tour",
-    "New Zealand Tour",
-    "Costa Rica Tour",
-    "Peru (Machu Picchu)",
-    "Paris, France Tour",
-    "Rome, Italy Tour"
-  ];
-
-  const popularSearches = [
-    "Adventure",
-    "Hiking & Stiking",
-    "Holiday Packages",
-    "Flights And Hotels",
-    "Honeymoon Trip",
-    "Bali Vacation Package",
-    "Desert Safari",
-    "Last-Minute Deals",
-    "Summer Vacation",
-    "Wildlife Safari",
-    "Dubai Luxury Tours"
-  ];
-
-  const resources = [
-    "About GoFly",
-    "Health & Safety Measure",
-    "Visa Processing",
-    "Customize Tour",
-    "Travel Inspirations",
-    "Traveler Reviews",
-    "Terms & Condition",
-    "Sitemap"
+    },
   ];
 
   const socialIcons = [
     { icon: Facebook, href: "#" },
-    { icon: Twitter, href: "#" },
+    { icon: Twitter, href: "#" }, // "X" icon often represented by Twitter in libraries or custom SVG
     { icon: Youtube, href: "#" },
-    { icon: Linkedin, href: "#" }
+    { icon: Linkedin, href: "#" },
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
-      {/* Contact Info Section */}
-      <div className="bg-gray-800 py-8">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <footer className="bg-[#0b0b0b] text-white relative font-sans">
+      {/* Top Contact Bar */}
+      <div className="border-b border-gray-800">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 lg:gap-4">
             {contactInfo.map((item, index) => (
-              <div key={index} className="flex items-center space-x-4">
-                <div className={`${item.bgColor} p-3 rounded-full`}>
-                  <item.icon className="w-6 h-6 text-white" />
+              <div key={index} className="flex items-center gap-4">
+                <div className="shrink-0">
+                  {/* Render the icon directly if it's a component or node */}
+                  {item.icon}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">{item.title}</h3>
-                  <p className="text-gray-300">{item.subtitle}</p>
+                  <h3 className="font-bold text-white text-base leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-0.5">{item.subtitle}</p>
                 </div>
               </div>
             ))}
@@ -96,92 +70,123 @@ const Footer = () => {
       </div>
 
       {/* Main Footer Content */}
-      <div className="py-12">
+      <div className="pt-16 pb-8 relative">
+        {/* Subtle World Map Background Overlay could go here -> absolute inset-0 bg-map-pattern opacity-10 */}
+        
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Company Info */}
-            <div>
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="bg-blue-600 p-2 rounded">
-                  <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
-                    <span className="text-blue-600 font-bold text-sm">G</span>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+            
+            {/* Column 1: Brand & Contact */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-3">
+                 {/* Logo Icon Proxy */}
+                <div className="relative">
+                   <div className="text-[#007bff]">
+                      <Globe className="w-10 h-10" strokeWidth={1.5} />
+                   </div>
+                   <div className="absolute -bottom-1 -right-1 bg-[#007bff] rounded-full w-4 h-4 border-2 border-[#0b0b0b]"></div>
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold">GoFly</h2>
-                  <p className="text-sm text-gray-400">Travel.co</p>
+                  <h2 className="text-2xl font-bold leading-none tracking-tight">GoFly</h2>
+                  <p className="text-xs text-gray-400 tracking-wider">Travel.co</p>
                 </div>
               </div>
-              
-              <div className="mb-6">
-                <h3 className="font-semibold mb-2">GoFly Travel Agency</h3>
-                <p className="text-gray-400 text-sm">
-                  Skyline Plaza, 5th Floor, 123 Main Street<br />
+
+              <div>
+                <h3 className="font-bold text-white mb-2 text-sm">GoFly Travel Agency</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Skyline Plaza, 5th Floor, 123 Main Street
+                  <br />
                   Los Angeles, CA 90001, USA
                 </p>
               </div>
 
-              <div className="flex space-x-4 mb-6">
+              {/* Social Icons */}
+              <div className="flex gap-3">
                 {socialIcons.map((social, index) => (
-                  <a key={index} href={social.href} className="text-gray-400 hover:text-white">
-                    <social.icon className="w-5 h-5" />
-                  </a>
+                  <Link
+                    key={index}
+                    href={social.href}
+                    className="w-8 h-8 rounded-full bg-[#1f1f1f] flex items-center justify-center text-gray-400 hover:bg-[#007bff] hover:text-white transition-colors"
+                  >
+                    <social.icon className="w-4 h-4" />
+                  </Link>
                 ))}
               </div>
 
-              <div className="bg-gray-800 rounded-lg p-3 flex items-center space-x-3">
-                <div className="bg-gradient-to-r from-blue-500 to-green-500 p-2 rounded">
-                  <span className="text-white font-bold text-xs">▶</span>
+              {/* Google Play Button */}
+              <div className="inline-flex items-center gap-3 bg-[#1f1f1f] px-4 py-2 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors cursor-pointer w-fit">
+                <div className="w-8 h-8 flex-shrink-0">
+                  {/* Google Play Icon Proxy */}
+                   <svg viewBox="0 0 24 24" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 3.11123C5 2.59744 5.25307 2.21326 5.56846 2.05261L18.8105 16.5927L12.332 18.046L5.32846 4.03261C5.11663 3.7663 5 3.4542 5 3.11123Z" fill="#00E267" fillOpacity="0.2"/>
+                        <path d="M19.4208 17.5574L5.61865 2.50293L5.61523 2.50659C5.59021 2.53321 5.57868 2.55164 5.5686 2.54517L12.3323 18.5385L19.4208 17.5574Z" fill="#3DDC84"/>
+                        <path d="M21.5593 15.6558L19.4209 17.5574L12.3323 18.5385L18.2393 21.0425C19.7423 21.68 20.966 20.4491 21.5593 15.6558Z" fill="#FFC107"/>
+                        <path d="M5 20.8887C5 21.4024 5.25307 21.7866 5.56846 21.9472L12.332 18.5383L5.5686 4.05249C5.23432 4.23242 5 4.63647 5 5.11121V20.8887Z" fill="#2196F3"/>
+                        <path d="M12.332 18.5383L21.5593 8.34399C20.966 3.55072 19.7423 2.31982 18.2393 2.95728L5.56846 8.54419L12.332 18.5383Z" fill="#EA4335"/>
+                   </svg>
+                    {/* Simple geometric fallback if SVG is too complex for this context, but inline SVG is fine */}
                 </div>
-                <div>
-                  <p className="text-xs text-gray-400">GET IN</p>
-                  <p className="font-semibold">Google Play</p>
+                <div className="flex flex-col">
+                  <span className="text-[10px] uppercase text-gray-400 font-bold leading-none">Get in</span>
+                  <span className="text-sm font-bold text-white leading-tight">Google Play</span>
                 </div>
               </div>
             </div>
 
-            {/* Top Destinations */}
+            {/* Column 2: Top Destination */}
             <div>
-              <h3 className="text-xl font-bold mb-6">Top Destination</h3>
-              <ul className="space-y-3">
-                {topDestinations.map((destination, index) => (
-                  <li key={index}>
-                    <a href="#" className="text-gray-400 hover:text-white text-sm">
-                      {destination}
-                    </a>
+              <h3 className="text-white font-bold text-lg mb-6">Top Destination</h3>
+              <ul className="space-y-3 text-sm text-gray-400">
+                {["Maldives Tour", "Bali, Indonesia Tour", "Thailand Tour", "Philippines Tour", "Hawaii, USA Tour", "Switzerland Tour", "New Zealand Tour", "Costa Rica Tour", "Peru (Machu Picchu)", "Paris, France Tour", "Rome, Italy Tour"].map((item) => (
+                  <li key={item}>
+                    <Link href="#" className="hover:text-white hover:pl-1 transition-all">
+                      {item}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Popular Searches */}
-            <div>
-              <h3 className="text-xl font-bold mb-6">Popular Search</h3>
-              <ul className="space-y-3">
-                {popularSearches.map((search, index) => (
-                  <li key={index}>
-                    <a href="#" className="text-gray-400 hover:text-white text-sm">
-                      {search}
-                    </a>
+             {/* Column 3: Popular Search */}
+             <div>
+              <h3 className="text-white font-bold text-lg mb-6">Popular Search</h3>
+              <ul className="space-y-3 text-sm text-gray-400">
+                {["Adventure", "Hiking & Hiking", "Holiday Packages", "Flights And Hotels", "Honeymoon Trip", "Bali Vacation Package", "Desert Safari", "Last-Minute Deals", "Summer Vacation", "Wildlife Safari", "Dubai Luxury Tours"].map((item) => (
+                  <li key={item}>
+                     <Link href="#" className="hover:text-white hover:pl-1 transition-all">
+                      {item}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Resources */}
-            <div>
-              <h3 className="text-xl font-bold mb-6">Resources</h3>
-              <ul className="space-y-3">
-                {resources.map((resource, index) => (
-                  <li key={index}>
-                    <a href="#" className="text-gray-400 hover:text-white text-sm">
-                      {resource}
-                    </a>
+             {/* Column 4: Resources */}
+             <div>
+              <h3 className="text-white font-bold text-lg mb-6">Resources</h3>
+              <ul className="space-y-3 text-sm text-gray-400">
+                {["About GoFly", "Health & Safety Measure", "Visa Processing", "Customize Tour", "Travel Inspirations", "Traveler Reviews", "Terms & Condition", "Sitemap"].map((item) => (
+                  <li key={item}>
+                     <Link href="#" className="hover:text-white hover:pl-1 transition-all">
+                      {item}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
+        </div>
+
+        {/* Scroll to Top Button (Fixed/Floating) */}
+        <div className="absolute bottom-8 right-8">
+           <button 
+             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+             className="w-10 h-10 bg-[#007bff] rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors shadow-lg shadow-blue-900/20"
+             aria-label="Scroll to top"
+           >
+             <ArrowUp className="w-5 h-5" />
+           </button>
         </div>
       </div>
     </footer>
