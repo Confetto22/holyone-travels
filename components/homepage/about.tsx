@@ -18,26 +18,26 @@ const About = () => {
     {
       icon: Shield,
       title: "Safety First Always",
-      bgColor: "bg-[#e8f5e9]",
-      iconColor: "text-[#63ab45]",
+      bgColor: "bg-secondary/5",
+      iconColor: "text-secondary",
     },
     {
       icon: Users,
       title: "Trusted Travel Guide",
-      bgColor: "bg-[#f5f5dc]",
-      iconColor: "text-[#63ab45]",
+      bgColor: "bg-primary/5",
+      iconColor: "text-secondary",
     },
     {
       icon: Award,
       title: "Expertise And Experience",
-      bgColor: "bg-[#f5f5dc]",
-      iconColor: "text-[#63ab45]",
+      bgColor: "bg-primary/5",
+      iconColor: "text-secondary",
     },
     {
       icon: Calendar,
       title: "Time And Stress Savings",
-      bgColor: "bg-[#e8f5e9]",
-      iconColor: "text-[#63ab45]",
+      bgColor: "bg-secondary/5",
+      iconColor: "text-secondary",
     },
   ];
 
@@ -86,23 +86,23 @@ const About = () => {
                 >
                   <path
                     d="M10 25 Q30 8, 60 25 T120 25 Q130 25, 130 25"
-                    stroke="#a8d5ba"
+                    stroke="#bfd1ff"
                     strokeWidth="3"
-                    fill="#a8d5ba"
+                    fill="#bfd1ff"
                     fillOpacity="0.2"
                     strokeLinecap="round"
                   />
                   <path
                     d="M10 25 Q30 42, 60 25 T120 25 Q130 25, 130 25"
-                    stroke="#a8d5ba"
+                    stroke="#bfd1ff"
                     strokeWidth="3"
-                    fill="#a8d5ba"
+                    fill="#bfd1ff"
                     fillOpacity="0.2"
                     strokeLinecap="round"
                   />
                 </svg>
                 <div className="relative px-6 py-2">
-                  <span className="text-[#63ab45] text-lg font-handwriting italic font-semibold">
+                  <span className="text-primary text-lg font-handwriting italic font-semibold">
                     About Us
                   </span>
                 </div>
@@ -143,14 +143,14 @@ const About = () => {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4">
-              <button className="bg-[#63ab45] hover:bg-[#5a9a3d] text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md">
+              <button className="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md">
                 Find Out More
               </button>
-              <button className="flex items-center gap-3 text-gray-700 hover:text-[#63ab45] transition-colors group">
-                <div className="w-12 h-12 rounded-full border-2 border-gray-300 group-hover:border-[#63ab45] flex items-center justify-center transition-colors">
+              <button className="flex items-center gap-3 text-gray-700 hover:text-primary transition-colors group">
+                <div className="w-12 h-12 rounded-full border-2 border-gray-300 group-hover:border-secondary flex items-center justify-center transition-colors">
                   <Play
                     size={20}
-                    className="text-gray-700 group-hover:text-[#63ab45] ml-1 transition-colors"
+                    className="text-gray-700 group-hover:text-secondary ml-1 transition-colors"
                     fill="currentColor"
                   />
                 </div>
@@ -171,7 +171,7 @@ const About = () => {
               >
                 <path
                   d="M20 100 Q50 50, 100 100 T180 100"
-                  stroke="#a8d5ba"
+                  stroke="#bfd1ff"
                   strokeWidth="8"
                   fill="none"
                   strokeLinecap="round"
@@ -179,7 +179,7 @@ const About = () => {
                 />
                 <path
                   d="M20 100 Q50 150, 100 100 T180 100"
-                  stroke="#a8d5ba"
+                  stroke="#bfd1ff"
                   strokeWidth="8"
                   fill="none"
                   strokeLinecap="round"
@@ -196,7 +196,7 @@ const About = () => {
               >
                 <path
                   d="M20 100 Q50 50, 100 100 T180 100"
-                  stroke="#a8d5ba"
+                  stroke="#bfd1ff"
                   strokeWidth="8"
                   fill="none"
                   strokeLinecap="round"
@@ -204,7 +204,7 @@ const About = () => {
                 />
                 <path
                   d="M20 100 Q50 150, 100 100 T180 100"
-                  stroke="#a8d5ba"
+                  stroke="#bfd1ff"
                   strokeWidth="8"
                   fill="none"
                   strokeLinecap="round"
@@ -224,7 +224,7 @@ const About = () => {
               >
                 <path
                   d="M21 16V14L15 9V7C15 6.45 14.55 6 14 6H10C9.45 6 9 6.45 9 7V9L3 14V16L9 15V19L7 21V23L12 22L17 23V21L15 19V15L21 16Z"
-                  stroke="#63ab45"
+                  stroke="#e21f15e6"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -242,17 +242,15 @@ const About = () => {
                   className="object-cover"
                 />
                 {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
 
                 {/* Experience Badge */}
-                <div className="absolute bottom-6 right-6 bg-[#63ab45] rounded-xl px-6 py-4 shadow-xl">
-                  <div className="text-white">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary text-white rounded-full p-8 md:p-10 shadow-xl flex flex-col items-center justify-center text-center w-32 h-32 md:w-40 md:h-40 border-4 border-white">
                     <div className="text-4xl font-bold mb-1">05</div>
                     <div className="text-sm font-medium opacity-90">
                       Years of experience
                     </div>
                   </div>
-                </div>
               </div>
             </div>
           </div>
@@ -266,7 +264,7 @@ const About = () => {
                 key={stat.label}
                 className="flex items-center gap-1 relative border-r border-gray-200 last-of-type:border-r-0"
               >
-                <span className="mb-4 text-[#63ab45]">
+                <span className="mb-4 text-primary">
                   <stat.icon size={26} />
                 </span>
                 <div>

@@ -22,7 +22,7 @@ export interface ServiceSpecs {
 }
 
 export interface BaseServiceItem {
-  id: number;
+  id: string;
   title: string;
   description: string;
   price: number;
@@ -57,21 +57,44 @@ export type ServiceItem = MainServiceItem | MicroServiceItem | DigitalServiceIte
 export const mainServices: MainServiceItem[] = [
   {
     type: "main",
-    id: 1,
-    title: "Study Abroad Assistance",
+    id: "1",
+    title: "Starter Package",
     description:
-      "Comprehensive guidance for securing admission in top universities worldwide.",
-    longDescription: "Our Study Abroad Assistance program is designed to guide students through every step of their international education journey. From selecting the right university to crafting the perfect Statement of Purpose (SOP), we ensure you have the best chance of acceptance into your dream institution.",
-    icon: <GraduationCap className="w-8 h-8 text-white" />,
-    features: ["University Selection", "SOP Editing", "App Submission"],
-    ctaLabel: "Start Application",
-    price: 750,
-    oldPrice: 799,
+      "Perfect for basic guidance. Eligibility assessment, school admission guidance, and priority support.",
+    longDescription: "Our Starter Package is ideal for those who need essential guidance to begin their visa journey. This package includes eligibility assessment, school admission guidance, email support, and priority WhatsApp support to answer your questions promptly.",
+    icon: <CheckCircle2 className="w-8 h-8 text-white" />,
+    features: ["Eligibility Assessment", "School Admission Guidance", "Email Support", "Priority WhatsApp Support"],
+    ctaLabel: "Get Started",
+    price: 100,
+    oldPrice: 150,
     specs: {
-      category: "Education",
+      category: "Visa Package",
       language: "English",
-      groupSize: "1-1",
-      ageRange: "16-35 (Year)",
+      groupSize: "Individual",
+      season: "All Season",
+    },
+    images: [
+      "https://images.unsplash.com/photo-1554224311-beee2ece0e0a?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1200"
+    ]
+  },
+  {
+    type: "main",
+    id: "2",
+    title: "Professional Package",
+    description:
+      "For students & workers. Includes everything in Starter plus SOP review, resume formatting, and step-by-step guidance.",
+    longDescription: "The Professional Package is designed for students and workers who need comprehensive support. Get everything in the Starter Package plus expert SOP review, professional resume formatting, step-by-step application guidance, and dedicated priority WhatsApp support throughout your visa journey.",
+    icon: <GraduationCap className="w-8 h-8 text-white" />,
+    features: ["Everything in Starter", "SOP Review", "Resume Formatting", "Step-by-Step Guidance", "Priority WhatsApp Support"],
+    ctaLabel: "Choose Professional",
+    price: 300,
+    oldPrice: 700,
+    specs: {
+      category: "Visa Package",
+      language: "English",
+      groupSize: "Individual",
       season: "All Season",
     },
     images: [
@@ -82,21 +105,20 @@ export const mainServices: MainServiceItem[] = [
   },
   {
     type: "main",
-    id: 2,
-    title: "Global Relocation",
+    id: "3",
+    title: "Full-Service Package",
     description:
-      "Seamless relocation services for families moving to a new country.",
-    longDescription: "Moving to a new country can be overwhelming. Our Global Relocation service takes the stress out of the process. We handle housing, orientation, and even airport pickup to ensure you settle in comfortably.",
+      "Premium end-to-end support. Complete application management, unlimited consultation, dedicated case officer, and full visa coaching.",
+    longDescription: "Our Full-Service Package offers premium, white-glove service for your entire visa journey. From initial consultation to visa approval, you'll have a dedicated case officer managing every detail. Includes unlimited consultations, job search support (if applicable), interview preparation, full visa coaching, and dedicated take-off support to ensure a smooth transition.",
     icon: <Globe className="w-8 h-8 text-white" />,
-    features: ["Orientation", "Housing", "Airport Pickup"],
-    ctaLabel: "Get Relocated",
-    price: 1200,
-    oldPrice: 1500,
+    features: ["Everything in Professional", "Unlimited Consultation", "Job Search Support (if applicable)", "Dedicated Case Officer", "Interview Preparation", "Full Visa Coaching", "Dedicated Take-off Support"],
+    ctaLabel: "Get Premium Support",
+    price: 1000,
+    oldPrice: 3000,
     specs: {
-      category: "Relocation",
-      language: "English, Spanish",
-      groupSize: "Family",
-      transportation: "Transfer Included",
+      category: "Visa Package",
+      language: "English",
+      groupSize: "Individual/Family",
       season: "All Season",
     },
      images: [
@@ -110,11 +132,11 @@ export const mainServices: MainServiceItem[] = [
 export const microServices: MicroServiceItem[] = [
   {
     type: "micro",
-    id: 101, // IDs should be unique across all services if possible, or handled by type
+    id: "101",
     title: "Visa Eligibility Check",
     description: "Quickly verify your eligibility for various visa categories.",
     icon: <CheckCircle2 className="w-6 h-6 text-[#6CB43F]" />,
-    price: 29,
+    price: 20,
     specs: {
         category: "Consultation",
         language: "English",
@@ -123,12 +145,11 @@ export const microServices: MicroServiceItem[] = [
   },
   {
     type: "micro",
-    id: 102,
+    id: "102",
     title: "Document Review",
     description: "Professional review of your travel or application documents.",
     icon: <FileText className="w-6 h-6 text-[#6CB43F]" />,
-    price: 49,
-    oldPrice: 69,
+    price: 30,
     specs: {
         category: "Legal",
         language: "English",
@@ -137,30 +158,94 @@ export const microServices: MicroServiceItem[] = [
   },
   {
     type: "micro",
-    id: 103,
-    title: "Itinerary Planning",
-    description: "Custom day-by-day travel itinerary planning.",
+    id: "103",
+    title: "SOP/Motivation Letter",
+    description: "Expert crafting and review of your Statement of Purpose or motivation letter.",
+    icon: <FileText className="w-6 h-6 text-[#6CB43F]" />,
+    price: 40,
+    specs: {
+        category: "Writing",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "micro",
+    id: "104",
+    title: "Proof of Funds Guidance",
+    description: "Expert guidance on preparing and presenting proof of funds documentation.",
+    icon: <CheckCircle2 className="w-6 h-6 text-[#6CB43F]" />,
+    price: 20,
+    specs: {
+        category: "Financial",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "micro",
+    id: "105",
+    title: "School Admission Guidance",
+    description: "Step-by-step support for school and university admission applications.",
+    icon: <GraduationCap className="w-6 h-6 text-[#6CB43F]" />,
+    price: 30,
+    specs: {
+        category: "Education",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "micro",
+    id: "106",
+    title: "Canada Job Search Support",
+    description: "Specialized job search assistance for Canadian employment opportunities.",
     icon: <Globe className="w-6 h-6 text-[#6CB43F]" />,
-    price: 39,
+    price: 50,
+    specs: {
+        category: "Employment",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "micro",
+    id: "107",
+    title: "PR Pathway Consultation",
+    description: "Consultation on permanent residency pathways and requirements.",
+    icon: <CheckCircle2 className="w-6 h-6 text-[#6CB43F]" />,
+    price: 20,
+    specs: {
+        category: "Immigration",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "micro",
+    id: "108",
+    title: "Flight Reservation",
+    description: "Flight reservation service for visa application purposes.",
+    icon: <Globe className="w-6 h-6 text-[#6CB43F]" />,
+    price: 20,
     specs: {
         category: "Travel",
         language: "English",
-        season: "All Season",
-        duration: "Variable"
-    } as any // flexible
+        season: "All Season"
+    }
   },
 ];
 
 export const digitalServices: DigitalServiceItem[] = [
   {
     type: "digital",
-    id: 201,
-    title: "The Ultimate Expat Guide",
-    description: "A comprehensive PDF guide about living abroad.",
-    benefit: "Save $1000s in your first month.",
+    id: "201",
+    title: "Canada Visa Guide Toolkit",
+    description: "Comprehensive toolkit for navigating Canadian visa applications.",
+    benefit: "Save time and avoid common mistakes.",
     image:
       "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=60",
-    price: 19.99,
+    price: 25,
     specs: {
         category: "E-Book",
         language: "English",
@@ -169,16 +254,150 @@ export const digitalServices: DigitalServiceItem[] = [
   },
   {
     type: "digital",
-    id: 202,
-    title: "Student Visa Checklist",
-    description: "Essential checklist ensuring you never miss a document.",
-    benefit: "Reduce application anxiety.",
+    id: "202",
+    title: "Austria RWRV Visa Guide",
+    description: "Complete guide for Austria Red-White-Red Card visa application.",
+    benefit: "Step-by-step instructions for success.",
     image:
       "https://images.unsplash.com/photo-1456324504439-367cee13d643?w=600&auto=format&fit=crop&q=60",
-    price: 9.99,
-    oldPrice: 15.99,
+    price: 20,
+     specs: {
+        category: "Guide",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "digital",
+    id: "203",
+    title: "Portugal D7 Visa Guide",
+    description: "Essential guide for Portugal D7 passive income visa.",
+    benefit: "Navigate the process with confidence.",
+    image:
+      "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=600&auto=format&fit=crop&q=60",
+    price: 20,
+     specs: {
+        category: "Guide",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "digital",
+    id: "204",
+    title: "Germany Opportunity Card Guide",
+    description: "Complete guide to Germany's Opportunity Card visa program.",
+    benefit: "Maximize your chances of approval.",
+    image:
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=60",
+    price: 20,
+     specs: {
+        category: "Guide",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "digital",
+    id: "205",
+    title: "New Zealand Employment List",
+    description: "Comprehensive employment opportunities list for New Zealand.",
+    benefit: "Find job opportunities in New Zealand.",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&auto=format&fit=crop&q=60",
+    price: 25,
+     specs: {
+        category: "Roadmap",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "digital",
+    id: "206",
+    title: "Conference Visa Strategy Guide",
+    description: "Strategic guide for conference and business visa applications.",
+    benefit: "Attend conferences worldwide.",
+    image:
+      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&auto=format&fit=crop&q=60",
+    price: 30,
+     specs: {
+        category: "Database",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "digital",
+    id: "207",
+    title: "Conference Attendance Checklist",
+    description: "Essential checklist for conference attendance and visa prep.",
+    benefit: "Never miss important details.",
+    image:
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&auto=format&fit=crop&q=60",
+    price: 15,
+     specs: {
+        category: "Strategy Guide",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "digital",
+    id: "208",
+    title: "Relocation Checklist",
+    description: "Complete checklist for international relocation planning.",
+    benefit: "Organized move, stress-free.",
+    image:
+      "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&auto=format&fit=crop&q=60",
+    price: 15,
      specs: {
         category: "Checklist",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "digital",
+    id: "209",
+    title: "Relocation Students Guide",
+    description: "Essential guide for students relocating internationally.",
+    benefit: "Smooth transition for students.",
+    image:
+      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&auto=format&fit=crop&q=60",
+    price: 15,
+     specs: {
+        category: "Checklist",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "digital",
+    id: "210",
+    title: "Student Survival Guide",
+    description: "Essential survival guide for international students.",
+    benefit: "Thrive in your new environment.",
+    image:
+      "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&auto=format&fit=crop&q=60",
+    price: 15,
+     specs: {
+        category: "Guide",
+        language: "English",
+        season: "All Season"
+    }
+  },
+  {
+    type: "digital",
+    id: "211",
+    title: "Starting Life Abroad Guide",
+    description: "Comprehensive guide for starting your new life abroad.",
+    benefit: "Settle in with confidence.",
+    image:
+      "https://images.unsplash.com/photo-1488998427799-e3362cec87c3?w=600&auto=format&fit=crop&q=60",
+    price: 20,
+     specs: {
+        category: "Guide",
         language: "English",
         season: "All Season"
     }
@@ -189,6 +408,6 @@ export const getAllServices = (): ServiceItem[] => {
     return [...mainServices, ...microServices, ...digitalServices];
 }
 
-export const getServiceById = (id: number): ServiceItem | undefined => {
+export const getServiceById = (id: string): ServiceItem | undefined => {
     return getAllServices().find(s => s.id === id);
 }

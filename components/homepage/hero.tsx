@@ -9,7 +9,7 @@ const Hero = () => {
         <div className=" mx-auto px-4 min-h-screen flex flex-col items-center justify-center gap-12 relative z-10">
           {/* Location Tag */}
           <div className="mb-6">
-            <div className="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold text-sm inline-block transform -skew-x-12 shadow-lg">
+            <div className="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm inline-block transform -skew-x-12 shadow-lg">
               <span className="transform skew-x-12 inline-block">New York</span>
             </div>
           </div>
@@ -17,13 +17,13 @@ const Hero = () => {
           {/* Main Title */}
           <h1 className="text-white font-bold max-w-4xl text-5xl md:text-7xl text-center leading-tight">
             Let&apos;s Explore Your <br />
-            <span className="text-[#63ab45]">Holiday Trip.</span>
+            <span className="text-primary">Holiday Trip.</span>
           </h1>
 
           {/* Info Boxes */}
           <div className="flex flex-col md:flex-row gap-6 items-center justify-center mt-8">
             {/* Inquiry Box */}
-            <div className="bg-[#63ab45] rounded-xl px-6 py-4 flex items-center gap-4 shadow-lg">
+            <div className="bg-primary rounded-xl px-6 py-4 flex items-center gap-4 shadow-lg">
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                 <svg
                   width="24"
@@ -51,7 +51,7 @@ const Hero = () => {
             </div>
 
             {/* Tripadvisor Box */}
-            <div className="bg-[#63ab45] rounded-xl px-6 py-4 flex items-center gap-4 shadow-lg">
+            <div className="bg-primary rounded-xl px-6 py-4 flex items-center gap-4 shadow-lg">
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                 <svg
                   width="24"

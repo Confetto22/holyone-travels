@@ -103,7 +103,7 @@ const Activities = () => {
   );
 
   const renderActivityIcon = (iconType: string, isSelected: boolean) => {
-    const iconColor = isSelected ? "white" : "#63ab45";
+    const iconColor = isSelected ? "white" : "#1a43d3";
     const size = 24;
 
     switch (iconType) {
@@ -268,7 +268,7 @@ const Activities = () => {
   };
 
   return (
-    <section className="bg-[#fef9e7] ">
+    <section className="bg-gray-50 ">
       <div className=" ">
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-12 items-start">
           {/* Left Column - Image */}
@@ -302,11 +302,11 @@ const Activities = () => {
                       onClick={() => setSelectedActivity(activity)}
                       className={`w-full flex items-center gap-4 p-4 rounded-lg transition-all col-span-2 ${
                         isSelected
-                          ? "bg-orange-500 text-white shadow-md"
+                          ? "bg-secondary text-white shadow-md"
                           : "bg-white text-gray-700 hover:bg-gray-50"
                       }`}
                     >
-                      <div className="flex-shrink-0">
+                      <div className="shrink-0">
                         {renderActivityIcon(activity.icon, isSelected)}
                       </div>
                       <span className="font-medium text-left">
@@ -330,14 +330,14 @@ const Activities = () => {
                 <ul className="space-y-3 mb-8">
                   {selectedActivity.features.map((feature, index) => (
                     <li key={index} className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#63ab45] flex-shrink-0" />
+                      <div className="w-2 h-2 rounded-full bg-primary shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Action Buttons */}
-                <button className="bg-[#63ab45] hover:bg-[#5a9a3d] text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md">
+                <button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md">
                   Check Availability
                 </button>
               </div>

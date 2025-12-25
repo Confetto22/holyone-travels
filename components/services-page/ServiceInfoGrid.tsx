@@ -68,7 +68,7 @@ export const ServiceInfoGrid = ({ specs }: { specs?: ServiceSpecs }) => {
       <div className="grid grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-4">
         {items.map((item, idx) => (
           <div key={idx} className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center flex-shrink-0 text-gray-400">
+            <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center shrink-0 text-gray-400">
               <item.icon className="w-5 h-5" strokeWidth={1.5} />
             </div>
             <div>

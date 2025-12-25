@@ -26,7 +26,7 @@ export default function Home() {
           </h2>
           <h3 className="text-xl font-semibold">Mr. Gabriel Haringson</h3>
           <h5>CEO, GoFly</h5>
-          <button className="bg-blue-500 capitalize font-semibold py-3 px-5 rounded-3xl">
+          <button className="bg-primary capitalize font-semibold py-3 px-5 rounded-3xl">
             <Link href={"#"} className="">
               grab the deal now
             </Link>

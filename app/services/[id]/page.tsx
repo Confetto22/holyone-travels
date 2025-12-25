@@ -2,7 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import PageHead from "@/components/common/page-head";
 import { getServiceById } from "@/data/services";
-import { PriceCard, CustomizeCard } from "@/components/services-page/ServiceSidebar";
+import { PriceCard } from "@/components/services-page/ServiceSidebar";
 import { ServiceInfoGrid } from "@/components/services-page/ServiceInfoGrid";
 import LocationCarousel from "@/components/services-page/LocationCarousel";
 
@@ -15,8 +15,9 @@ const ServiceDetailPage = async ({ params }: PageProps) => {
   // Await params in newer Next.js versions if needed, or access directly. 
   // Since we are typing it as Promise, we should await it.
   const resolvedParams = await params;
-  const serviceId = parseInt(resolvedParams.id);
+  const serviceId = (resolvedParams.id);
   const service = getServiceById(serviceId);
+  // console.log(service)
 
   if (!service) {
     notFound();
@@ -42,13 +43,13 @@ const ServiceDetailPage = async ({ params }: PageProps) => {
             <div className="w-full lg:w-2/3">
               <div className="mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  About Tour Package
+                  About This Service
                 </h2>
                 <p className="text-gray-600 leading-relaxed text-lg mb-6">
                   {service.longDescription || service.description}
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                   Experience the best of what {service.title} has to offer. We meticulously plan every detail to ensure your journey is seamless, memorable, and tailored to your specific needs.
+                   We provide professional visa and immigration services tailored to your specific needs. Our experienced team will guide you through every step of the process, ensuring you have the best chance of success.
                 </p>
               </div>
 
@@ -60,8 +61,8 @@ const ServiceDetailPage = async ({ params }: PageProps) => {
 
             {/* Right Sidebar */}
             <div className="w-full lg:w-1/3 md:sticky top-8">
-              <PriceCard service={service} />
-              <CustomizeCard />
+              <PriceCard service={service} serviceId={serviceId} />
+              {/* <CustomizeCard /> */}
             </div>
           </div>
         </div>

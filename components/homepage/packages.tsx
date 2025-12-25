@@ -63,10 +63,10 @@ const Packages = () => {
   const getBadgeColor = (type: string) => {
     switch (type) {
       case "sale":
-        return "bg-red-500 text-white";
+        return "bg-secondary text-white";
       case "solo":
       case "family":
-        return "bg-yellow-400 text-black";
+        return "bg-primary text-white";
       default:
         return "bg-gray-500 text-white";
     }
@@ -116,7 +116,7 @@ const Packages = () => {
                 </div>
                 {/* Image Carousel Dots */}
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                  <div className="w-2 h-2 rounded-full bg-blue-500" />
+                  <div className="w-2 h-2 rounded-full bg-primary" />
                   <div className="w-2 h-2 rounded-full bg-white" />
                   <div className="w-2 h-2 rounded-full bg-white" />
                 </div>
@@ -131,7 +131,7 @@ const Packages = () => {
 
                 {/* Location & Duration */}
                 <div className="flex items-center gap-2 text-gray-600 text-sm mb-4">
-                  <MapPin size={16} className="text-[#63ab45]" />
+                  <MapPin size={16} className="text-primary" />
                   <span>{pkg.location}, {pkg.country}</span>
                   <ArrowRight size={16} className="mx-1" />
                   <span>{pkg.duration}</span>
@@ -155,7 +155,7 @@ const Packages = () => {
                 </div>
 
                 {/* Action Button */}
-                <button className="w-full bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 mb-4">
+                <button className="w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 mb-4">
                   Book Now
                   <ExternalLink size={18} />
                 </button>
@@ -163,11 +163,11 @@ const Packages = () => {
                 {/* Additional Info */}
                 <div className="flex items-center gap-6 text-sm text-gray-600">
                   <div className="flex items-center gap-2">
-                    <Info size={16} className="text-[#63ab45]" />
+                    <Info size={16} className="text-primary" />
                     <span>Experience</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Info size={16} className="text-[#63ab45]" />
+                    <Info size={16} className="text-primary" />
                     <span>Inclusion</span>
                   </div>
                 </div>

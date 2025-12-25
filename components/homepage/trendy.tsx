@@ -96,8 +96,8 @@ const Trendy = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
                   {/* Tour Badge */}
-                  <div className="absolute top-4 right-4 bg-yellow-400 rounded-lg px-3 py-1 shadow-md">
-                    <span className="text-black font-semibold text-sm">
+                  <div className="absolute top-4 right-4 bg-secondary rounded-lg px-3 py-1 shadow-md">
+                    <span className="text-white font-semibold text-sm">
                       {destination.tours} Tour{destination.tours > 1 ? "s" : ""}
                     </span>
                   </div>
@@ -121,7 +121,7 @@ const Trendy = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => swiperRef.current?.slidePrev()}
-              className="text-[#a8d5ba] hover:text-[#63ab45] transition-colors font-medium flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="text-[#bfd1ff] hover:text-secondary transition-colors font-medium flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <svg
                 width="20"
@@ -142,7 +142,7 @@ const Trendy = () => {
             </button>
             <button
               onClick={() => swiperRef.current?.slideNext()}
-              className="text-[#a8d5ba] hover:text-[#63ab45] transition-colors font-medium flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="text-[#bfd1ff] hover:text-secondary transition-colors font-medium flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               NEXT
               <svg
@@ -164,7 +164,7 @@ const Trendy = () => {
           </div>
 
           {/* View All Button */}
-          <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md">
+          <button className="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md">
             View All Destination
           </button>
         </div>

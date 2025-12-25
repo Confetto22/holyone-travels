@@ -85,23 +85,23 @@ const Features = () => {
               >
                 <path
                   d="M10 25 Q30 8, 60 25 T120 25 Q130 25 150 25"
-                  stroke="#a8d5ba"
+                  stroke="#bfd1ff"
                   strokeWidth="3"
-                  fill="#a8d5ba"
+                  fill="#bfd1ff"
                   fillOpacity="0.2"
                   strokeLinecap="round"
                 />
                 <path
                   d="M10 25 Q30 42, 60 25 T120 25 Q130 25 150 25"
-                  stroke="#a8d5ba"
+                  stroke="#bfd1ff"
                   strokeWidth="3"
-                  fill="#a8d5ba"
+                  fill="#bfd1ff"
                   fillOpacity="0.2"
                   strokeLinecap="round"
                 />
               </svg>
               <div className="relative px-6 py-2">
-                <span className="text-[#63ab45] text-lg font-handwriting italic font-semibold">
+                <span className="text-primary text-lg font-handwriting italic font-semibold">
                   Who We Are
                 </span>
               </div>
@@ -119,11 +119,11 @@ const Features = () => {
           {features.map((feature) => {
             const IconComponent = feature.icon;
             const iconColorClass =
-              feature.iconColor === "green" ? "text-[#63ab45]" : "text-yellow-500";
+              feature.iconColor === "green" ? "text-primary" : "text-primary";
             const hoverBgClass =
               feature.iconColor === "green"
-                ? "hover:bg-[#e8f5e9]"
-                : "hover:bg-yellow-50";
+                ? "hover:bg-primary/5"
+                : "hover:bg-primary/5";
 
             return (
               <div

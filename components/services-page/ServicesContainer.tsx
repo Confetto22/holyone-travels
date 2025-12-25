@@ -21,17 +21,17 @@ import {
 const MainServiceCard = ({ item }: { item: MainServiceItem }) => (
   <Link href={`/services/${item.id}`} className="block h-full">
     <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all cursor-pointer flex flex-col h-full group">
-      <div className="w-16 h-16 rounded-2xl bg-gray-100 group-hover:bg-[#6CB43F]/20 flex items-center justify-center mb-6 transition-colors">
+      <div className="w-16 h-16 rounded-2xl bg-gray-100 group-hover:bg-primary/20 flex items-center justify-center mb-6 transition-colors">
         {React.cloneElement(
           item.icon as React.ReactElement<{ className?: string }>,
           {
             className:
-              "w-8 h-8 text-gray-500 group-hover:text-[#6CB43F] transition-colors",
+              "w-8 h-8 text-gray-500 group-hover:text-primary transition-colors",
           }
         )}
       </div>
       <h3 className="text-2xl font-bold text-gray-900 mb-3">{item.title}</h3>
-      <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+      <p className="text-gray-600 mb-6 leading-relaxed grow">
         {item.description}
       </p>
       <ul className="space-y-3 mb-8">
@@ -40,12 +40,12 @@ const MainServiceCard = ({ item }: { item: MainServiceItem }) => (
             key={idx}
             className="flex items-center gap-3 text-sm text-gray-600 font-medium"
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-gray-400 group-hover:bg-[#6CB43F] transition-colors" />
+            <div className="w-1.5 h-1.5 rounded-full bg-gray-400 group-hover:bg-primary transition-colors" />
             {feature}
           </li>
         ))}
       </ul>
-      <div className="mt-auto font-bold flex items-center gap-2 text-gray-400 group-hover:text-[#6CB43F] transition-colors">
+      <div className="mt-auto font-bold flex items-center gap-2 text-gray-400 group-hover:text-primary transition-colors">
         View Details <ArrowRight className="w-4 h-4" />
       </div>
     </div>
@@ -54,14 +54,14 @@ const MainServiceCard = ({ item }: { item: MainServiceItem }) => (
 
 const MicroServiceCard = ({ item }: { item: MicroServiceItem }) => (
   <Link href={`/services/${item.id}`} className="block">
-    <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#6CB43F] transition-all cursor-pointer group">
+    <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-primary transition-all cursor-pointer group">
       <div className="flex justify-between items-start mb-4">
-        <div className="p-3 rounded-lg bg-green-50 group-hover:bg-[#6CB43F] transition-colors">
+        <div className="p-3 rounded-lg bg-primary/5 group-hover:bg-primary transition-colors">
           {React.cloneElement(
             item.icon as React.ReactElement<{ className?: string }>,
             {
               className:
-                "w-6 h-6 text-[#6CB43F] group-hover:text-white transition-colors",
+                "w-6 h-6 text-primary group-hover:text-white transition-colors",
             }
           )}
         </div>
@@ -76,7 +76,7 @@ const MicroServiceCard = ({ item }: { item: MicroServiceItem }) => (
 
 const DigitalServiceCard = ({ item }: { item: DigitalServiceItem }) => (
   <Link href={`/services/${item.id}`} className="block">
-    <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-lg hover:border-[#6CB43F] transition-all cursor-pointer flex flex-col md:flex-row group">
+    <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-lg hover:border-primary transition-all cursor-pointer flex flex-col md:flex-row group">
       <div className="md:w-1/3 relative h-48 md:h-auto overflow-hidden">
         <Image
           src={item.image}
@@ -92,14 +92,14 @@ const DigitalServiceCard = ({ item }: { item: DigitalServiceItem }) => (
             PDF Guide
           </span>
         </div>
-        <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#6CB43F] transition-colors mb-2">
+        <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">
           {item.title}
         </h3>
         <p className="text-gray-600 mb-4 text-sm">{item.description}</p>
 
-        <div className="bg-green-50 border border-green-100 rounded-lg p-3">
-          <p className="text-xs text-[#6CB43F] font-bold flex items-start gap-2">
-            <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+        <div className="bg-primary/5 border border-primary/10 rounded-lg p-3">
+          <p className="text-xs text-primary font-bold flex items-start gap-2">
+            <CheckCircle2 className="w-4 h-4 shrink-0" />
             {item.benefit}
           </p>
         </div>
@@ -144,7 +144,7 @@ const ServicesContainer = () => {
                 {activeTab === tab.id && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-[#6CB43F] rounded-full -z-10"
+                    className="absolute inset-0 bg-primary rounded-full -z-10"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
                 )}

@@ -66,7 +66,7 @@ const Testimonials = () => {
         >
           <path
             d="M50 10L60 40L90 50L60 60L50 90L40 60L10 50L40 40L50 10Z"
-            stroke="#63ab45"
+            stroke="#e21f15e6"
             strokeWidth="2"
           />
         </svg>
@@ -80,7 +80,7 @@ const Testimonials = () => {
         >
           <path
             d="M10 40L30 20L50 30L70 10L90 30L110 20L110 50L90 60L70 50L50 70L30 50L10 60L10 40Z"
-            stroke="#63ab45"
+            stroke="#e21f15e6"
             strokeWidth="2"
           />
         </svg>
@@ -141,7 +141,7 @@ const Testimonials = () => {
                   <Star
                     key={i}
                     size={20}
-                    className="text-[#63ab45] fill-[#63ab45]"
+                    className="text-secondary fill-secondary"
                   />
                 ))}
               </div>
@@ -170,7 +170,7 @@ const Testimonials = () => {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="12" cy="12" r="10" fill="#63ab45" />
+                  <circle cx="12" cy="12" r="10" fill="#1a43d3" />
                   <path
                     d="M12 2L14.5 8.5L21 9L15.5 13L17 20L12 16.5L7 20L8.5 13L3 9L9.5 8.5L12 2Z"
                     fill="white"
@@ -185,7 +185,7 @@ const Testimonials = () => {
                 {[...Array(5)].map((_, i) => (
                   <div
                     key={i}
-                    className="w-3 h-3 rounded-full bg-[#63ab45]"
+                    className="w-3 h-3 rounded-full bg-primary"
                   />
                 ))}
               </div>
@@ -212,11 +212,11 @@ const Testimonials = () => {
                 >
                   <path
                     d="M12 2L15.09 8.26L22 9L15.09 9.74L12 16L8.91 9.74L2 9L8.91 8.26L12 2Z"
-                    fill="#63ab45"
+                    fill="#1a43d3"
                   />
                 </svg>
                 <div>
-                  <div className="font-bold text-[#63ab45]">Trustpilot</div>
+                  <div className="font-bold text-primary">Trustpilot</div>
                   <div className="text-sm text-gray-600">Reviews</div>
                 </div>
               </div>
@@ -225,7 +225,7 @@ const Testimonials = () => {
                   <Star
                     key={i}
                     size={20}
-                    className="text-[#63ab45] fill-[#63ab45]"
+                    className="text-secondary fill-secondary"
                   />
                 ))}
               </div>

@@ -418,10 +418,10 @@ const SearchBar = () => {
       <div className="filter_options w-full grid grid-cols-9 rounded-4xl pl-7 border border-white/70">
         <div className="flex items-center gap-2 py-3 col-span-2">
           <span>
-            <MapPinned size={34} className="text-[#63ab45]" />
+            <MapPinned size={34} className="text-secondary" />
           </span>
           <div className="flex flex-col">
-            <span className="text-[.75rem] capitalize text-[#63ab45]">
+            <span className="text-[.75rem] capitalize text-secondary">
               destination
             </span>
             <select name="destinations" className="text-sm text-white">
@@ -436,10 +436,10 @@ const SearchBar = () => {
         </div>
         <div className="flex items-center gap-2 py-3 col-span-2">
           <span>
-            <MapPinned size={34} className="text-[#63ab45]" />
+            <MapPinned size={34} className="text-secondary" />
           </span>
           <div className="flex flex-col">
-            <span className="text-[.75rem] capitalize text-[#63ab45]">
+            <span className="text-[.75rem] capitalize text-secondary">
               destination
             </span>
             <select name="destinations" className="text-sm text-white">
@@ -454,10 +454,10 @@ const SearchBar = () => {
         </div>
         <div className="flex items-center gap-2 py-3 col-span-2">
           <span>
-            <MapPinned size={34} className="text-[#63ab45]" />
+            <MapPinned size={34} className="text-secondary" />
           </span>
           <div className="flex flex-col">
-            <span className="text-[.75rem] capitalize text-[#63ab45]">
+            <span className="text-[.75rem] capitalize text-secondary">
               destination
             </span>
             <select name="destinations" className="text-sm text-white">
@@ -472,10 +472,10 @@ const SearchBar = () => {
         </div>
         <div className="flex items-center gap-2 py-3 col-span-2">
           <span>
-            <MapPinned size={34} className="text-[#63ab45]" />
+            <MapPinned size={34} className="text-secondary" />
           </span>
           <div className="flex flex-col">
-            <span className="text-[.75rem] capitalize text-[#63ab45]">
+            <span className="text-[.75rem] capitalize text-secondary">
               destination
             </span>
             <select name="destinations" className="text-sm text-white">
@@ -488,7 +488,7 @@ const SearchBar = () => {
             </select>
           </div>
         </div>
-        <button className="bg-[#63ab45] rounded-r-4xl">Search</button>
+        <button className="bg-primary rounded-r-4xl">Search</button>
       </div>
     </div>
   );
