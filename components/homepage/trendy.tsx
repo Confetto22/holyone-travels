@@ -7,6 +7,12 @@ import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "./swiper.css";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+  fadeInUp,
+  staggerContainer,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 const Trendy = () => {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -48,75 +54,98 @@ const Trendy = () => {
     <section className="bg-white py-16 px-4">
       <div className="container mx-auto max-w-7xl">
         {/* Logo/Brand */}
-        <div className="head flex flex-col items-center">
-          <h3>Journey TripRex</h3>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="head flex flex-col items-center"
+        >
+          <motion.h3 variants={fadeInUp}>Journey TripRex</motion.h3>
 
           {/* Main Heading */}
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">
+          <motion.h2
+            variants={fadeInUp}
+            className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12"
+          >
             Trendy Travel Locations
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
 
         {/* Destination Cards */}
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          spaceBetween={24}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
-          loop={true}
-          speed={2000}
-          slidesPerView={1}
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 4,
-            },
-          }}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-          className="mb-12"
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
         >
-          {destinations.map((destination) => (
-            <SwiperSlide key={destination.name}>
-              <div className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group h-full">
-                {/* Image */}
-                <div className="relative h-64 md:h-80 overflow-hidden">
-                  <Image
-                    src={destination.image}
-                    alt={destination.name}
-                    fill
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={24}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            speed={2000}
+            slidesPerView={1}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 4,
+              },
+            }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            className="mb-12"
+          >
+            {destinations.map((destination) => (
+              <SwiperSlide key={destination.name}>
+                <div className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group h-full">
+                  {/* Image */}
+                  <div className="relative h-64 md:h-80 overflow-hidden">
+                    <Image
+                      src={destination.image}
+                      alt={destination.name}
+                      fill
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-                  {/* Tour Badge */}
-                  <div className="absolute top-4 right-4 bg-secondary rounded-lg px-3 py-1 shadow-md">
-                    <span className="text-white font-semibold text-sm">
-                      {destination.tours} Tour{destination.tours > 1 ? "s" : ""}
-                    </span>
-                  </div>
+                    {/* Tour Badge */}
+                    <div className="absolute top-4 right-4 bg-secondary rounded-lg px-3 py-1 shadow-md">
+                      <span className="text-white font-semibold text-sm">
+                        {destination.tours} Tour
+                        {destination.tours > 1 ? "s" : ""}
+                      </span>
+                    </div>
 
-                  {/* Destination Info */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="text-gray-300 text-xs mb-1">Travel To</p>
-                    <h3 className="text-white text-2xl font-bold">
-                      {destination.name}
-                    </h3>
+                    {/* Destination Info */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <p className="text-gray-300 text-xs mb-1">Travel To</p>
+                      <h3 className="text-white text-2xl font-bold">
+                        {destination.name}
+                      </h3>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
 
         {/* Bottom Navigation */}
-        <div className="flex items-center justify-between mt-8">
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="flex items-center justify-between mt-8"
+        >
           {/* Navigation Arrows */}
           <div className="flex items-center gap-4">
             <button
@@ -167,7 +196,7 @@ const Trendy = () => {
           <button className="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md">
             View All Destination
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

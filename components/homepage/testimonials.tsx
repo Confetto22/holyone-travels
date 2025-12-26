@@ -2,6 +2,12 @@
 
 import Image from "next/image";
 import { Star, Play } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  fadeInUp,
+  staggerContainer,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 type Testimonial = {
   id: string;
@@ -56,7 +62,16 @@ const Testimonials = () => {
     <section className="bg-[#f0f8ff] py-16 px-4 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <svg
+        <motion.svg
+          animate={{
+            rotate: 360,
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
           className="absolute top-20 right-20"
           width="100"
           height="100"
@@ -69,8 +84,17 @@ const Testimonials = () => {
             stroke="#e21f15e6"
             strokeWidth="2"
           />
-        </svg>
-        <svg
+        </motion.svg>
+        <motion.svg
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="absolute bottom-20 left-20"
           width="120"
           height="80"
@@ -83,27 +107,47 @@ const Testimonials = () => {
             stroke="#e21f15e6"
             strokeWidth="2"
           />
-        </svg>
+        </motion.svg>
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="text-center mb-12"
+        >
+          <motion.h2
+            variants={fadeInUp}
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+          >
             Hear It from Travelers
-          </h2>
-          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.p
+            variants={fadeInUp}
+            className="text-gray-700 text-lg max-w-3xl mx-auto"
+          >
             We go beyond just booking trips—we create unforgettable travel
             experiences that match your dreams!
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Testimonial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
+        >
           {testimonials.map((testimonial) => (
-            <div
+            <motion.div
               key={testimonial.id}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+              variants={fadeInUp}
+              whileHover={{ y: -8 }}
+              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               {/* User Profile */}
               <div className="flex items-center gap-4 mb-4">
@@ -130,7 +174,9 @@ const Testimonials = () => {
                   )}
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                  <h4 className="font-bold text-gray-900">
+                    {testimonial.name}
+                  </h4>
                   <p className="text-sm text-gray-600">{testimonial.role}</p>
                 </div>
               </div>
@@ -153,12 +199,18 @@ const Testimonials = () => {
               <p className="text-gray-700 text-sm leading-relaxed">
                 {testimonial.review}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Footer Rating Section */}
-        <div className="bg-white rounded-xl p-8 shadow-lg">
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="bg-white rounded-xl p-8 shadow-lg"
+        >
           <div className="flex flex-col md:flex-row items-center justify-center gap-8">
             {/* Tripadvisor */}
             <div className="flex items-center gap-4">
@@ -183,10 +235,7 @@ const Testimonials = () => {
               </div>
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-3 h-3 rounded-full bg-primary"
-                  />
+                  <div key={i} className="w-3 h-3 rounded-full bg-primary" />
                 ))}
               </div>
             </div>
@@ -231,7 +280,7 @@ const Testimonials = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

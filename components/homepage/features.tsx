@@ -8,6 +8,12 @@ import {
   Headphones,
   CalendarX,
 } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  fadeInUp,
+  staggerContainer,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 type Feature = {
   id: string;
@@ -72,9 +78,15 @@ const Features = () => {
     <section className="bg-white py-16 px-4">
       <div className="container mx-auto max-w-7xl">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="text-center mb-12"
+        >
           {/* Who We Are Tag */}
-          <div className="mb-6">
+          <motion.div variants={fadeInUp} className="mb-6">
             <div className="relative inline-block">
               <svg
                 width="160"
@@ -106,16 +118,25 @@ const Features = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Main Heading */}
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+          <motion.h2
+            variants={fadeInUp}
+            className="text-4xl md:text-5xl font-bold text-gray-900"
+          >
             Why TripRex Is Best
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {features.map((feature) => {
             const IconComponent = feature.icon;
             const iconColorClass =
@@ -126,8 +147,13 @@ const Features = () => {
                 : "hover:bg-primary/5";
 
             return (
-              <div
+              <motion.div
                 key={feature.id}
+                variants={fadeInUp}
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                }}
                 className={`bg-white rounded-xl p-6 border border-gray-200 shadow-sm transition-all duration-300 ${hoverBgClass} cursor-pointer group`}
               >
                 {/* Icon */}
@@ -148,10 +174,10 @@ const Features = () => {
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

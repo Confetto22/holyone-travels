@@ -3,6 +3,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
+import { fadeInUp, viewportOptions } from "@/lib/animation-variants";
 
 // Import Swiper styles
 import "swiper/css";
@@ -20,13 +22,25 @@ const partners = [
 const TrustedCompanies = () => {
   return (
     <section className="py-20 bg-white">
-      <div className="text-center mb-12">
+      <motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOptions}
+        className="text-center mb-12"
+      >
         <h3 className="text-gray-500 font-bold text-lg tracking-wide">
           Those Company You Can Easily Trust!
         </h3>
-      </div>
+      </motion.div>
 
-      <div className="w-full">
+      <motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOptions}
+        className="w-full"
+      >
         <Swiper
           modules={[Autoplay]}
           spaceBetween={50}
@@ -64,8 +78,8 @@ const TrustedCompanies = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-      
+      </motion.div>
+
       {/* Custom CSS to ensure smooth continuous scroll with Swiper */}
       <style jsx global>{`
         .trusted-companies-swiper .swiper-wrapper {

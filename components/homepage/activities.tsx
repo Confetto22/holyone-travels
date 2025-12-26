@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Play } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  fadeInLeft,
+  fadeInUp,
+  staggerContainer,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 type Activity = {
   id: string;
@@ -268,11 +274,17 @@ const Activities = () => {
   };
 
   return (
-    <section className="bg-gray-50 ">
+    <section className="bg-gray-50 p-7">
       <div className=" ">
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-12 items-start">
+        <div className="lg:grid  lg:grid-cols-7 gap-12 items-start">
           {/* Left Column - Image */}
-          <div className=" max-h-[85vh] overflow-hidden shadow-2xl col-span-3">
+          <motion.div
+            variants={fadeInLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            className=" max-h-[85vh] overflow-hidden shadow-2xl md:col-span-3"
+          >
             <Image
               src={
                 "https://images.unsplash.com/photo-1765871321198-30fffc41e605?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8"
@@ -282,23 +294,38 @@ const Activities = () => {
               height={800}
               className="object-cover rounded-none transition-opacity duration-300 w-full h-auto"
             />
-          </div>
+          </motion.div>
 
           {/* Right Column - Content */}
           <div className="col-span-4 space-x-6 md:pr-8 py-12">
             {/* Main Heading */}
-            <h2 className="text-4xl md:text-5xl text-center font-bold text-gray-900 mb-8 leading-tight">
+            <motion.h2
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOptions}
+              className="text-4xl md:text-5xl text-center font-bold text-gray-900 mb-8 leading-tight"
+            >
               Our Particular Activitiies
-            </h2>
+            </motion.h2>
 
             {/* Activity List */}
-            <div className="gap-x-9 mb-8 grid grid-cols-7">
-              <div className="col-span-3 space-y-8">
+            <div className="gap-x-9 mb-8 grid md:grid-cols-7">
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOptions}
+                className="md:col-span-3 space-y-8"
+              >
                 {activities.map((activity) => {
                   const isSelected = selectedActivity.id === activity.id;
                   return (
-                    <button
+                    <motion.button
                       key={activity.id}
+                      variants={fadeInUp}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                       onClick={() => setSelectedActivity(activity)}
                       className={`w-full flex items-center gap-4 p-4 rounded-lg transition-all col-span-2 ${
                         isSelected
@@ -312,34 +339,44 @@ const Activities = () => {
                       <span className="font-medium text-left">
                         {activity.name}
                       </span>
-                    </button>
+                    </motion.button>
                   );
                 })}
-              </div>
+              </motion.div>
 
               {/* Selected Activity Details */}
-              <div className="col-span-4">
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                  {selectedActivity.title}
-                </h3>
-                <p className="text-gray-600 text-base mb-6 leading-relaxed">
-                  {selectedActivity.description}
-                </p>
+              <div className="md:col-span-4">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={selectedActivity.id}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                      {selectedActivity.title}
+                    </h3>
+                    <p className="text-gray-600 text-base mb-6 leading-relaxed">
+                      {selectedActivity.description}
+                    </p>
 
-                {/* Features */}
-                <ul className="space-y-3 mb-8">
-                  {selectedActivity.features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-primary shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                    {/* Features */}
+                    <ul className="space-y-3 mb-8">
+                      {selectedActivity.features.map((feature, index) => (
+                        <li key={index} className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-primary shrink-0" />
+                          <span className="text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                {/* Action Buttons */}
-                <button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md">
-                  Check Availability
-                </button>
+                    {/* Action Buttons */}
+                    <button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md">
+                      Check Availability
+                    </button>
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
           </div>

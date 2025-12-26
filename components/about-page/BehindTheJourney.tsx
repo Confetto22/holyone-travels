@@ -3,6 +3,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  fadeInUp,
+  staggerContainer,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 type Milestone = {
   year: number;
@@ -70,28 +75,47 @@ const BehindTheJourney = () => {
   return (
     <section className="py-20 md:py-32 bg-[#F3F4F6] overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="text-center max-w-3xl mx-auto mb-16 md:mb-24"
+        >
+          <motion.h2
+            variants={fadeInUp}
+            className="text-3xl md:text-5xl font-bold text-gray-900 mb-6"
+          >
             Behind The Journey
-          </h2>
-          <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
+          </motion.h2>
+          <motion.p
+            variants={fadeInUp}
+            className="text-gray-600 text-lg md:text-xl leading-relaxed"
+          >
             With years of experience in the travel industry, we specialize in
             crafting personalized journeys.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Timeline Visualization */}
         <div className="relative mb-20 md:mb-32">
           {/* Connecting Line Base */}
           <div className="absolute top-[85px] left-0 w-full h-[2px] bg-gray-300 z-0 hidden md:block" />
 
-          <div className="flex flex-wrap md:flex-nowrap justify-between items-start gap-y-12 relative z-10 max-w-6xl mx-auto">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            className="flex flex-wrap md:flex-nowrap justify-between items-start gap-y-12 relative z-10 max-w-6xl mx-auto"
+          >
             {milestones.map((item) => {
               const isActive = activeYear === item.year;
 
               return (
-                <div
+                <motion.div
                   key={item.year}
+                  variants={fadeInUp}
                   className="flex flex-col items-center cursor-pointer group w-1/3 md:w-auto"
                   onClick={() => setActiveYear(item.year)}
                 >
@@ -128,10 +152,10 @@ const BehindTheJourney = () => {
                       style={{ marginTop: isActive ? "-10px" : "0" }} // Adjust for larger circle
                     />
                   </div>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
 
         {/* Content Area */}

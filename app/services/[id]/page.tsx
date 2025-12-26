@@ -1,31 +1,37 @@
-import React from "react";
+"use client";
+
+import React, { use } from "react";
 import { notFound } from "next/navigation";
 import PageHead from "@/components/common/page-head";
 import { getServiceById } from "@/data/services";
 import { PriceCard } from "@/components/services-page/ServiceSidebar";
 import { ServiceInfoGrid } from "@/components/services-page/ServiceInfoGrid";
 import LocationCarousel from "@/components/services-page/LocationCarousel";
+import { motion } from "framer-motion";
+import {
+  fadeInUp,
+  staggerContainer,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 // Define PageProps correctly for Next.js 13+ App Router
 interface PageProps {
   params: Promise<{ id: string }>;
 }
 
-const ServiceDetailPage = async ({ params }: PageProps) => {
-  // Await params in newer Next.js versions if needed, or access directly. 
-  // Since we are typing it as Promise, we should await it.
-  const resolvedParams = await params;
-  const serviceId = (resolvedParams.id);
+const ServiceDetailPage = ({ params }: PageProps) => {
+  // Use React.use() to unwrap the params promise in a Client Component
+  const resolvedParams = use(params);
+  const serviceId = resolvedParams.id;
   const service = getServiceById(serviceId);
-  // console.log(service)
 
   if (!service) {
     notFound();
   }
 
-  // Use the image from the service itself if available, or a fallback, or a specific header image
-  // For now using a generic travel fallback or one from the service images
-  const headerImage = service.images?.[0] || "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200";
+  const headerImage =
+    service.images?.[0] ||
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200";
 
   return (
     <section>
@@ -38,33 +44,52 @@ const ServiceDetailPage = async ({ params }: PageProps) => {
 
       <div className="py-20 md:py-28 bg-white min-h-screen">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-          <div className="flex flex-col lg:flex-row gap-12 items-start">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            className="flex flex-col lg:flex-row gap-12 items-start"
+          >
             {/* Left Content */}
-            <div className="w-full lg:w-2/3">
+            <motion.div variants={fadeInUp} className="w-full lg:w-2/3">
               <div className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-3xl font-bold text-gray-900 mb-6"
+                >
                   About This Service
-                </h2>
-                <p className="text-gray-600 leading-relaxed text-lg mb-6">
+                </motion.h2>
+                <motion.p
+                  variants={fadeInUp}
+                  className="text-gray-600 leading-relaxed text-lg mb-6"
+                >
                   {service.longDescription || service.description}
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                   We provide professional visa and immigration services tailored to your specific needs. Our experienced team will guide you through every step of the process, ensuring you have the best chance of success.
-                </p>
+                </motion.p>
+                <motion.p
+                  variants={fadeInUp}
+                  className="text-gray-600 leading-relaxed"
+                >
+                  We provide professional visa and immigration services tailored
+                  to your specific needs. Our experienced team will guide you
+                  through every step of the process, ensuring you have the best
+                  chance of success.
+                </motion.p>
               </div>
 
               <ServiceInfoGrid specs={service.specs} />
 
               <LocationCarousel images={service.images} />
-              
-            </div>
+            </motion.div>
 
             {/* Right Sidebar */}
-            <div className="w-full lg:w-1/3 md:sticky top-8">
+            <motion.div
+              variants={fadeInUp}
+              className="w-full lg:w-1/3 md:sticky top-8"
+            >
               <PriceCard service={service} serviceId={serviceId} />
-              {/* <CustomizeCard /> */}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

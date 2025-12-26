@@ -12,6 +12,14 @@ import {
   ThumbsUp,
   PersonStanding,
 } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  fadeInLeft,
+  fadeInRight,
+  fadeInUp,
+  staggerContainer,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 const About = () => {
   const features = [
@@ -73,7 +81,12 @@ const About = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Section */}
-          <div>
+          <motion.div
+            variants={fadeInLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+          >
             {/* About Us Tag */}
             <div className="mb-6">
               <div className="relative inline-block">
@@ -122,12 +135,16 @@ const About = () => {
             </p>
 
             {/* Feature Boxes */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <motion.div
+              variants={staggerContainer}
+              className="grid grid-cols-2 gap-4 mb-8"
+            >
               {features.map((feature, index) => {
                 const IconComponent = feature.icon;
                 return (
-                  <div
+                  <motion.div
                     key={index}
+                    variants={fadeInUp}
                     className={`${feature.bgColor} rounded-lg p-4 flex items-center gap-3`}
                   >
                     <div className={`${feature.iconColor}`}>
@@ -136,10 +153,10 @@ const About = () => {
                     <span className="text-gray-800 font-medium text-sm">
                       {feature.title}
                     </span>
-                  </div>
+                  </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4">
@@ -157,10 +174,16 @@ const About = () => {
                 <span className="font-medium">Watch Tour</span>
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Section */}
-          <div className="relative">
+          <motion.div
+            variants={fadeInRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            className="relative"
+          >
             {/* Decorative Brushstroke Shapes */}
             <div className="absolute -top-8 -left-8 -z-10">
               <svg
@@ -214,7 +237,18 @@ const About = () => {
             </div>
 
             {/* Airplane Icon */}
-            <div className="absolute top-4 right-4 opacity-20">
+            <motion.div
+              animate={{
+                x: [0, 20, 0],
+                y: [0, -20, 0],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute top-4 right-4 opacity-20"
+            >
               <svg
                 width="80"
                 height="80"
@@ -230,7 +264,7 @@ const About = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-            </div>
+            </motion.div>
 
             {/* Main Image */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -245,23 +279,36 @@ const About = () => {
                 <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
 
                 {/* Experience Badge */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary text-white rounded-full p-8 md:p-10 shadow-xl flex flex-col items-center justify-center text-center w-32 h-32 md:w-40 md:h-40 border-4 border-white">
-                    <div className="text-4xl font-bold mb-1">05</div>
-                    <div className="text-sm font-medium opacity-90">
-                      Years of experience
-                    </div>
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ delay: 0.5, type: "spring" }}
+                  viewport={{ once: true }}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary text-white rounded-full p-8 md:p-10 shadow-xl flex flex-col items-center justify-center text-center w-32 h-32 md:w-40 md:h-40 border-4 border-white"
+                >
+                  <div className="text-4xl font-bold mb-1">05</div>
+                  <div className="text-sm font-medium opacity-90">
+                    Years of experience
                   </div>
+                </motion.div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Statistics Section */}
-        <div className="mt-20 pt-12 border-t border-gray-200">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="mt-20 pt-12 border-t border-gray-200"
+        >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {statistics.map((stat) => (
-              <div
+              <motion.div
                 key={stat.label}
+                variants={fadeInUp}
                 className="flex items-center gap-1 relative border-r border-gray-200 last-of-type:border-r-0"
               >
                 <span className="mb-4 text-primary">
@@ -276,10 +323,10 @@ const About = () => {
                     {stat.label}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

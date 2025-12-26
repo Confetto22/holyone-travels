@@ -1,29 +1,52 @@
 "use client";
 import SearchBar from "./search-bar";
+import { motion } from "framer-motion";
+import {
+  fadeInUp,
+  staggerContainer,
+  slideInBounce,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 const Hero = () => {
   return (
     <section className="relative bg-[url('https://triprex.egenslab.com/wp-content/uploads/2024/02/home2-banner-img1.webp')] bg-cover bg-center min-h-screen">
       <div className="cover min-h-screen relative">
         {/* Main Content */}
-        <div className=" mx-auto px-4 min-h-screen flex flex-col items-center justify-center gap-12 relative z-10">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className=" mx-auto px-4 min-h-screen flex flex-col items-center justify-center gap-12 relative z-10"
+        >
           {/* Location Tag */}
-          <div className="mb-6">
+          <motion.div variants={slideInBounce} className="mb-6">
             <div className="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm inline-block transform -skew-x-12 shadow-lg">
               <span className="transform skew-x-12 inline-block">New York</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Main Title */}
-          <h1 className="text-white font-bold max-w-4xl text-5xl md:text-7xl text-center leading-tight">
+          <motion.h1
+            variants={fadeInUp}
+            className="text-white font-bold max-w-4xl text-5xl md:text-7xl text-center leading-tight"
+          >
             Let&apos;s Explore Your <br />
             <span className="text-primary">Holiday Trip.</span>
-          </h1>
+          </motion.h1>
 
           {/* Info Boxes */}
-          <div className="flex flex-col md:flex-row gap-6 items-center justify-center mt-8">
+          <motion.div
+            variants={staggerContainer}
+            className="flex flex-col md:flex-row gap-6 items-center justify-center mt-8"
+          >
             {/* Inquiry Box */}
-            <div className="bg-primary rounded-xl px-6 py-4 flex items-center gap-4 shadow-lg">
+            <motion.div
+              variants={fadeInUp}
+              whileHover={{ scale: 1.05 }}
+              className="bg-primary rounded-xl px-6 py-4 flex items-center gap-4 shadow-lg cursor-pointer"
+            >
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                 <svg
                   width="24"
@@ -48,10 +71,14 @@ const Hero = () => {
                 </div>
                 <div className="text-lg font-semibold">+990-737 621 432</div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Tripadvisor Box */}
-            <div className="bg-primary rounded-xl px-6 py-4 flex items-center gap-4 shadow-lg">
+            <motion.div
+              variants={fadeInUp}
+              whileHover={{ scale: 1.05 }}
+              className="bg-primary rounded-xl px-6 py-4 flex items-center gap-4 shadow-lg cursor-pointer"
+            >
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                 <svg
                   width="24"
@@ -88,11 +115,13 @@ const Hero = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
           {/* Search Bar at Bottom */}
-          <SearchBar />
-        </div>
+          <motion.div variants={fadeInUp} className="w-full max-w-5xl">
+            <SearchBar />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

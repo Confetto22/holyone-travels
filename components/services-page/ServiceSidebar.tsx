@@ -1,16 +1,31 @@
+"use client";
+
 import React from "react";
 import { Check, ShieldCheck, ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import { ServiceItem } from "@/data/services";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeInRight } from "@/lib/animation-variants";
 
-export const PriceCard = ({ service, serviceId }: { service: ServiceItem, serviceId:string }) => {
+export const PriceCard = ({
+  service,
+  serviceId,
+}: {
+  service: ServiceItem;
+  serviceId: string;
+}) => {
   const discount = service.oldPrice
     ? Math.round(((service.oldPrice - service.price) / service.oldPrice) * 100)
     : 0;
 
   return (
-    <div className="bg-gray-50 md:sticky top-5 rounded-3xl p-6 md:p-8 border border-blue-50/50 shadow-sm relative overflow-hidden transition-all hover:shadow-md">
+    <motion.div
+      variants={fadeInRight}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="bg-gray-50 md:sticky top-5 rounded-3xl p-6 md:p-8 border border-blue-50/50 shadow-sm relative overflow-hidden transition-all hover:shadow-md"
+    >
       {discount > 0 && (
         <div className="absolute top-6 right-6 bg-secondary text-white text-xs font-bold px-3 py-1.5 rounded-full">
           {discount}% Off
@@ -50,21 +65,30 @@ export const PriceCard = ({ service, serviceId }: { service: ServiceItem, servic
       </div>
 
       <div className="space-y-3">
-        <Link href={`/services/${serviceId}/checkout`} className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-blue-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 text-sm md:text-base">
-          Purchase Now!
-          <ArrowUpRight className="w-4 h-4" />
-        </Link>
-        <button className="w-full bg-white border border-gray-200 hover:border-gray-300 text-gray-700 font-bold py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-50 text-sm md:text-base">
+        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <Link
+            href={`/services/${serviceId}/checkout`}
+            className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-blue-200 shadow-lg hover:shadow-xl text-sm md:text-base"
+          >
+            Purchase Now!
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="w-full bg-white border border-gray-200 hover:border-gray-300 text-gray-700 font-bold py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-50 text-sm md:text-base outline-none"
+        >
           Book Consultation
           <ArrowUpRight className="w-4 h-4" />
-        </button>
+        </motion.button>
       </div>
 
       <div className="mt-6 flex items-center gap-2 text-gray-500 text-xs font-medium justify-center">
         <ShieldCheck className="w-4 h-4" />
         Secure Payment & Professional Service
       </div>
-    </div>
+    </motion.div>
   );
 };
 

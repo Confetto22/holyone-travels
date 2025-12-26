@@ -16,6 +16,11 @@ import {
   MicroServiceItem,
   DigitalServiceItem,
 } from "@/data/services";
+import {
+  fadeInUp,
+  staggerContainer,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 // --- Main Cards Components ---
 const MainServiceCard = ({ item }: { item: MainServiceItem }) => (
@@ -121,14 +126,26 @@ const ServicesContainer = () => {
     <section className="py-20 md:py-28 bg-gray-50/50 min-h-screen">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
         {/* Header & Tabs */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="text-center mb-16"
+        >
+          <motion.h2
+            variants={fadeInUp}
+            className="text-3xl md:text-5xl font-bold text-gray-900 mb-4"
+          >
             Tailored Services For You
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto mb-10 text-lg">
+          </motion.h2>
+          <motion.p
+            variants={fadeInUp}
+            className="text-gray-500 max-w-2xl mx-auto mb-10 text-lg"
+          >
             Choose the level of assistance you need. Select a service to see
             pricing details and more info.
-          </p>
+          </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2 bg-white p-1.5 md:rounded-full shadow-sm  border border-gray-200 relative max-w-2xl mx-auto">
             {tabs.map((tab) => (
@@ -152,7 +169,7 @@ const ServicesContainer = () => {
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Full Width Grid Layout */}
         <div className="w-full">

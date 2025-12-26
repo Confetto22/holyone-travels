@@ -1,5 +1,15 @@
+"use client"
+
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
+import {
+  fadeInLeft,
+  fadeInRight,
+  fadeInUp,
+  staggerContainer,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 const WhyWeAreBest = () => {
   return (
@@ -7,7 +17,13 @@ const WhyWeAreBest = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Text Content */}
-          <div className="w-full lg:w-1/2 space-y-8">
+          <motion.div
+            variants={fadeInLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            className="w-full lg:w-1/2 space-y-8"
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
               Why We’re Best Agency
             </h2>
@@ -36,7 +52,10 @@ const WhyWeAreBest = () => {
               <div className="flex flex-col gap-2">
                 {/* Signature simulation using a cursive-like SVG or font fallback if available. 
                     For now, using a stylish SVG path for the signature look */}
-                <svg
+                <motion.svg
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  whileInView={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
                   width="120"
                   height="60"
                   viewBox="0 0 150 80"
@@ -50,7 +69,7 @@ const WhyWeAreBest = () => {
                     strokeWidth="2"
                     strokeLinecap="round"
                   />
-                </svg>
+                </motion.svg>
                 <div>
                   <h4 className="font-bold text-gray-900 text-lg">
                     Robert Harringson
@@ -61,42 +80,60 @@ const WhyWeAreBest = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Image Collage */}
-          <div className="w-full lg:w-1/2 relative min-h-[500px] flex items-center justify-center">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            className="w-full lg:w-1/2 relative min-h-[500px] flex items-center justify-center"
+          >
             {/* Background blob/shape could be added here for more depth */}
             
             {/* Top Right - Travel Montage */}
-            <div className="absolute top-0 right-0 w-[60%] h-[55%] z-20 rounded-[2rem] overflow-hidden border-4 border-white shadow-xl">
+            <motion.div
+              variants={fadeInUp}
+              whileHover={{ scale: 1.05, zIndex: 40 }}
+              className="absolute top-0 right-0 w-[60%] h-[55%] z-20 rounded-[2rem] overflow-hidden border-4 border-white shadow-xl"
+            >
               <Image
                 src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&auto=format&fit=crop&q=80"
                 alt="Travel adventures collage"
                 fill
                 className="object-cover"
               />
-            </div>
+            </motion.div>
 
             {/* Middle Left - Skier */}
-            <div className="absolute top-[20%] left-0 w-[55%] h-[50%] z-10 rounded-[2rem] overflow-hidden border-4 border-white shadow-xl">
+            <motion.div
+              variants={fadeInLeft}
+              whileHover={{ scale: 1.05, zIndex: 40 }}
+              className="absolute top-[20%] left-0 w-[55%] h-[50%] z-10 rounded-[2rem] overflow-hidden border-4 border-white shadow-xl"
+            >
                 <Image
                   src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&q=80&w=800"
                   alt="Skiing adventure"
                   fill
                   className="object-cover"
                 />
-            </div>
+            </motion.div>
 
             {/* Bottom Right - Paddle Boarding */}
-            <div className="absolute bottom-0 right-[10%] w-[50%] h-[40%] z-30 rounded-[2rem] overflow-hidden border-4 border-white shadow-xl">
+            <motion.div
+              variants={fadeInRight}
+              whileHover={{ scale: 1.05, zIndex: 40 }}
+              className="absolute bottom-0 right-[10%] w-[50%] h-[40%] z-30 rounded-[2rem] overflow-hidden border-4 border-white shadow-xl"
+            >
                <Image
                   src="https://images.unsplash.com/photo-1544551763-8dd401344420?auto=format&fit=crop&q=80&w=800"
                   alt="Water sports"
                   fill
                   className="object-cover"
                  />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

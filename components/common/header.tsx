@@ -2,34 +2,40 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { motion } from "framer-motion";
+import { fadeInDown } from "@/lib/animation-variants";
 
 const Header = () => {
   const navLinks = [
     {
       ref: "Home",
-      refLink:"/",
+      refLink: "/",
     },
     {
       ref: "About",
-      refLink:"/about",
+      refLink: "/about",
     },
     {
       ref: "Services",
-      refLink:"/services",
+      refLink: "/services",
     },
     {
       ref: "Contact",
-      refLink:"/contact",
+      refLink: "/contact",
     },
     {
       ref: "policy",
-      refLink:"/privacy-policy",
+      refLink: "/privacy-policy",
     },
-  ]
+  ];
   const pathname = usePathname();
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
+    <motion.header
+      variants={fadeInDown}
+      initial="hidden"
+      animate="visible"
+      className="absolute top-0 left-0 right-0 z-50 bg-transparent"
+    >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -53,31 +59,37 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            {
-              navLinks.map((navLink) => (
+            {navLinks.map((navLink) => (
+              <motion.div
+                key={navLink.ref}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Link
-                  key={navLink.ref}
                   href={navLink.refLink}
-                  className={`hover:text-primary transition-colors capitalize ${pathname === navLink.refLink ? "text-primary" : "text-white"}`}
-            >
-              {navLink.ref}
-            </Link>
-              ))
-            }
-            
-            
+                  className={`hover:text-primary transition-colors capitalize ${
+                    pathname === navLink.refLink ? "text-primary" : "text-white"
+                  }`}
+                >
+                  {navLink.ref}
+                </Link>
+              </motion.div>
+            ))}
           </nav>
 
           {/* User Actions */}
           <div className="flex items-center gap-4">
-            
-            <button className="bg-secondary text-white px-6 py-2 rounded-full hover:bg-secondary/90 transition-colors font-medium">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-secondary text-white px-6 py-2 rounded-full hover:bg-secondary/90 transition-colors font-medium"
+            >
               Book A Trip
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

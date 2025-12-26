@@ -1,7 +1,13 @@
 "use client";
+
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  fadeInUp,
+  staggerContainer,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 const LocationCarousel = ({ images }: { images?: string[] }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -17,7 +23,13 @@ const LocationCarousel = ({ images }: { images?: string[] }) => {
   };
 
   return (
-    <div className="mb-12">
+    <motion.div
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOptions}
+      className="mb-12"
+    >
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-2xl font-bold text-gray-900">Explore Locations</h3>
         <div className="flex gap-2">
@@ -36,7 +48,8 @@ const LocationCarousel = ({ images }: { images?: string[] }) => {
         </div>
       </div>
 
-      <div
+      <motion.div
+        variants={staggerContainer}
         ref={scrollRef}
         className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
@@ -44,6 +57,7 @@ const LocationCarousel = ({ images }: { images?: string[] }) => {
         {images.map((img, idx) => (
           <motion.div
             key={idx}
+            variants={fadeInUp}
             className="min-w-[300px] md:min-w-[400px] h-64 rounded-3xl overflow-hidden snap-center relative flex-shrink-0"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
@@ -56,8 +70,8 @@ const LocationCarousel = ({ images }: { images?: string[] }) => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
           </motion.div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

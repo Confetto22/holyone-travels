@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Hotel,
@@ -11,6 +13,12 @@ import {
   Map,
 } from "lucide-react";
 import { ServiceSpecs } from "@/data/services";
+import { motion } from "framer-motion";
+import {
+  fadeInUp,
+  staggerContainer,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 export const ServiceInfoGrid = ({ specs }: { specs?: ServiceSpecs }) => {
   if (!specs) return null;
@@ -64,20 +72,32 @@ export const ServiceInfoGrid = ({ specs }: { specs?: ServiceSpecs }) => {
   ];
 
   return (
-    <div className="bg-transparent rounded-3xl py-8 mb-12">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOptions}
+      className="bg-transparent rounded-3xl py-8 mb-12"
+    >
       <div className="grid grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-4">
         {items.map((item, idx) => (
-          <div key={idx} className="flex items-start gap-3">
+          <motion.div
+            key={idx}
+            variants={fadeInUp}
+            className="flex items-start gap-3"
+          >
             <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center shrink-0 text-gray-400">
               <item.icon className="w-5 h-5" strokeWidth={1.5} />
             </div>
             <div>
-              <p className="text-gray-500 text-xs font-medium mb-1">{item.label}</p>
+              <p className="text-gray-500 text-xs font-medium mb-1">
+                {item.label}
+              </p>
               <p className="text-gray-900 font-bold text-sm">{item.value}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };

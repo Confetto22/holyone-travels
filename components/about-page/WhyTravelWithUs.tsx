@@ -1,5 +1,13 @@
+"use client";
+
 import React from "react";
 import { Luggage, Tag, Headset, Medal } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  fadeInUp,
+  staggerContainer,
+  viewportOptions,
+} from "@/lib/animation-variants";
 
 const features = [
   {
@@ -28,21 +36,38 @@ const WhyTravelWithUs = () => {
   return (
     <section className="py-20 px-4 md:px-8 bg-white">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="text-center mb-16"
+        >
+          <motion.h2
+            variants={fadeInUp}
+            className="text-3xl md:text-5xl font-bold text-gray-900 mb-4"
+          >
             Why Travel with Us?
-          </h2>
-          <p className="text-gray-600 text-lg">
+          </motion.h2>
+          <motion.p variants={fadeInUp} className="text-gray-600 text-lg">
             We specialize in crafting personalized journeys that suit every
             traveler’s dream.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`${feature.bgColor} rounded-[2rem] p-8 min-h-[250px] flex flex-col justify-center items-start transition-transform duration-300 hover:-translate-y-2`}
+              variants={fadeInUp}
+              whileHover={{ y: -10 }}
+              className={`${feature.bgColor} rounded-[2rem] p-8 min-h-[250px] flex flex-col justify-center items-start transition-all duration-300 shadow-sm hover:shadow-xl`}
             >
               <div className="mb-6">
                 {/* Icon wrapper/decoration could go here */}
@@ -51,9 +76,9 @@ const WhyTravelWithUs = () => {
               <h3 className="text-xl font-bold text-gray-900 leading-tight">
                 {feature.title}
               </h3>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
