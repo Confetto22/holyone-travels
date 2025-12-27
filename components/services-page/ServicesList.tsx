@@ -108,7 +108,7 @@ const ServiceCard = ({ item }: { item: ServiceItem }) => {
             {item.duration}
           </span>
           <span className="bg-white text-gray-800 text-[10px] font-bold px-3 py-1.5 uppercase tracking-wider flex items-center gap-1 w-fit">
-            <MapPin className="w-3 h-3 text-[#6CB43F]" />
+            <MapPin className="w-3 h-3 text-primary" />
             {item.location}
           </span>
         </div>
@@ -116,7 +116,7 @@ const ServiceCard = ({ item }: { item: ServiceItem }) => {
 
       {/* Content Container */}
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight group-hover:text-[#6CB43F] transition-colors">
+        <h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight group-hover:text-primary transition-colors">
           {item.title}
         </h3>
 
@@ -139,7 +139,7 @@ const ServiceCard = ({ item }: { item: ServiceItem }) => {
               Starting From:
             </p>
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-bold text-[#6CB43F]">
+              <span className="text-2xl font-bold text-primary">
                 ${item.price}
               </span>
               <span className="text-sm text-gray-400 line-through font-medium">
@@ -154,7 +154,7 @@ const ServiceCard = ({ item }: { item: ServiceItem }) => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#6CB43F] hover:bg-[#5ba032] text-white text-sm font-bold py-2.5 px-5 rounded-lg transition-colors flex items-center gap-2"
+            className="bg-primary hover:bg-primary/90 text-white text-sm font-bold py-2.5 px-5 rounded-lg transition-colors flex items-center gap-2"
           >
             Book A Trip
             <Plane className="w-4 h-4" />

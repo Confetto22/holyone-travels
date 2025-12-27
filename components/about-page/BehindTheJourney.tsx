@@ -73,7 +73,7 @@ const BehindTheJourney = () => {
   const activeMilestone = milestones.find((m) => m.year === activeYear);
 
   return (
-    <section className="py-20 md:py-32 bg-[#F3F4F6] overflow-hidden">
+    <section className="py-20 md:py-32 bg-blue-50/50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
         <motion.div
           variants={staggerContainer}

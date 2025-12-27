@@ -10,13 +10,13 @@ import { fadeInUp, viewportOptions } from "@/lib/animation-variants";
 import "swiper/css";
 
 const partners = [
-  { name: "Borcelle", color: "text-red-500" },
+  { name: "Borcelle", color: "text-blue-500" },
   { name: "GoTrip", color: "text-blue-600" },
   { name: "travel", color: "text-sky-400" },
-  { name: "G-Fly", color: "text-green-600" },
-  { name: "TRAVERSE", color: "text-orange-500" },
+  { name: "G-Fly", color: "text-blue-400" },
+  { name: "TRAVERSE", color: "text-blue-700" },
   { name: "TripZon", color: "text-indigo-600" },
-  { name: "Borcelle", color: "text-red-500" }, // Duplicate for seamless feel if needed, though loop:true handles it
+  { name: "Borcelle", color: "text-blue-500" },
 ];
 
 const TrustedCompanies = () => {
@@ -66,7 +66,10 @@ const TrustedCompanies = () => {
           className="trusted-companies-swiper"
         >
           {partners.map((partner, idx) => (
-            <SwiperSlide key={idx} className="!flex items-center justify-center">
+            <SwiperSlide
+              key={idx}
+              className="!flex items-center justify-center"
+            >
               <div className="flex items-center gap-2 grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100 cursor-pointer">
                 <div className="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center">
                   <span className="text-xs font-bold text-gray-400">LOG</span>

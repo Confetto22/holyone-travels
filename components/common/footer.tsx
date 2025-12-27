@@ -30,7 +30,7 @@ const Footer = () => {
     {
       icon: (
         <div className="bg-white rounded-full p-0.5">
-          <div className="bg-[#25D366] rounded-full p-1">
+          <div className="bg-primary rounded-full p-1">
             <Smartphone className="w-5 h-5 text-white fill-current" />
           </div>
         </div>
@@ -70,7 +70,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0b0b0b] text-white relative font-sans">
+    <footer className="bg-[#020617] text-white relative font-sans">
       {/* Top Contact Bar */}
       <div className="border-b border-gray-800">
         <div className="container mx-auto px-4 py-8">
@@ -125,7 +125,7 @@ const Footer = () => {
                   <div className="text-primary">
                     <Globe className="w-10 h-10" strokeWidth={1.5} />
                   </div>
-                  <div className="absolute -bottom-1 -right-1 bg-primary rounded-full w-4 h-4 border-2 border-[#0b0b0b]"></div>
+                  <div className="absolute -bottom-1 -right-1 bg-primary rounded-full w-4 h-4 border-2 border-[#020617]"></div>
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold leading-none tracking-tight">
@@ -234,10 +234,7 @@ const Footer = () => {
                   "Rome, Italy Tour",
                 ].map((item) => (
                   <motion.li key={item} whileHover={{ x: 5 }}>
-                    <Link
-                      href="#"
-                      className="hover:text-white transition-all"
-                    >
+                    <Link href="#" className="hover:text-white transition-all">
                       {item}
                     </Link>
                   </motion.li>
@@ -265,10 +262,7 @@ const Footer = () => {
                   "Dubai Luxury Tours",
                 ].map((item) => (
                   <motion.li key={item} whileHover={{ x: 5 }}>
-                    <Link
-                      href="#"
-                      className="hover:text-white transition-all"
-                    >
+                    <Link href="#" className="hover:text-white transition-all">
                       {item}
                     </Link>
                   </motion.li>
@@ -291,10 +285,7 @@ const Footer = () => {
                   "Sitemap",
                 ].map((item) => (
                   <motion.li key={item} whileHover={{ x: 5 }}>
-                    <Link
-                      href="#"
-                      className="hover:text-white transition-all"
-                    >
+                    <Link href="#" className="hover:text-white transition-all">
                       {item}
                     </Link>
                   </motion.li>

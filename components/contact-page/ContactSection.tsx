@@ -47,7 +47,7 @@ const ContactInfoCard = ({ icon, title, details }: ContactInfoProps) => (
     whileHover={{ x: 10 }}
     className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4"
   >
-    <div className="shrink-0 w-12 h-12 bg-[#6CB43F] rounded-full flex items-center justify-center">
+    <div className="shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
       {icon}
     </div>
     <div>
@@ -65,7 +65,7 @@ const ContactForm = () => {
   return (
     <motion.div
       variants={fadeInUp}
-      className="bg-[#f7f6f2]  rounded-3xl p-8 md:p-12"
+      className="bg-blue-50 rounded-3xl p-8 md:p-12 border border-blue-100"
     >
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
         Reach Us Anytime
@@ -98,7 +98,7 @@ const ContactForm = () => {
               type="tel"
               id="phone"
               placeholder="Phone Number"
-              className="w-full px-4 py-3 rounded-lg border border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-green-500 outline-none transition-all placeholder:text-gray-400 text-gray-800"
+              className="w-full px-4 py-3 rounded-lg border border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary outline-none transition-all placeholder:text-gray-400 text-gray-800"
             />
           </div>
           <div className="space-y-2">
@@ -112,7 +112,7 @@ const ContactForm = () => {
               type="email"
               id="email"
               placeholder="Email Us...."
-              className="w-full px-4 py-3 rounded-lg border border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-green-500 outline-none transition-all placeholder:text-gray-400 text-gray-800"
+              className="w-full px-4 py-3 rounded-lg border border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary outline-none transition-all placeholder:text-gray-400 text-gray-800"
             />
           </div>
         </div>
@@ -136,7 +136,7 @@ const ContactForm = () => {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           type="button"
-          className="bg-[#6CB43F] hover:bg-[#5ba032] text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg"
+          className="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg"
         >
           Submit Now
         </motion.button>

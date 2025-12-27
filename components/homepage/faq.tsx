@@ -85,6 +85,7 @@ const Faq = () => {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
+          className=""
         >
           <Accordion
             type="single"
@@ -93,7 +94,7 @@ const Faq = () => {
             className="w-full"
           >
             {faqs.map((faq) => (
-              <motion.div key={faq.id} variants={fadeInUp}>
+              <motion.div key={faq.id} variants={fadeInUp} className="">
                 <AccordionItem
                   value={faq.id}
                   className="border border-gray-200 rounded-lg mb-4 px-4 data-[state=open]:border-blue-400 data-[state=open]:bg-blue-50/30 transition-colors"

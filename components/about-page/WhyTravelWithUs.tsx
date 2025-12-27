@@ -11,24 +11,24 @@ import {
 
 const features = [
   {
-    icon: <Luggage className="w-8 h-8 text-black" />,
+    icon: <Luggage className="w-8 h-8 text-blue-600" />,
     title: "Expertly Curated Tours.",
-    bgColor: "bg-[#E9F8B5]", // Lime/Greenish
+    bgColor: "bg-blue-50",
   },
   {
-    icon: <Tag className="w-8 h-8 text-white" />,
+    icon: <Tag className="w-8 h-8 text-blue-600" />,
     title: "Affordable & Flexible Packages.",
-    bgColor: "bg-[#EEEEEE]", // Gray
+    bgColor: "bg-blue-100",
   },
   {
-    icon: <Headset className="w-8 h-8 text-black" />,
+    icon: <Headset className="w-8 h-8 text-blue-600" />,
     title: "24/7 Customer Support.",
-    bgColor: "bg-[#E0E0FF]", // Light Purple
+    bgColor: "bg-blue-50",
   },
   {
-    icon: <Medal className="w-8 h-8 text-black" />,
+    icon: <Medal className="w-8 h-8 text-blue-600" />,
     title: "Certified & Experienced Guides.",
-    bgColor: "bg-[#B8EBC8]", // Light Green
+    bgColor: "bg-blue-100",
   },
 ];
 

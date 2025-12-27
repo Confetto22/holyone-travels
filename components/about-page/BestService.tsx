@@ -12,24 +12,24 @@ import {
 
 const features = [
   {
-    icon: <Award className="w-8 h-8 text-black" />,
+    icon: <Award className="w-8 h-8 text-blue-900" />,
     title: "Local Guidance",
     description: "Travel agencies have experienced professionals guidance.",
-    bgColor: "bg-orange-400",
+    bgColor: "bg-blue-200",
   },
   {
-    icon: <Percent className="w-8 h-8 text-black" />,
+    icon: <Percent className="w-8 h-8 text-blue-900" />,
     title: "Deals & Discounts",
     description:
       "Agencies have special discounts on flights, hotels, & packages.",
-    bgColor: "bg-sky-400",
+    bgColor: "bg-blue-300",
   },
   {
-    icon: <Wallet className="w-8 h-8 text-black" />,
+    icon: <Wallet className="w-8 h-8 text-blue-900" />,
     title: "Saves Money",
     description:
       "Avoids hidden fees & tourist traps, Multi-destination & budget-friendly options.",
-    bgColor: "bg-orange-400",
+    bgColor: "bg-blue-200",
   },
 ];
 
@@ -41,7 +41,7 @@ const BestService = () => {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
-          className="bg-[#F5F5FF] rounded-[3rem] p-8 md:p-16 text-center"
+          className="bg-blue-50/50 rounded-[3rem] p-8 md:p-16 text-center"
         >
           <motion.h2
             variants={fadeInUp}

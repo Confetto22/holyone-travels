@@ -34,7 +34,7 @@ const Header = () => {
       variants={fadeInDown}
       initial="hidden"
       animate="visible"
-      className="absolute top-0 left-0 right-0 z-50 bg-transparent"
+      className="absolute top-0 left-0 right-0 z-50 bg-primary"
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
@@ -67,8 +67,10 @@ const Header = () => {
               >
                 <Link
                   href={navLink.refLink}
-                  className={`hover:text-primary transition-colors capitalize ${
-                    pathname === navLink.refLink ? "text-primary" : "text-white"
+                  className={`hover:text-secondary transition-colors capitalize ${
+                    pathname === navLink.refLink
+                      ? "text-secondary"
+                      : "text-white"
                   }`}
                 >
                   {navLink.ref}

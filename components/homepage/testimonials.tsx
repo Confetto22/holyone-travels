@@ -81,7 +81,7 @@ const Testimonials = () => {
         >
           <path
             d="M50 10L60 40L90 50L60 60L50 90L40 60L10 50L40 40L50 10Z"
-            stroke="#e21f15e6"
+            stroke="#1a43d3e6"
             strokeWidth="2"
           />
         </motion.svg>
@@ -104,7 +104,7 @@ const Testimonials = () => {
         >
           <path
             d="M10 40L30 20L50 30L70 10L90 30L110 20L110 50L90 60L70 50L50 70L30 50L10 60L10 40Z"
-            stroke="#e21f15e6"
+            stroke="#1a43d3e6"
             strokeWidth="2"
           />
         </motion.svg>
@@ -287,4 +287,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-

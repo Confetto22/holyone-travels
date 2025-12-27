@@ -258,7 +258,7 @@ const About = () => {
               >
                 <path
                   d="M21 16V14L15 9V7C15 6.45 14.55 6 14 6H10C9.45 6 9 6.45 9 7V9L3 14V16L9 15V19L7 21V23L12 22L17 23V21L15 19V15L21 16Z"
-                  stroke="#e21f15e6"
+                  stroke="#1a43d3e6"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
