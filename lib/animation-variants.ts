@@ -202,7 +202,7 @@ export const slideInBounce: Variants = {
 // Viewport animation options for scroll-triggered animations
 export const viewportOptions = {
   once: true, // Animate only once when entering viewport
-  amount: 0.2, // Trigger when 20% of element is visible
+  // amount: 0.2, // Trigger when 20% of element is visible
   margin: "0px 0px -100px 0px", // Trigger slightly before element enters viewport
 };
 

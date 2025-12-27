@@ -74,14 +74,6 @@ export const PriceCard = ({
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </motion.div>
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="w-full bg-white border border-gray-200 hover:border-gray-300 text-gray-700 font-bold py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-50 text-sm md:text-base outline-none"
-        >
-          Book Consultation
-          <ArrowUpRight className="w-4 h-4" />
-        </motion.button>
       </div>
 
       <div className="mt-6 flex items-center gap-2 text-gray-500 text-xs font-medium justify-center">

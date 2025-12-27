@@ -28,33 +28,22 @@ const Header = () => {
       refLink: "/privacy-policy",
     },
   ];
+
   const pathname = usePathname();
   return (
     <motion.header
       variants={fadeInDown}
       initial="hidden"
       animate="visible"
-      className="absolute top-0 left-0 right-0 z-50 bg-primary"
+      className={`absolute header top-0 left-0 right-0 z-50  ${
+        pathname.includes("/checkout") ? "bg-primary/60" : "bg-transparent"
+      }`}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-            <span className="text-white text-xl font-semibold">TripRex</span>
+            <h3 className="text-white text-xl font-semibold"> BrandLogo</h3>
           </div>
 
           {/* Navigation */}

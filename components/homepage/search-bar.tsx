@@ -16,18 +16,10 @@ const SearchBar = () => {
       title: "visa",
       icon: Ticket,
     },
-    {
-      title: "activities",
-      icon: CalendarCheck,
-    },
-    {
-      title: "transport",
-      icon: Van,
-    },
   ];
   return (
     <div className="hidden md:block w-full max-w-6xl mx-auto">
-      <div className="max-w-[70%] mx-auto rounded-t-xl border border-white/70 border-b-0 grid grid-cols-5 ">
+      <div className="max-w-[70%] mx-auto rounded-t-xl border border-white/70 border-b-0 grid grid-cols-3 ">
         {filters.map((filter) => (
           <div
             key={filter.title}
