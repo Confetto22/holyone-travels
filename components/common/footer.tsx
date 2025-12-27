@@ -19,19 +19,20 @@ import {
   staggerContainer,
   viewportOptions,
 } from "@/lib/animation-variants";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   const contactInfo = [
-    {
-      icon: <MessageCircle className="w-8 h-8 text-secondary" />,
-      title: "To More Inquiry",
-      subtitle: "Don't hesitate Call to GoFly.",
-    },
+    // {
+    //   icon: <MessageCircle className="w-8 h-8 text-secondary" />,
+    //   title: "To More Inquiry",
+    //   subtitle: "Don't hesitate Call to GoFly.",
+    // },
     {
       icon: (
         <div className="bg-white rounded-full p-0.5">
-          <div className="bg-primary rounded-full p-1">
-            <Smartphone className="w-5 h-5 text-white fill-current" />
+          <div className="bg-primary rounded-full p-2">
+            <FaWhatsapp className="w-7 h-7 text-white fill-current" />
           </div>
         </div>
       ), // WhatsApp proxy
@@ -41,8 +42,8 @@ const Footer = () => {
     {
       icon: (
         <div className="bg-white rounded-full p-0.5">
-          <div className="bg-secondary rounded-full p-1">
-            <Mail className="w-5 h-5 text-white" />
+          <div className="bg-secondary rounded-full p-2">
+            <Mail className="w-7 h-7 text-white" />
           </div>
         </div>
       ),
@@ -52,8 +53,8 @@ const Footer = () => {
     {
       icon: (
         <div className="bg-white rounded-full p-0.5">
-          <div className="bg-secondary rounded-full p-1">
-            <Phone className="w-5 h-5 text-white" />
+          <div className="bg-secondary rounded-full p-2">
+            <Phone className="w-7 h-7 text-white" />
           </div>
         </div>
       ),
@@ -67,6 +68,34 @@ const Footer = () => {
     { icon: Twitter, href: "#" }, // "X" icon often represented by Twitter in libraries or custom SVG
     { icon: Youtube, href: "#" },
     { icon: Linkedin, href: "#" },
+  ];
+
+  const destinations = [
+    { label: "Maldives Tour", href: "#" },
+    { label: "Bali, Indonesia Tour", href: "#" },
+    { label: "Thailand Tour", href: "#" },
+    { label: "Philippines Tour", href: "#" },
+    { label: "Hawaii, USA Tour", href: "#" },
+  ];
+
+  const popularSearches = [
+    { label: "Adventure", href: "#" },
+    { label: "Hiking & Hiking", href: "#" },
+    { label: "Holiday Packages", href: "#" },
+    { label: "Flights And Hotels", href: "#" },
+    { label: "Honeymoon Trip", href: "#" },
+  ];
+
+  const resources = [
+    { label: "About GoFly", href: "#" },
+    { label: "Health & Safety Measure", href: "#" },
+    { label: "Visa Processing", href: "#" },
+    { label: "Customize Tour", href: "#" },
+    {
+      label: "Privacy & Policy",
+      href: "/privacy-policy",
+    },
+    { label: "Sitemap", href: "#" },
   ];
 
   return (
@@ -167,51 +196,6 @@ const Footer = () => {
               </div>
 
               {/* Google Play Button */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="inline-flex items-center gap-3 bg-[#1f1f1f] px-4 py-2 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors cursor-pointer w-fit"
-              >
-                <div className="w-8 h-8 shrink-0">
-                  {/* Google Play Icon Proxy */}
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="w-full h-full"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 3.11123C5 2.59744 5.25307 2.21326 5.56846 2.05261L18.8105 16.5927L12.332 18.046L5.32846 4.03261C5.11663 3.7663 5 3.4542 5 3.11123Z"
-                      fill="#00E267"
-                      fillOpacity="0.2"
-                    />
-                    <path
-                      d="M19.4208 17.5574L5.61865 2.50293L5.61523 2.50659C5.59021 2.53321 5.57868 2.55164 5.5686 2.54517L12.3323 18.5385L19.4208 17.5574Z"
-                      fill="#3DDC84"
-                    />
-                    <path
-                      d="M21.5593 15.6558L19.4209 17.5574L12.3323 18.5385L18.2393 21.0425C19.7423 21.68 20.966 20.4491 21.5593 15.6558Z"
-                      fill="#FFC107"
-                    />
-                    <path
-                      d="M5 20.8887C5 21.4024 5.25307 21.7866 5.56846 21.9472L12.332 18.5383L5.5686 4.05249C5.23432 4.23242 5 4.63647 5 5.11121V20.8887Z"
-                      fill="#2196F3"
-                    />
-                    <path
-                      d="M12.332 18.5383L21.5593 8.34399C20.966 3.55072 19.7423 2.31982 18.2393 2.95728L5.56846 8.54419L12.332 18.5383Z"
-                      fill="#EA4335"
-                    />
-                  </svg>
-                  {/* Simple geometric fallback if SVG is too complex for this context, but inline SVG is fine */}
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] uppercase text-gray-400 font-bold leading-none">
-                    Get in
-                  </span>
-                  <span className="text-sm font-bold text-white leading-tight">
-                    Google Play
-                  </span>
-                </div>
-              </motion.div>
             </motion.div>
 
             {/* Column 2: Top Destination */}
@@ -220,22 +204,13 @@ const Footer = () => {
                 Top Destination
               </h3>
               <ul className="space-y-3 text-sm text-gray-400">
-                {[
-                  "Maldives Tour",
-                  "Bali, Indonesia Tour",
-                  "Thailand Tour",
-                  "Philippines Tour",
-                  "Hawaii, USA Tour",
-                  "Switzerland Tour",
-                  "New Zealand Tour",
-                  "Costa Rica Tour",
-                  "Peru (Machu Picchu)",
-                  "Paris, France Tour",
-                  "Rome, Italy Tour",
-                ].map((item) => (
-                  <motion.li key={item} whileHover={{ x: 5 }}>
-                    <Link href="#" className="hover:text-white transition-all">
-                      {item}
+                {destinations.map((item) => (
+                  <motion.li key={item.label} whileHover={{ x: 5 }}>
+                    <Link
+                      href={item.href}
+                      className="hover:text-white transition-all"
+                    >
+                      {item.label}
                     </Link>
                   </motion.li>
                 ))}
@@ -248,22 +223,13 @@ const Footer = () => {
                 Popular Search
               </h3>
               <ul className="space-y-3 text-sm text-gray-400">
-                {[
-                  "Adventure",
-                  "Hiking & Hiking",
-                  "Holiday Packages",
-                  "Flights And Hotels",
-                  "Honeymoon Trip",
-                  "Bali Vacation Package",
-                  "Desert Safari",
-                  "Last-Minute Deals",
-                  "Summer Vacation",
-                  "Wildlife Safari",
-                  "Dubai Luxury Tours",
-                ].map((item) => (
-                  <motion.li key={item} whileHover={{ x: 5 }}>
-                    <Link href="#" className="hover:text-white transition-all">
-                      {item}
+                {popularSearches.map((item) => (
+                  <motion.li key={item.label} whileHover={{ x: 5 }}>
+                    <Link
+                      href={item.href}
+                      className="hover:text-white transition-all"
+                    >
+                      {item.label}
                     </Link>
                   </motion.li>
                 ))}
@@ -274,19 +240,13 @@ const Footer = () => {
             <motion.div variants={fadeInUp}>
               <h3 className="text-white font-bold text-lg mb-6">Resources</h3>
               <ul className="space-y-3 text-sm text-gray-400">
-                {[
-                  "About GoFly",
-                  "Health & Safety Measure",
-                  "Visa Processing",
-                  "Customize Tour",
-                  "Travel Inspirations",
-                  "Traveler Reviews",
-                  "Terms & Condition",
-                  "Sitemap",
-                ].map((item) => (
-                  <motion.li key={item} whileHover={{ x: 5 }}>
-                    <Link href="#" className="hover:text-white transition-all">
-                      {item}
+                {resources.map((item) => (
+                  <motion.li key={item.label} whileHover={{ x: 5 }}>
+                    <Link
+                      href={item.href}
+                      className="hover:text-white transition-all"
+                    >
+                      {item.label}
                     </Link>
                   </motion.li>
                 ))}

@@ -23,10 +23,6 @@ const Header = () => {
       ref: "Contact",
       refLink: "/contact",
     },
-    {
-      ref: "policy",
-      refLink: "/privacy-policy",
-    },
   ];
 
   const pathname = usePathname();
