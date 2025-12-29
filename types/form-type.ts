@@ -1,4 +1,4 @@
-export interface CheckoutFormData {
+export interface MainCheckoutFormData {
   // Step 1
   fullName: string;
   email: string;
@@ -12,3 +12,11 @@ export interface CheckoutFormData {
   purposeOfTravel: string;
   additionalNotes?: string;
 }
+
+export interface MicroCheckoutFormData {
+  fullName: string;
+  email: string;
+  additionalNotes?: string;
+}
+
+export type CheckoutFormData = MainCheckoutFormData | MicroCheckoutFormData;

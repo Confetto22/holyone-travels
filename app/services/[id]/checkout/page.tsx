@@ -10,9 +10,15 @@ import {
   StepTwo,
   StepThree,
   StepFour,
+  MicroStepOne,
+  MicroStepTwo,
 } from "@/components/checkout/steps";
 import { FormProvider, useForm } from "react-hook-form";
-import type { CheckoutFormData } from "@/types/form-type";
+import type {
+  CheckoutFormData,
+  MainCheckoutFormData,
+  MicroCheckoutFormData,
+} from "@/types/form-type";
 
 const CheckoutPage = ({ params }: { params: Promise<{ id: string }> }) => {
   const resolvedParams = use(params);
@@ -20,55 +26,92 @@ const CheckoutPage = ({ params }: { params: Promise<{ id: string }> }) => {
   const service = getServiceById(serviceId);
   const router = useRouter();
 
+  const isMainService = service?.type === "main";
+
   const methods = useForm<CheckoutFormData>({
     mode: "onChange",
-    defaultValues: {
-      fullName: "",
-      email: "",
-      destination: "",
-      travelDate: "",
-      passportNumber: "",
-      nationality: "",
-      purposeOfTravel: "",
-      additionalNotes: "",
-    },
+    defaultValues: isMainService
+      ? {
+          fullName: "",
+          email: "",
+          destination: "",
+          travelDate: "",
+          passportNumber: "",
+          nationality: "",
+          purposeOfTravel: "",
+          additionalNotes: "",
+        }
+      : {
+          fullName: "",
+          email: "",
+          additionalNotes: "",
+        },
   });
 
   const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = 4;
 
-  const steps = [
-    {
-      id: 1,
-      title: "Personal Information",
-      description: "Enter your basic details",
-    },
-    {
-      id: 2,
-      title: "Travel Details",
-      description: "Provide your travel information",
-    },
-    {
-      id: 3,
-      title: "Document Information",
-      description: "Share your document details",
-    },
-    {
-      id: 4,
-      title: "Review & Confirmation",
-      description: "Review and confirm your application",
-    },
-  ];
+  const steps = isMainService
+    ? [
+        {
+          id: 1,
+          title: "Personal Information",
+          description: "Enter your basic details",
+        },
+        {
+          id: 2,
+          title: "Travel Details",
+          description: "Provide your travel information",
+        },
+        {
+          id: 3,
+          title: "Document Information",
+          description: "Share your document details",
+        },
+        {
+          id: 4,
+          title: "Review & Confirmation",
+          description: "Review and confirm your application",
+        },
+      ]
+    : [
+        {
+          id: 1,
+          title: "Service Request",
+          description: "Enter your details",
+        },
+        {
+          id: 2,
+          title: "Review & Confirmation",
+          description: "Review and confirm your request",
+        },
+      ];
+
+  const totalSteps = steps.length;
 
   const handleNext = async () => {
-    const fieldsByStep: Record<number, (keyof CheckoutFormData)[]> = {
-      1: ["fullName", "email"],
-      2: ["destination", "travelDate"],
-      3: ["passportNumber", "nationality"],
-      4: ["purposeOfTravel"],
-    };
+    let fieldsToValidate: (
+      | keyof MainCheckoutFormData
+      | keyof MicroCheckoutFormData
+    )[] = [];
 
-    const isStepValid = await methods.trigger(fieldsByStep[currentStep]);
+    if (isMainService) {
+      const mainFieldsByStep: Record<number, (keyof MainCheckoutFormData)[]> = {
+        1: ["fullName", "email"],
+        2: ["destination", "travelDate"],
+        3: ["passportNumber", "nationality"],
+        4: ["purposeOfTravel"],
+      };
+      fieldsToValidate = mainFieldsByStep[currentStep] || [];
+    } else {
+      const microFieldsByStep: Record<number, (keyof MicroCheckoutFormData)[]> =
+        {
+          1: ["fullName", "email"],
+          2: [],
+        };
+      fieldsToValidate = microFieldsByStep[currentStep] || [];
+    }
+
+    const isStepValid = await methods.trigger(fieldsToValidate as any);
     if (isStepValid && currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
     }
@@ -108,17 +151,24 @@ const CheckoutPage = ({ params }: { params: Promise<{ id: string }> }) => {
           </button>
 
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            {service.title} - Application Form
+            {service.title} -{" "}
+            {isMainService ? "Application Form" : "Request Form"}
           </h1>
           <p className="text-gray-600">
-            Please complete all steps to submit your visa application
+            {isMainService
+              ? "Please complete all steps to submit your visa application"
+              : "Please provide your details to request this service"}
           </p>
         </div>
 
         {/* Step Indicator */}
         <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 place-content-center gap-5">
-            {steps.map((step, index) => (
+          <div
+            className={`grid gap-5 place-content-center ${
+              isMainService ? "md:grid-cols-2 lg:grid-cols-4" : "grid-cols-2"
+            }`}
+          >
+            {steps.map((step) => (
               <React.Fragment key={step.id}>
                 <div className="flex flex-col items-center flex-1">
                   <div
@@ -172,10 +222,19 @@ const CheckoutPage = ({ params }: { params: Promise<{ id: string }> }) => {
                 if (e.key === "Enter") e.preventDefault();
               }}
             >
-              {currentStep === 1 && <StepOne />}
-              {currentStep === 2 && <StepTwo />}
-              {currentStep === 3 && <StepThree />}
-              {currentStep === 4 && <StepFour />}
+              {isMainService ? (
+                <>
+                  {currentStep === 1 && <StepOne />}
+                  {currentStep === 2 && <StepTwo />}
+                  {currentStep === 3 && <StepThree />}
+                  {currentStep === 4 && <StepFour />}
+                </>
+              ) : (
+                <>
+                  {currentStep === 1 && <MicroStepOne />}
+                  {currentStep === 2 && <MicroStepTwo />}
+                </>
+              )}
               {/* Note: Step 3 & 4 need to be implemented in components/checkout/steps.tsx */}
               {/* For now, placeholders will be shown via StepOne/StepTwo if they was fully implemented */}
 
