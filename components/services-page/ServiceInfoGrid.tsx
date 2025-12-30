@@ -11,6 +11,7 @@ import {
   CalendarClock,
   Snowflake,
   Map,
+  FileText,
 } from "lucide-react";
 import { ServiceSpecs } from "@/data/services";
 import { motion } from "framer-motion";
@@ -23,53 +24,71 @@ import {
 export const ServiceInfoGrid = ({ specs }: { specs?: ServiceSpecs }) => {
   if (!specs) return null;
 
-  const items = [
+  /* 
+     Dynamic items mapping based on new Visa/Immigration specs. 
+     We check if the spec exists before adding it to the list.
+  */
+  const allItems = [
     {
-      label: "Accommodation",
-      value: specs.accommodation || "5 Star Hotel",
-      icon: Hotel,
+      label: "Category",
+      value: specs.category,
+      icon: Map,
     },
     {
-      label: "Meals",
-      value: specs.meals || "Breakfast & Dinner",
-      icon: Utensils,
+      label: "Processing Time",
+      value: specs.processingTime,
+      icon: CalendarClock,
     },
     {
-      label: "Transportation",
-      value: specs.transportation || "Taxi, Car, Bus",
-      icon: TrainFront,
+      label: "Validity",
+      value: specs.validity,
+      icon: CalendarClock,
     },
     {
-      label: "Group Size",
-      value: specs.groupSize || "10-20",
+      label: "Doc. Support",
+      value: specs.docSupport,
+      icon: FileText, // Imported below or reuse existing if suitable
+    },
+    {
+      label: "Consultation",
+      value: specs.consultation,
       icon: Users,
     },
     {
       label: "Language",
-      value: specs.language || "English, Spanish",
+      value: specs.language,
       icon: Languages,
     },
     {
-      label: "Animal",
-      value: specs.animal || "Cat, Pet only",
-      icon: Dog,
+      label: "Group Size",
+      value: specs.groupSize,
+      icon: Users,
+    },
+    // Keep legacy items check just in case, or remove if cleaned up
+    {
+      label: "Accommodation",
+      value: specs.accommodation,
+      icon: Hotel,
     },
     {
-      label: "Age Range",
-      value: specs.ageRange || "18-45 (Year)",
-      icon: CalendarClock,
+      label: "Meals",
+      value: specs.meals,
+      icon: Utensils,
+    },
+    {
+      label: "Transportation",
+      value: specs.transportation,
+      icon: TrainFront,
     },
     {
       label: "Season",
-      value: specs.season || "Winter Season",
+      value: specs.season,
       icon: Snowflake,
     },
-    {
-      label: "Category",
-      value: specs.category || "Adventure",
-      icon: Map,
-    },
   ];
+
+  // Filter out undefined values so we don't show empty boxes or default text
+  const items = allItems.filter((item) => item.value);
 
   return (
     <motion.div

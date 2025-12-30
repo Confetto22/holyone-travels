@@ -157,7 +157,9 @@ const SearchBar = () => {
                     --select--
                   </option>
                   {item.list.map((listItem) => (
-                    <option value={listItem}>{listItem}</option>
+                    <option value={listItem} key={listItem}>
+                      {listItem}
+                    </option>
                   ))}
                 </select>
               </div>

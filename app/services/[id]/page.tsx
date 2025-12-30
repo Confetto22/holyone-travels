@@ -66,15 +66,42 @@ const ServiceDetailPage = ({ params }: PageProps) => {
                 >
                   {service.longDescription || service.description}
                 </motion.p>
-                <motion.p
-                  variants={fadeInUp}
-                  className="text-gray-600 leading-relaxed"
-                >
-                  We provide professional visa and immigration services tailored
-                  to your specific needs. Our experienced team will guide you
-                  through every step of the process, ensuring you have the best
-                  chance of success.
-                </motion.p>
+                {service.richContent?.intro ? (
+                  <motion.p
+                    variants={fadeInUp}
+                    className="text-gray-600 leading-relaxed"
+                  >
+                    {service.richContent.intro}
+                  </motion.p>
+                ) : (
+                  <motion.p
+                    variants={fadeInUp}
+                    className="text-gray-600 leading-relaxed"
+                  >
+                    We provide professional visa and immigration services
+                    tailored to your specific needs. Our experienced team will
+                    guide you through every step of the process, ensuring you
+                    have the best chance of success.
+                  </motion.p>
+                )}
+
+                {service.richContent?.whyChooseThis && (
+                  <motion.div variants={fadeInUp} className="mt-8">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">
+                      Why Choose This Service?
+                    </h3>
+                    <ul className="space-y-3">
+                      {service.richContent.whyChooseThis.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                          <span className="text-gray-600 font-medium">
+                            {item}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
               </div>
 
               <ServiceInfoGrid specs={service.specs} />

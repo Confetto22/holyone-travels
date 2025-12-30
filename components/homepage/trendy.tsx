@@ -144,7 +144,7 @@ const Trendy = () => {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
-          className="flex items-center justify-between mt-8"
+          className="flex flex-col md:flex-row gap-3 items-center justify-between mt-8"
         >
           {/* Navigation Arrows */}
           <div className="flex items-center gap-4">

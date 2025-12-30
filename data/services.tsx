@@ -4,16 +4,27 @@ import { CheckCircle2, FileText, Globe, GraduationCap } from "lucide-react";
 // --- Types ---
 export type ServiceCategory = "main" | "micro" | "digital";
 
+export interface RichContent {
+  intro?: string;
+  whyChooseThis?: string[];
+  benefits?: { title: string; desc: string }[];
+}
+
 export interface ServiceSpecs {
+  processingTime?: string;
+  validity?: string;
+  docSupport?: string;
+  consultation?: string;
+  language?: string;
+  groupSize?: string;
+  category?: string;
+  // Deprecated/Optional legacy fields kept for compatibility if needed, but intended for removal
   accommodation?: string;
   meals?: string;
   transportation?: string;
-  groupSize?: string;
-  language?: string;
   animal?: string;
   ageRange?: string;
   season?: string;
-  category?: string;
 }
 
 export interface BaseServiceItem {
@@ -26,6 +37,7 @@ export interface BaseServiceItem {
   longDescription?: string;
   images?: string[];
   type: ServiceCategory;
+  richContent?: RichContent;
 }
 
 export interface MainServiceItem extends BaseServiceItem {
@@ -72,16 +84,28 @@ export const mainServices: MainServiceItem[] = [
     price: 100,
     oldPrice: 150,
     specs: {
-      category: "Visa Package",
+      category: "Student Visa",
+      processingTime: "2-4 Weeks",
+      validity: "Duration of Course",
+      docSupport: "Full Review",
+      consultation: "Unlimited",
       language: "English",
-      groupSize: "Individual",
-      season: "All Season",
     },
     images: [
       "https://images.unsplash.com/photo-1554224311-beee2ece0e0a?auto=format&fit=crop&q=80&w=1200",
       "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200",
       "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1200",
     ],
+    richContent: {
+      intro:
+        "Navigating the complex world of international student visas can be daunting. Our Study Visa Support service weeds out the confusion, offering you a clear, streamlined path to your educational dreams abroad. We handle the bureaucratic heavy lifting so you can focus on your studies.",
+      whyChooseThis: [
+        "Personalized University Matching to find your best fit.",
+        "Comprehensive document verification to minimize rejection risk.",
+        "Expert guidance on writing compelling Statements of Purpose.",
+        "Pre-departure briefings to help you settle in smoothy.",
+      ],
+    },
   },
   {
     type: "main",
@@ -103,16 +127,28 @@ export const mainServices: MainServiceItem[] = [
     price: 300,
     oldPrice: 700,
     specs: {
-      category: "Visa Package",
+      category: "Work Permit",
+      processingTime: "3-6 Months",
+      validity: "1-2 Years",
+      docSupport: "Employer LIA Check",
+      consultation: "Priority Support",
       language: "English",
-      groupSize: "Individual",
-      season: "All Season",
     },
     images: [
       "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=1200",
       "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=1200",
       "https://images.unsplash.com/photo-1526721966451-226f140623cd?auto=format&fit=crop&q=80&w=1200",
     ],
+    richContent: {
+      intro:
+        "Securing a work visa is a pivotal step in advancing your global career. Our Work Visa Assistance program is designed to bridge the gap between your skills and international opportunities. We provide rigorous support to ensure your application stands out and meets all regulatory requirements.",
+      whyChooseThis: [
+        "In-depth assessment of your professional profile and eligibility.",
+        "Strategic advice on employer sponsorship and labor market impact assessments.",
+        "Assistance with gathering and certifying localized documents.",
+        "Interview coaching tailored to work visa protocols.",
+      ],
+    },
   },
   {
     type: "main",
@@ -136,16 +172,28 @@ export const mainServices: MainServiceItem[] = [
     price: 1000,
     oldPrice: 3000,
     specs: {
-      category: "Visa Package",
+      category: "Admission",
+      processingTime: "Rolling Intake",
+      validity: "Program Duration",
+      docSupport: "Transcript Review",
+      consultation: "Dedicated Officer",
       language: "English",
-      groupSize: "Individual/Family",
-      season: "All Season",
     },
     images: [
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1200",
       "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&q=80&w=1200",
       "https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?auto=format&fit=crop&q=80&w=1200",
     ],
+    richContent: {
+      intro:
+        "Our School Admission & Placement Support is a holistic service for students aiming for top-tier institutions. We don't just help you apply; we help you succeed. From selecting the right course to securing your acceptance letter, we are your partners in academic excellence.",
+      whyChooseThis: [
+        "Access to a vast network of partner universities and colleges.",
+        "Guidance on scholarship applications and financial aid.",
+        "Review of academic transcripts and extracurricular achievements.",
+        "Continuous support until you enroll and start your classes.",
+      ],
+    },
   },
   {
     type: "main",
@@ -169,16 +217,28 @@ export const mainServices: MainServiceItem[] = [
     price: 1000,
     oldPrice: 3000,
     specs: {
-      category: "Visa Package",
-      language: "English",
+      category: "Visitor Visa",
+      processingTime: "15-30 Days",
+      validity: "Up to 6 Months",
+      docSupport: "Itinerary Helper",
+      consultation: "Visa Strategy",
       groupSize: "Individual/Family",
-      season: "All Season",
     },
     images: [
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1200",
       "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&q=80&w=1200",
       "https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?auto=format&fit=crop&q=80&w=1200",
     ],
+    richContent: {
+      intro:
+        "Whether it's for leisure, visiting family, or exploring new cultures, our Tourist Visa Processing service ensures your travel plans go smoothly. We simplify the application process, helping you present a strong case for your temporary stay.",
+      whyChooseThis: [
+        "Clear checklists of required documents based on your destination.",
+        "Itinerary planning assistance to support your visa application.",
+        "Advice on demonstrating strong ties to your home country.",
+        "Fast-track processing options for urgent travel needs.",
+      ],
+    },
   },
 ];
 
