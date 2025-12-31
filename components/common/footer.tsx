@@ -26,7 +26,7 @@ const Footer = () => {
     // {
     //   icon: <MessageCircle className="w-8 h-8 text-secondary" />,
     //   title: "To More Inquiry",
-    //   subtitle: "Don't hesitate Call to GoFly.",
+    //   subtitle: "Don't hesitate Call to Holyone.",
     // },
     {
       icon: (
@@ -87,7 +87,7 @@ const Footer = () => {
   ];
 
   const resources = [
-    { label: "About GoFly", href: "#" },
+    { label: "About Holyone", href: "#" },
     { label: "Health & Safety Measure", href: "#" },
     { label: "Visa Processing", href: "#" },
     { label: "Customize Tour", href: "#" },
@@ -158,7 +158,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold leading-none tracking-tight">
-                    GoFly
+                    Holyone
                   </h2>
                   <p className="text-xs text-gray-400 tracking-wider">
                     Travel.co
@@ -168,7 +168,7 @@ const Footer = () => {
 
               <div>
                 <h3 className="font-bold text-white mb-2 text-sm">
-                  GoFly Travel Agency
+                  Holyone Travel Agency
                 </h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Skyline Plaza, 5th Floor, 123 Main Street

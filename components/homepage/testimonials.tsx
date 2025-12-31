@@ -25,7 +25,7 @@ const Testimonials = () => {
     {
       id: "1",
       name: "James Bonde",
-      role: "GoFly Traveler",
+      role: "Holyone Traveler",
       avatar:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
       rating: 5,
@@ -37,7 +37,7 @@ const Testimonials = () => {
     {
       id: "2",
       name: "James Bonde",
-      role: "GoFly Traveler",
+      role: "Holyone Traveler",
       avatar:
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
       rating: 5,
@@ -48,7 +48,7 @@ const Testimonials = () => {
     {
       id: "3",
       name: "James Bonde",
-      role: "GoFly Traveler",
+      role: "Holyone Traveler",
       avatar:
         "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
       rating: 5,

@@ -66,8 +66,11 @@ const PrivacyPolicy = () => {
             {/* Introduction */}
             <div className="space-y-4">
               <p>
-                At <span className="font-bold text-gray-900">GoFly Travel Agency</span>,
-                we are committed to protecting your privacy and ensuring the
+                At{" "}
+                <span className="font-bold text-gray-900">
+                  Brand Travel Agency
+                </span>
+                , we are committed to protecting your privacy and ensuring the
                 security of your personal information. This Privacy Policy
                 outlines how we collect, use, and safeguard your data when you
                 visit our website or use our services.
@@ -108,10 +111,10 @@ const PrivacyPolicy = () => {
               <div className="bg-gray-50 p-6 rounded-2xl inline-block pr-12">
                 <p className="font-bold text-gray-900">Email us at:</p>
                 <a
-                  href="mailto:privacy@gofly.com"
+                  href="mailto:privacy@brand.com"
                   className="text-blue-600 hover:text-blue-700 underline text-lg"
                 >
-                  privacy@gofly.com
+                  privacy@brand.com
                 </a>
               </div>
             </div>

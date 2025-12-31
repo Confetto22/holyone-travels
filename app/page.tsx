@@ -25,7 +25,7 @@ export default function Home() {
             Travel isn&apos;t a luxury, it&apos;s a way of life!
           </h2>
           <h3 className="text-xl font-semibold">Mr. Gabriel Haringson</h3>
-          <h5>CEO, GoFly</h5>
+          <h5>CEO, Brand</h5>
           <button className="bg-primary capitalize font-semibold py-3 px-5 rounded-3xl">
             <Link href={"#"} className="">
               grab the deal now

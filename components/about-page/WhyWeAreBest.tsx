@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import React from "react";
@@ -28,22 +28,22 @@ const WhyWeAreBest = () => {
               Why We’re Best Agency
             </h2>
             <h3 className="text-xl md:text-2xl font-semibold text-gray-900">
-              Welcome to GoFly Travel Agency – Your Gateway to Unforgettable
+              Welcome to Holyone Travel Agency – Your Gateway to Unforgettable
               Journeys!{" "}
               <span className="inline-block w-3 h-3 bg-blue-400 rounded-full ml-1 align-middle"></span>
             </h3>
 
             <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
               <p>
-                GoFly Travel Agency is a trusted name in the travel industry,
+                Holyone Travel Agency is a trusted name in the travel industry,
                 offering seamless travel planning, personalized itineraries, and
                 unforgettable adventures. With years of experience and a network
                 of global partners, we ensure a hassle-free and memorable
                 journey for every traveler.
               </p>
               <p>
-                We believe that travel is more than just moving from one place to
-                another—it’s about discovering new cultures, creating
+                We believe that travel is more than just moving from one place
+                to another—it’s about discovering new cultures, creating
                 unforgettable experiences, and making lifelong memories.
               </p>
             </div>
@@ -75,7 +75,7 @@ const WhyWeAreBest = () => {
                     Robert Harringson
                   </h4>
                   <p className="text-gray-500 text-sm tracking-wide">
-                    Founder at GoFly
+                    Founder at Holyone
                   </p>
                 </div>
               </div>
@@ -91,7 +91,7 @@ const WhyWeAreBest = () => {
             className="w-full lg:w-1/2 relative min-h-[500px] flex items-center justify-center"
           >
             {/* Background blob/shape could be added here for more depth */}
-            
+
             {/* Top Right - Travel Montage */}
             <motion.div
               variants={fadeInUp}
@@ -112,12 +112,12 @@ const WhyWeAreBest = () => {
               whileHover={{ scale: 1.05, zIndex: 40 }}
               className="absolute top-[20%] left-0 w-[55%] h-[50%] z-10 rounded-[2rem] overflow-hidden border-4 border-white shadow-xl"
             >
-                <Image
-                  src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&q=80&w=800"
-                  alt="Skiing adventure"
-                  fill
-                  className="object-cover"
-                />
+              <Image
+                src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&q=80&w=800"
+                alt="Skiing adventure"
+                fill
+                className="object-cover"
+              />
             </motion.div>
 
             {/* Bottom Right - Paddle Boarding */}
@@ -126,12 +126,12 @@ const WhyWeAreBest = () => {
               whileHover={{ scale: 1.05, zIndex: 40 }}
               className="absolute bottom-0 right-[10%] w-[50%] h-[40%] z-30 rounded-[2rem] overflow-hidden border-4 border-white shadow-xl"
             >
-               <Image
-                  src="https://images.unsplash.com/photo-1544551763-8dd401344420?auto=format&fit=crop&q=80&w=800"
-                  alt="Water sports"
-                  fill
-                  className="object-cover"
-                 />
+              <Image
+                src="https://images.unsplash.com/photo-1544551763-8dd401344420?auto=format&fit=crop&q=80&w=800"
+                alt="Water sports"
+                fill
+                className="object-cover"
+              />
             </motion.div>
           </motion.div>
         </div>
