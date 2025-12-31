@@ -1,9 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import {
-  CheckCircle2,
-  ArrowRight,
-} from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -81,13 +78,13 @@ const MicroServiceCard = ({ item }: { item: MicroServiceItem }) => (
 
 const DigitalServiceCard = ({ item }: { item: DigitalServiceItem }) => (
   <Link href={`/services/${item.id}`} className="block">
-    <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-lg hover:border-primary transition-all cursor-pointer flex flex-col md:flex-row group">
-      <div className="md:w-1/3 relative h-48 md:h-auto overflow-hidden">
+    <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-lg hover:border-primary px-2 transition-all cursor-pointer flex flex-col md:flex-row md:items-center group">
+      <div className="md:w-1/3 relative h-48 md:max-h-64rem] md:min-h-full overflow-hidden rounded-xl">
         <Image
           src={item.image}
           alt={item.title}
           width={400}
-          height={300}
+          height={400}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
