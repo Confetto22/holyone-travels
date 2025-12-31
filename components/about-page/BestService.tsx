@@ -83,7 +83,7 @@ const BestService = () => {
           <motion.div variants={fadeInUp} className="flex justify-center">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
-                href="/offers"
+                href="#"
                 className="inline-flex items-center gap-2 bg-[#1A85FF] hover:bg-blue-600 text-white font-semibold py-4 px-8 rounded-full transition-colors text-lg shadow-lg shadow-blue-200"
               >
                 Flat 30% Discounts All Packages
