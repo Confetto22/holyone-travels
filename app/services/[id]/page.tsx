@@ -34,7 +34,7 @@ const ServiceDetailPage = ({ params }: PageProps) => {
     "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200";
 
   return (
-    <section>
+    <section className="overflow-x-hidden">
       <PageHead
         prevPage="Services"
         prevLink="/services"
