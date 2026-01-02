@@ -34,7 +34,7 @@ const ServiceDetailPage = ({ params }: PageProps) => {
     "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200";
 
   return (
-    <section className="overflow-x-hidden">
+    <section className="">
       <PageHead
         prevPage="Services"
         prevLink="/services"
@@ -43,7 +43,7 @@ const ServiceDetailPage = ({ params }: PageProps) => {
       />
 
       <div className="py-20 md:py-28 bg-white min-h-screen">
-        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+        <div className=" mx-auto px-4 md:px-8 max-w-7xl">
           <motion.div
             variants={staggerContainer}
             initial="hidden"

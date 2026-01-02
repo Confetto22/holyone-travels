@@ -7,6 +7,7 @@ import { fadeInDown } from "@/lib/animation-variants";
 import { useState } from "react";
 import { Menu } from "lucide-react";
 import MobileMenu from "./mobile-menu";
+import PaymentDrawer from "./payment-drawer";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,36 +38,31 @@ const Header = () => {
         variants={fadeInDown}
         initial="hidden"
         animate="visible"
-        className={`absolute header top-0 left-0 right-0 z-50  ${
-          pathname.includes("/checkout") ? "bg-primary/60" : "bg-transparent"
+        className={` header py-2 top-0 left-0 w-full right-0 z-50  ${
+          pathname.includes("/checkout") ? "bg-primary/60" : "bg-transparent "
         }`}
       >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href={"/"} className="flex items-center gap-2">
-              <h3 className="text-white text-xl font-semibold"> Holyone</h3>
+              <h3 className="text-black text-xl font-semibold"> Holyone</h3>
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6">
               {navLinks.map((navLink) => (
-                <motion.div
+                <Link
                   key={navLink.ref}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  href={navLink.refLink}
+                  className={`hover:text-secondary transition-colors capitalize ${
+                    pathname === navLink.refLink
+                      ? "text-secondary"
+                      : "text-black/80"
+                  }`}
                 >
-                  <Link
-                    href={navLink.refLink}
-                    className={`hover:text-secondary transition-colors capitalize ${
-                      pathname === navLink.refLink
-                        ? "text-secondary"
-                        : "text-white"
-                    }`}
-                  >
-                    {navLink.ref}
-                  </Link>
-                </motion.div>
+                  {navLink.ref}
+                </Link>
               ))}
             </nav>
 
@@ -82,13 +78,14 @@ const Header = () => {
             </div>
 
             {/* Mobile Hamburger Button */}
-            <div className="md:hidden flex items-center">
+            <div className="md:hidden flex gap-3 items-center">
+              <PaymentDrawer />
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="text-white p-1"
+                className="text-primary/70 p-1 cursor-pointer hover:opacity-70"
                 aria-label="Open Menu"
               >
-                <Menu className="w-8 h-8" />
+                <Menu className="size-7" />
               </button>
             </div>
           </div>
