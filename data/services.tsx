@@ -68,7 +68,7 @@ export const mainServices: MainServiceItem[] = [
   {
     type: "main",
     id: "1",
-    title: "Study Visa Support",
+    title: "Study Visa Support (Canada, UK, USA, Europe)",
     description:
       "Perfect for basic guidance. Eligibility assessment, school admission guidance, and priority support.",
     longDescription:
@@ -110,7 +110,50 @@ export const mainServices: MainServiceItem[] = [
   {
     type: "main",
     id: "2",
-    title: "Work Visa Assistance",
+    title: "Work Visa Assistance (Canada, Austria, New Zealand, Europe)",
+    description:
+      "For students & workers. Includes everything in Starter plus SOP review, resume formatting, and step-by-step guidance.",
+    longDescription:
+      "The Work Visa Assistance Package is designed for students and workers who need comprehensive support. Get everything in the Starter Package plus expert SOP review, professional resume formatting, step-by-step application guidance, and dedicated priority WhatsApp support throughout your visa journey.",
+    icon: <GraduationCap className="w-8 h-8 text-white" />,
+    features: [
+      "Everything in Starter",
+      "SOP Review",
+      "Resume Formatting",
+      "Step-by-Step Guidance",
+      "Priority WhatsApp Support",
+    ],
+    ctaLabel: "Choose Professional",
+    price: 300,
+    oldPrice: 700,
+    specs: {
+      category: "Work Permit",
+      processingTime: "3-6 Months",
+      validity: "1-2 Years",
+      docSupport: "Employer LIA Check",
+      consultation: "Priority Support",
+      language: "English",
+    },
+    images: [
+      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1526721966451-226f140623cd?auto=format&fit=crop&q=80&w=1200",
+    ],
+    richContent: {
+      intro:
+        "Securing a work visa is a pivotal step in advancing your global career. Our Work Visa Assistance program is designed to bridge the gap between your skills and international opportunities. We provide rigorous support to ensure your application stands out and meets all regulatory requirements.",
+      whyChooseThis: [
+        "In-depth assessment of your professional profile and eligibility.",
+        "Strategic advice on employer sponsorship and labor market impact assessments.",
+        "Assistance with gathering and certifying localized documents.",
+        "Interview coaching tailored to work visa protocols.",
+      ],
+    },
+  },
+  {
+    type: "main",
+    id: "3",
+    title: "Job Search Strategy & Relocation Support",
     description:
       "For students & workers. Includes everything in Starter plus SOP review, resume formatting, and step-by-step guidance.",
     longDescription:
@@ -153,7 +196,7 @@ export const mainServices: MainServiceItem[] = [
   {
     type: "main",
     id: "4",
-    title: "School Admission & Placement Support",
+    title: "School Admission & Placement",
     description:
       "Premium end-to-end support. Complete application management, unlimited consultation, dedicated case officer, and full visa coaching.",
     longDescription:
@@ -197,8 +240,8 @@ export const mainServices: MainServiceItem[] = [
   },
   {
     type: "main",
-    id: "3",
-    title: "Tourist/Visitor Visa Processing",
+    id: "5",
+    title: "Tourist / Visitor Visa Guidance",
     description:
       "Premium end-to-end support. Complete application management, unlimited consultation, dedicated case officer, and full visa coaching.",
     longDescription:
@@ -247,7 +290,7 @@ export const microServices: MicroServiceItem[] = [
     type: "micro",
     id: "101",
     title: "Visa Eligibility Check",
-    description: "Quickly verify your eligibility for various visa categories.",
+    description: "Quick assessment to identify your best visa options.",
     icon: <CheckCircle2 className="w-6 h-6 text-[#6CB43F]" />,
     price: 20,
     specs: {
@@ -260,7 +303,8 @@ export const microServices: MicroServiceItem[] = [
     type: "micro",
     id: "102",
     title: "Document Review",
-    description: "Professional review of your travel or application documents.",
+    description:
+      "Review for errors, gaps, and inconsistencies before submission.",
     icon: <FileText className="w-6 h-6 text-[#6CB43F]" />,
     price: 30,
     specs: {
@@ -274,7 +318,7 @@ export const microServices: MicroServiceItem[] = [
     id: "103",
     title: "SOP/Motivation Letter",
     description:
-      "Expert crafting and review of your Statement of Purpose or motivation letter.",
+      "Professionally written statement aligned with visa requirements.",
     icon: <FileText className="w-6 h-6 text-[#6CB43F]" />,
     price: 40,
     specs: {
@@ -288,7 +332,7 @@ export const microServices: MicroServiceItem[] = [
     id: "104",
     title: "Proof of Funds Guidance",
     description:
-      "Expert guidance on preparing and presenting proof of funds documentation.",
+      "Understand required amounts and how to present funds correctly.",
     icon: <CheckCircle2 className="w-6 h-6 text-[#6CB43F]" />,
     price: 20,
     specs: {
@@ -301,8 +345,7 @@ export const microServices: MicroServiceItem[] = [
     type: "micro",
     id: "105",
     title: "School Admission Guidance",
-    description:
-      "Step-by-step support for school and university admission applications.",
+    description: "School and program selection based on profile and budget.",
     icon: <GraduationCap className="w-6 h-6 text-[#6CB43F]" />,
     price: 30,
     specs: {
@@ -315,8 +358,7 @@ export const microServices: MicroServiceItem[] = [
     type: "micro",
     id: "106",
     title: "Canada Job Search Support",
-    description:
-      "Specialized job search assistance for Canadian employment opportunities.",
+    description: "ATS-optimized CV + employer leads + job search strategy.",
     icon: <Globe className="w-6 h-6 text-[#6CB43F]" />,
     price: 50,
     specs: {
@@ -330,7 +372,7 @@ export const microServices: MicroServiceItem[] = [
     id: "107",
     title: "PR Pathway Consultation",
     description:
-      "Consultation on permanent residency pathways and requirements.",
+      "Explore permanent residence options for Canada, Europe & New Zealand.",
     icon: <CheckCircle2 className="w-6 h-6 text-[#6CB43F]" />,
     price: 20,
     specs: {
@@ -343,9 +385,22 @@ export const microServices: MicroServiceItem[] = [
     type: "micro",
     id: "108",
     title: "Flight Reservation",
-    description: "Flight reservation service for visa application purposes.",
+    description: "Visa-compliant flight reservation (no full ticket purchase).",
     icon: <Globe className="w-6 h-6 text-[#6CB43F]" />,
     price: 20,
+    specs: {
+      category: "Travel",
+      language: "English",
+      season: "All Season",
+    },
+  },
+  {
+    type: "micro",
+    id: "109",
+    title: "Travel Insurance Support",
+    description: "Guidance on visa-acceptable insurance options.",
+    icon: <Globe className="w-6 h-6 text-[#6CB43F]" />,
+    price: 25,
     specs: {
       category: "Travel",
       language: "English",
@@ -358,12 +413,12 @@ export const digitalServices: DigitalServiceItem[] = [
   {
     type: "digital",
     id: "201",
-    title: "Canada Visa Guide Toolkit",
+    title: "Canada Visa Approval Toolkit ",
     description:
       "Comprehensive toolkit for navigating Canadian visa applications.",
     benefit: "Save time and avoid common mistakes.",
     image:
-      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=60",
+      "https://res.cloudinary.com/dv9aqxptd/image/upload/v1767373531/holyone-travels/toronto-street-view_icgb0r.webp",
     price: 25,
     specs: {
       category: "E-Book",
@@ -374,7 +429,7 @@ export const digitalServices: DigitalServiceItem[] = [
   {
     type: "digital",
     id: "202",
-    title: "Austria RWRV Visa Guide",
+    title: "Study Visa SOP Template Pack (5 Samples)",
     description:
       "Complete guide for Austria Red-White-Red Card visa application.",
     benefit: "Step-by-step instructions for success.",
@@ -390,12 +445,12 @@ export const digitalServices: DigitalServiceItem[] = [
   {
     type: "digital",
     id: "203",
-    title: "Portugal D7 Visa Guide",
+    title: "Verified Canada Employer List",
     description: "Essential guide for Portugal D7 passive income visa.",
     benefit: "Navigate the process with confidence.",
     image:
       "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=600&auto=format&fit=crop&q=60",
-    price: 20,
+    price: 30,
     specs: {
       category: "Guide",
       language: "English",
@@ -405,12 +460,12 @@ export const digitalServices: DigitalServiceItem[] = [
   {
     type: "digital",
     id: "204",
-    title: "Germany Opportunity Card Guide",
+    title: "Canada PR Roadmap Guide",
     description: "Complete guide to Germany's Opportunity Card visa program.",
     benefit: "Maximize your chances of approval.",
     image:
       "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=60",
-    price: 20,
+    price: 25,
     specs: {
       category: "Guide",
       language: "English",
@@ -420,12 +475,12 @@ export const digitalServices: DigitalServiceItem[] = [
   {
     type: "digital",
     id: "205",
-    title: "New Zealand Employment List",
+    title: "Austria Red-White-Red Card Guide",
     description: "Comprehensive employment opportunities list for New Zealand.",
     benefit: "Find job opportunities in New Zealand.",
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&auto=format&fit=crop&q=60",
-    price: 25,
+    price: 30,
     specs: {
       category: "Roadmap",
       language: "English",
@@ -435,13 +490,13 @@ export const digitalServices: DigitalServiceItem[] = [
   {
     type: "digital",
     id: "206",
-    title: "Conference Visa Strategy Guide",
+    title: "Portugal Job Seeker Visa Guide ",
     description:
       "Strategic guide for conference and business visa applications.",
     benefit: "Attend conferences worldwide.",
     image:
       "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&auto=format&fit=crop&q=60",
-    price: 30,
+    price: 20,
     specs: {
       category: "Database",
       language: "English",
@@ -451,12 +506,12 @@ export const digitalServices: DigitalServiceItem[] = [
   {
     type: "digital",
     id: "207",
-    title: "Conference Attendance Checklist",
+    title: "Germany Opportunity Card Guide",
     description: "Essential checklist for conference attendance and visa prep.",
     benefit: "Never miss important details.",
     image:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&auto=format&fit=crop&q=60",
-    price: 15,
+    price: 20,
     specs: {
       category: "Strategy Guide",
       language: "English",
@@ -466,12 +521,12 @@ export const digitalServices: DigitalServiceItem[] = [
   {
     type: "digital",
     id: "208",
-    title: "Relocation Checklist",
+    title: "NZ Accredited Employer List ",
     description: "Complete checklist for international relocation planning.",
     benefit: "Organized move, stress-free.",
     image:
       "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&auto=format&fit=crop&q=60",
-    price: 15,
+    price: 25,
     specs: {
       category: "Checklist",
       language: "English",
@@ -481,7 +536,7 @@ export const digitalServices: DigitalServiceItem[] = [
   {
     type: "digital",
     id: "209",
-    title: "Relocation Students Guide",
+    title: "New Zealand Work Visa Step-by-Step Guide ",
     description: "Essential guide for students relocating internationally.",
     benefit: "Smooth transition for students.",
     image:
@@ -496,12 +551,12 @@ export const digitalServices: DigitalServiceItem[] = [
   {
     type: "digital",
     id: "210",
-    title: "Student Survival Guide",
+    title: "Conference Visa Relocation Strategy Guide ",
     description: "Essential survival guide for international students.",
     benefit: "Thrive in your new environment.",
     image:
       "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&auto=format&fit=crop&q=60",
-    price: 15,
+    price: 30,
     specs: {
       category: "Guide",
       language: "English",
@@ -511,12 +566,42 @@ export const digitalServices: DigitalServiceItem[] = [
   {
     type: "digital",
     id: "211",
-    title: "Starting Life Abroad Guide",
+    title: "Complete Relocation Checklist",
+    description: "Comprehensive guide for starting your new life abroad.",
+    benefit: "Settle in with confidence.",
+    image:
+      "https://images.unsplash.com/photo-1488998427799-e3362cec87c3?w=600&auto=format&fit=crop&q=60",
+    price: 15,
+    specs: {
+      category: "Guide",
+      language: "English",
+      season: "All Season",
+    },
+  },
+  {
+    type: "digital",
+    id: "212",
+    title: "Accommodation Finder Guide",
     description: "Comprehensive guide for starting your new life abroad.",
     benefit: "Settle in with confidence.",
     image:
       "https://images.unsplash.com/photo-1488998427799-e3362cec87c3?w=600&auto=format&fit=crop&q=60",
     price: 20,
+    specs: {
+      category: "Guide",
+      language: "English",
+      season: "All Season",
+    },
+  },
+  {
+    type: "digital",
+    id: "213",
+    title: "International Student Survival Guide",
+    description: "Comprehensive guide for starting your new life abroad.",
+    benefit: "Settle in with confidence.",
+    image:
+      "https://images.unsplash.com/photo-1488998427799-e3362cec87c3?w=600&auto=format&fit=crop&q=60",
+    price: 15,
     specs: {
       category: "Guide",
       language: "English",

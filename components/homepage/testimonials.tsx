@@ -31,8 +31,7 @@ const Testimonials = () => {
       rating: 5,
       title: "Average Experience",
       review:
-        "The tour was well-organized, and we enjoyed every bit of it. However, I wish we had more free time to explore on our own. Overall, a great experience!",
-      hasVideo: true,
+        "Holyone Pathway Partners helped me understand my visa options clearly and avoid costly mistakes.",
     },
     {
       id: "2",
@@ -43,7 +42,7 @@ const Testimonials = () => {
       rating: 5,
       title: "Average Experience",
       review:
-        "The tour was well-organized, and we enjoyed every bit of it. However, I wish we had more free time to explore on our own. Overall, a great experience!",
+        "Professional, honest, and very responsive. I felt guided, not pressured.",
     },
     {
       id: "3",
@@ -54,7 +53,7 @@ const Testimonials = () => {
       rating: 5,
       title: "Average Experience",
       review:
-        "The tour was well-organized, and we enjoyed every bit of it. However, I wish we had more free time to explore on our own. Overall, a great experience!",
+        "Their documentation support and consultation saved me time and stress.",
     },
   ];
 
@@ -161,17 +160,6 @@ const Testimonials = () => {
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  {testimonial.hasVideo && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-full">
-                      <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
-                        <Play
-                          size={20}
-                          className="text-gray-900 ml-1"
-                          fill="currentColor"
-                        />
-                      </div>
-                    </div>
-                  )}
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-900">
@@ -193,9 +181,9 @@ const Testimonials = () => {
               </div>
 
               {/* Review Content */}
-              <h5 className="font-bold text-gray-900 mb-2">
+              {/* <h5 className="font-bold text-gray-900 mb-2">
                 {testimonial.title}
-              </h5>
+              </h5> */}
               <p className="text-gray-700 text-sm leading-relaxed">
                 {testimonial.review}
               </p>
@@ -204,7 +192,7 @@ const Testimonials = () => {
         </motion.div>
 
         {/* Footer Rating Section */}
-        <motion.div
+        {/* <motion.div
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
@@ -212,8 +200,7 @@ const Testimonials = () => {
           className="bg-white rounded-xl p-8 shadow-lg"
         >
           <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-            {/* Tripadvisor */}
-            <div className="flex items-center gap-4">
+           <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
                 <svg
                   width="40"
@@ -240,16 +227,12 @@ const Testimonials = () => {
               </div>
             </div>
 
-            {/* Separator */}
+\            <div className="hidden md:block w-px h-16 bg-gray-300" />
+
+\            <div className="text-6xl font-bold text-gray-900">4.5</div>
+
             <div className="hidden md:block w-px h-16 bg-gray-300" />
 
-            {/* Rating Number */}
-            <div className="text-6xl font-bold text-gray-900">4.5</div>
-
-            {/* Separator */}
-            <div className="hidden md:block w-px h-16 bg-gray-300" />
-
-            {/* Trustpilot */}
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
                 <svg
@@ -280,7 +263,7 @@ const Testimonials = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

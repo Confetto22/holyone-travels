@@ -1,12 +1,12 @@
 "use client";
 
 import {
-  Globe,
+  FileText,
   Zap,
   Calendar,
   UserCheck,
-  Headphones,
-  CalendarX,
+  MessageCircle,
+  ClipboardCheck,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import {
@@ -26,50 +26,51 @@ type Feature = {
 const Features = () => {
   const features: Feature[] = [
     {
-      id: "worldwide-coverage",
-      title: "Worldwide Coverage",
-      description: "Curabitur convallis enim atnora ullamcorper sagittis.",
-      icon: Globe,
-      iconColor: "green",
-    },
-    {
-      id: "competitive-pricing",
-      title: "Competitive Pricing",
+      id: "eligibility-check",
+      title: "Visa Eligibility Check",
       description:
-        "Burabitur convallis enim atnora. Morbi nug scelerisque for thana.",
-      icon: Zap,
-      iconColor: "gold",
-    },
-    {
-      id: "fast-booking",
-      title: "Fast Booking",
-      description:
-        "Fermentum eitorx quis maximum Etiam urnan posuere convallis.",
-      icon: Calendar,
-      iconColor: "green",
-    },
-    {
-      id: "guided-tours",
-      title: "Guided Tours",
-      description:
-        "Pellentesque venenatis egestasoi diam Proin velgorat elit porttitor metus convallis.",
+        "Comprehensive assessment of your profile to determine visa eligibility for your desired destination.",
       icon: UserCheck,
-      iconColor: "gold",
-    },
-    {
-      id: "best-support",
-      title: "Best Support 24/7",
-      description:
-        "Sed venenatis mauris nec nulla euismod, accounv varius lectus viverra oncen.",
-      icon: Headphones,
       iconColor: "green",
     },
     {
-      id: "ultimate-flexibility",
-      title: "Ultimate Flexibility",
+      id: "document-verification",
+      title: "Document Verification",
       description:
-        "Duis leo sapien, lacinia utorrent efficitur utom suscipit quis nulla Sed auctor eu der cer",
-      icon: CalendarX,
+        "Thorough review of all your documents to ensure they meet the specific requirements of the embassy.",
+      icon: ClipboardCheck,
+      iconColor: "gold",
+    },
+    {
+      id: "application-assistance",
+      title: "Application Assistance",
+      description:
+        "Step-by-step guidance through the entire visa application filling process to avoid errors.",
+      icon: FileText,
+      iconColor: "green",
+    },
+    {
+      id: "interview-prep",
+      title: "Interview Preparation",
+      description:
+        "Mock interviews and expert tips to help you face the consular interview with confidence.",
+      icon: MessageCircle,
+      iconColor: "gold",
+    },
+    {
+      id: "fast-track",
+      title: "Fast-Track Processing",
+      description:
+        "Expedited services for urgent travel needs to get your visa processed as quickly as possible.",
+      icon: Zap,
+      iconColor: "green",
+    },
+    {
+      id: "appointment-scheduling",
+      title: "Appointment Scheduling",
+      description:
+        "Hassle-free booking of visa appointments at your preferred time and location.",
+      icon: Calendar,
       iconColor: "gold",
     },
   ];
@@ -114,7 +115,7 @@ const Features = () => {
               </svg>
               <div className="relative px-6 py-2">
                 <span className="text-primary text-lg font-handwriting italic font-semibold">
-                  Who We Are
+                  Our Services
                 </span>
               </div>
             </div>
@@ -125,7 +126,7 @@ const Features = () => {
             variants={fadeInUp}
             className="text-4xl md:text-5xl font-bold text-gray-900"
           >
-            Why TripRex Is Best
+            Why Choose Holyone
           </motion.h2>
         </motion.div>
 
@@ -184,4 +185,3 @@ const Features = () => {
 };
 
 export default Features;
-

@@ -17,7 +17,7 @@ const About = () => {
         currPage="About"
       />
       <WhyWeAreBest />
-      <BestService />
+      {/* <BestService /> */}
       <BehindTheJourney />
       <WhyTravelWithUs />
       <TrustedCompanies />

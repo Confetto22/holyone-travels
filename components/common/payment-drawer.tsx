@@ -16,7 +16,10 @@ const PaymentDrawer = () => {
       </SheetTrigger>
       <SheetContent className="flex flex-col h-full">
         <SheetHeader>
-          <SheetTitle></SheetTitle>
+          <SheetTitle className="text-black/60 p-0">
+            After payment, send proof via WhatsApp with Your Full Name + Service
+            Paid For.
+          </SheetTitle>
         </SheetHeader>
 
         <div className="flex-1 overflow-y-auto -mx-6 px-6">

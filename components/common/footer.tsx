@@ -20,14 +20,10 @@ import {
   viewportOptions,
 } from "@/lib/animation-variants";
 import { FaWhatsapp } from "react-icons/fa";
+import { digitalServices } from "@/data/services";
 
 const Footer = () => {
   const contactInfo = [
-    // {
-    //   icon: <MessageCircle className="w-8 h-8 text-secondary" />,
-    //   title: "To More Inquiry",
-    //   subtitle: "Don't hesitate Call to Holyone.",
-    // },
     {
       icon: (
         <div className="bg-white rounded-full p-0.5">
@@ -37,7 +33,7 @@ const Footer = () => {
         </div>
       ), // WhatsApp proxy
       title: "WhatsApp",
-      subtitle: "+91 345 533 865",
+      subtitle: "+1 548 325 8804",
     },
     {
       icon: (
@@ -48,7 +44,7 @@ const Footer = () => {
         </div>
       ),
       title: "Mail Us",
-      subtitle: "info@example.com",
+      subtitle: "holyonepathwaypartners@gmail.com",
     },
     {
       icon: (
@@ -59,7 +55,7 @@ const Footer = () => {
         </div>
       ),
       title: "Call Us",
-      subtitle: "+91 456 453 345",
+      subtitle: "+1 548 325 8804",
     },
   ];
 
@@ -99,7 +95,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#020617] text-white relative font-sans">
+    <footer className="bg-[#020617] pb-12 text-white relative font-sans">
       {/* Top Contact Bar */}
       <div className="border-b border-gray-800">
         <div className="container mx-auto px-4 py-8">
@@ -144,10 +140,10 @@ const Footer = () => {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8"
+            className="grid grid-cols-1 md:grid-cols-6 gap-12 lg:gap-8"
           >
             {/* Column 1: Brand & Contact */}
-            <motion.div variants={fadeInUp} className="space-y-6">
+            <motion.div variants={fadeInUp} className="space-y-6 md:col-span-4">
               <div className="flex items-center gap-3">
                 {/* Logo Icon Proxy */}
                 <div className="relative">
@@ -171,14 +167,15 @@ const Footer = () => {
                   Holyone Travel Agency
                 </h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  Skyline Plaza, 5th Floor, 123 Main Street
-                  <br />
-                  Los Angeles, CA 90001, USA
+                  Holyone Pathway Partners provides visa guidance, document
+                  support, and relocation advisory services based on publicly
+                  available information. We are not a law firm and do not
+                  provide legal representation.
                 </p>
               </div>
 
               {/* Social Icons */}
-              <div className="flex gap-3">
+              {/* <div className="flex gap-3">
                 {socialIcons.map((social, index) => (
                   <motion.div
                     key={index}
@@ -193,70 +190,31 @@ const Footer = () => {
                     </Link>
                   </motion.div>
                 ))}
-              </div>
+              </div> */}
 
               {/* Google Play Button */}
             </motion.div>
 
-            {/* Column 2: Top Destination */}
-            <motion.div variants={fadeInUp}>
-              <h3 className="text-white font-bold text-lg mb-6">
-                Top Destination
-              </h3>
-              <ul className="space-y-3 text-sm text-gray-400">
-                {destinations.map((item) => (
-                  <motion.li key={item.label} whileHover={{ x: 5 }}>
-                    <Link
-                      href={item.href}
-                      className="hover:text-white transition-all"
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Column 3: Popular Search */}
-            <motion.div variants={fadeInUp}>
-              <h3 className="text-white font-bold text-lg mb-6">
-                Popular Search
-              </h3>
-              <ul className="space-y-3 text-sm text-gray-400">
-                {popularSearches.map((item) => (
-                  <motion.li key={item.label} whileHover={{ x: 5 }}>
-                    <Link
-                      href={item.href}
-                      className="hover:text-white transition-all"
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
             {/* Column 4: Resources */}
-            <motion.div variants={fadeInUp}>
+            <motion.div variants={fadeInUp} className="md:col-span-2">
               <h3 className="text-white font-bold text-lg mb-6">Resources</h3>
-              <ul className="space-y-3 text-sm text-gray-400">
-                {resources.map((item) => (
-                  <motion.li key={item.label} whileHover={{ x: 5 }}>
-                    <Link
-                      href={item.href}
-                      className="hover:text-white transition-all"
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.li>
+              <menu className=" text-sm text-gray-400 flex-wrap  gap-2 flex">
+                {digitalServices.slice(0, 5).map((item) => (
+                  <Link
+                    key={item.title}
+                    href={`/services/${item.id}`}
+                    className="hover:text-white  break-all transition-all"
+                  >
+                    {item.title},
+                  </Link>
                 ))}
-              </ul>
+              </menu>
             </motion.div>
           </motion.div>
         </div>
 
         {/* Scroll to Top Button (Fixed/Floating) */}
-        <div className="absolute bottom-8 right-8">
+        {/* <div className="absolute bottom-8 right-8">
           <motion.button
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.9 }}
@@ -269,8 +227,13 @@ const Footer = () => {
           >
             <ArrowUp className="w-5 h-5" />
           </motion.button>
-        </div>
+        </div> */}
       </div>
+      <hr className="border-none bg-gray-800 h-[.1px] mb-5" />
+      <p className="text-center">
+        &copy; {new Date().getFullYear()} Holyone Pathway Partners. All rights
+        reserved.
+      </p>
     </footer>
   );
 };

@@ -73,7 +73,7 @@ const Header = () => {
                 whileTap={{ scale: 0.95 }}
                 className="bg-secondary text-white px-6 py-2 rounded-full hover:bg-secondary/90 transition-colors font-medium"
               >
-                Book A Trip
+                Book Consultation
               </motion.button>
             </div>
 

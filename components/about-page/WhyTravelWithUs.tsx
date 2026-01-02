@@ -12,22 +12,32 @@ import {
 const features = [
   {
     icon: <Luggage className="w-8 h-8 text-blue-600" />,
-    title: "Expertly Curated Tours.",
+    title: "Transparent, realistic guidance (no fake guarantees)",
     bgColor: "bg-blue-50",
   },
   {
     icon: <Tag className="w-8 h-8 text-blue-600" />,
-    title: "Affordable & Flexible Packages.",
+    title: "Fast turnaround on micro-services",
     bgColor: "bg-blue-100",
   },
   {
     icon: <Headset className="w-8 h-8 text-blue-600" />,
-    title: "24/7 Customer Support.",
+    title: "Affordable entry options",
     bgColor: "bg-blue-50",
   },
   {
     icon: <Medal className="w-8 h-8 text-blue-600" />,
-    title: "Certified & Experienced Guides.",
+    title: "Real relocation experience",
+    bgColor: "bg-blue-100",
+  },
+  {
+    icon: <Medal className="w-8 h-8 text-blue-600" />,
+    title: "Clear communication & professionalism",
+    bgColor: "bg-blue-100",
+  },
+  {
+    icon: <Medal className="w-8 h-8 text-blue-600" />,
+    title: "Global client support",
     bgColor: "bg-blue-100",
   },
 ];
@@ -47,7 +57,7 @@ const WhyTravelWithUs = () => {
             variants={fadeInUp}
             className="text-3xl md:text-5xl font-bold text-gray-900 mb-4"
           >
-            Why Travel with Us?
+            Why Choose Us?
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-gray-600 text-lg">
             We specialize in crafting personalized journeys that suit every
@@ -60,11 +70,11 @@ const WhyTravelWithUs = () => {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {features.map((feature, index) => (
+          {features.map((feature) => (
             <motion.div
-              key={index}
+              key={feature.title}
               variants={fadeInUp}
               whileHover={{ y: -10 }}
               className={`${feature.bgColor} rounded-[2rem] p-8 min-h-[250px] flex flex-col justify-center items-start transition-all duration-300 shadow-sm hover:shadow-xl`}

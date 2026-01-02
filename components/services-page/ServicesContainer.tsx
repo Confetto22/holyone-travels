@@ -36,7 +36,7 @@ const MainServiceCard = ({ item }: { item: MainServiceItem }) => (
       <p className="text-gray-600 mb-6 leading-relaxed grow">
         {item.description}
       </p>
-      <ul className="space-y-3 mb-8">
+      {/* <ul className="space-y-3 mb-8">
         {item.features.map((feature, idx) => (
           <li
             key={idx}
@@ -46,7 +46,7 @@ const MainServiceCard = ({ item }: { item: MainServiceItem }) => (
             {feature}
           </li>
         ))}
-      </ul>
+      </ul> */}
       <div className="mt-auto font-bold flex items-center gap-2 text-gray-400 group-hover:text-primary transition-colors">
         View Details <ArrowRight className="w-4 h-4" />
       </div>
@@ -140,8 +140,12 @@ const ServicesContainer = () => {
             variants={fadeInUp}
             className="text-gray-500 max-w-2xl mx-auto mb-10 text-lg"
           >
-            Choose the level of assistance you need. Select a service to see
-            pricing details and more info.
+            {activeTab === "micro" &&
+              "Best for first-timers, students, and anyone who wants clarity before spending big."}
+            {activeTab === "digital" &&
+              "Created from real visa experience and updated for 2026 requirements."}
+            {activeTab === "main" &&
+              "We guide you through the right pathway, documentation, and preparation — step by step."}
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2 bg-white p-1.5 md:rounded-full shadow-sm  border border-gray-200 relative max-w-2xl mx-auto">

@@ -107,7 +107,7 @@ const BehindTheJourney = () => {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            className="flex flex-wrap md:flex-nowrap justify-between items-start gap-y-12 relative z-10 max-w-6xl mx-auto"
+            className="flex flex-wrap xl:flex-nowrap justify-between items-start gap-y-12 relative z-10 max-w-6xl mx-auto"
           >
             {milestones.map((item) => {
               const isActive = activeYear === item.year;

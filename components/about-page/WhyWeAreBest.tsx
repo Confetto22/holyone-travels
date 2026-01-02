@@ -15,36 +15,37 @@ const WhyWeAreBest = () => {
   return (
     <section className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex flex-col xl:flex-row items-center gap-12 xl:gap-20">
           {/* Text Content */}
           <motion.div
             variants={fadeInLeft}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            className="w-full lg:w-1/2 space-y-8"
+            className="w-full xl:w-1/2 space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Why We’re Best Agency
+              Your Trusted Visa Consultants
             </h2>
             <h3 className="text-xl md:text-2xl font-semibold text-gray-900">
-              Welcome to Holyone Travel Agency – Your Gateway to Unforgettable
-              Journeys!{" "}
+              Welcome to Holyone Travel Agency – Your Partner in Global
+              Mobility!{" "}
               <span className="inline-block w-3 h-3 bg-blue-400 rounded-full ml-1 align-middle"></span>
             </h3>
 
             <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
               <p>
-                Holyone Travel Agency is a trusted name in the travel industry,
-                offering seamless travel planning, personalized itineraries, and
-                unforgettable adventures. With years of experience and a network
-                of global partners, we ensure a hassle-free and memorable
-                journey for every traveler.
+                Holyone Travel Agency specializes in simplifying the complex
+                world of visa applications. Whether you are traveling for
+                tourism, business, or education, our expert technicians provide
+                personalized guidance to ensure your travel documents are in
+                perfect order.
               </p>
               <p>
-                We believe that travel is more than just moving from one place
-                to another—it’s about discovering new cultures, creating
-                unforgettable experiences, and making lifelong memories.
+                We believe that borders shouldn't be barriers. With our high
+                success rate and attention to detail, we transform the daunting
+                process of visa acquisition into a seamless step towards your
+                next adventure.
               </p>
             </div>
 
@@ -88,7 +89,7 @@ const WhyWeAreBest = () => {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            className="w-full lg:w-1/2 relative min-h-[500px] flex items-center justify-center"
+            className="w-full xl:w-1/2 relative min-h-[500px] flex items-center justify-center"
           >
             {/* Background blob/shape could be added here for more depth */}
 
@@ -127,7 +128,7 @@ const WhyWeAreBest = () => {
               className="absolute bottom-0 right-[10%] w-[50%] h-[40%] z-30 rounded-[2rem] overflow-hidden border-4 border-white shadow-xl"
             >
               <Image
-                src="https://images.unsplash.com/photo-1544551763-8dd401344420?auto=format&fit=crop&q=80&w=800"
+                src="https://images.unsplash.com/photo-1675789652806-667851270b20?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FuYWRhJTIwc2Nob29sfGVufDB8fDB8fHww"
                 alt="Water sports"
                 fill
                 className="object-cover"

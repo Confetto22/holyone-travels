@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 import { Phone, Sparkle } from "lucide-react";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,11 +37,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${rubik.variable} antialiased`}
       >
         <Header />
-        <main className="grid grid-cols-1 md:justify-between md:grid-cols-7">
-          <section className="md:col-span-5 relative">{children}</section>
+        <main className="grid grid-cols-1 lg:justify-between lg:grid-cols-7">
+          <section className="lg:col-span-5 relative">{children}</section>
 
-          <div className="payment-panel sticky top-0 self-start md:col-span-2 hidden md:flex flex-col items-center justify-center ">
+          <div className="payment-panel sticky top-0 self-start lg:col-span-2 hidden lg:flex flex-col items-center justify-center ">
             <div className="bg-white p-6 text-gray-900 shadow-lg w-full ">
+              <p className="text-sm mb-2 text-black/60">
+                After payment, send proof via WhatsApp with Your Full Name +
+                Service Paid For.
+              </p>
               <div className="flex items-center gap-2 mb-2">
                 <div className="bg-blue-700 p-2 rounded-lg text-white">
                   <Sparkle size={20} />
@@ -49,11 +54,12 @@ export default function RootLayout({
               <h3 className="text-xl font-bold leading-tight mb-1">
                 Pay & Start — Fast Checkout Interac e-Transfer (Canada Only)
               </h3>
-              <p className="text-orange-600 text-sm font-medium mb-4">
-                <a href="mailto:holyonepathwaypartners@gmail.com">
-                  ✉ holyonepathwaypartners@gmail.com
-                </a>
-              </p>
+              <Link
+                href="mailto:holyonepathwaypartners@gmail.com"
+                className="text-orange-600 text-sm font-medium mb-4 break-all"
+              >
+                ✉ holyonepathwaypartners@gmail.com
+              </Link>
 
               <div className="text-sm font-medium mb-4">
                 <p>
@@ -116,8 +122,8 @@ export default function RootLayout({
             </div>
 
             <div className="bg-blue-700 text-white p-6  shadow-lg w-full ">
-              <h3 className="text-lg font-bold mb-3">Card Payment (Stripe)</h3>
-              <div className="flex gap-2 mb-4">
+              {/* <h3 className="text-lg font-bold mb-3">Card Payment (Stripe)</h3> */}
+              {/* <div className="flex gap-2 mb-4">
                 <div className="bg-white text-blue-900 px-2 py-1 rounded font-bold text-xs">
                   VISA
                 </div>
@@ -127,7 +133,7 @@ export default function RootLayout({
                 <div className="bg-black text-white px-2 py-1 rounded font-bold text-xs">
                   ApplePay
                 </div>
-              </div>
+              </div> */}
 
               <button className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded mb-4 transition">
                 Pay with Card

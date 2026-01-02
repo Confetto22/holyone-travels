@@ -11,6 +11,7 @@ import {
   Sparkles,
   ThumbsUp,
   PersonStanding,
+  Globe,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import {
@@ -20,30 +21,31 @@ import {
   staggerContainer,
   viewportOptions,
 } from "@/lib/animation-variants";
+import Link from "next/link";
 
 const About = () => {
   const features = [
     {
       icon: Shield,
-      title: "Safety First Always",
+      title: "Secure Processing",
       bgColor: "bg-secondary/5",
       iconColor: "text-secondary",
     },
     {
-      icon: Users,
-      title: "Trusted Travel Guide",
+      icon: Award, // Replacing Users with Award for a "certified" feel or keep Users for "Expert Team"
+      title: "Eligibility Check",
       bgColor: "bg-primary/5",
       iconColor: "text-secondary",
     },
     {
-      icon: Award,
-      title: "Expertise And Experience",
+      icon: Users,
+      title: "Expert Consultation",
       bgColor: "bg-primary/5",
       iconColor: "text-secondary",
     },
     {
       icon: Calendar,
-      title: "Time And Stress Savings",
+      title: "Timely Approvals",
       bgColor: "bg-secondary/5",
       iconColor: "text-secondary",
     },
@@ -51,26 +53,26 @@ const About = () => {
 
   const statistics = [
     {
-      value: "1.6",
-      label: "Happy Traveler",
-      icon: Backpack,
-      suffix: "k+",
-    },
-    {
-      value: "1.2",
-      label: "Tours Success",
-      icon: Sparkles,
-      suffix: "k+",
-    },
-    {
       value: "98",
-      label: "Positives Review",
+      label: "Visa Approval Rate",
       icon: ThumbsUp,
       suffix: "%",
     },
     {
-      value: "25",
-      label: "Travel Guide",
+      value: "5",
+      label: "Years Experience",
+      icon: Backpack,
+      suffix: "+",
+    },
+    {
+      value: "50",
+      label: "Countries Served",
+      icon: Globe,
+      suffix: "+",
+    },
+    {
+      value: "10",
+      label: "Expert Consultants",
       icon: PersonStanding,
       suffix: "+",
     },
@@ -124,14 +126,15 @@ const About = () => {
 
             {/* Main Heading */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              We provide the best tour facilities.
+              Simplifying Your Visa Application Journey
             </h2>
 
             {/* Paragraph */}
             <p className="text-gray-600 text-base mb-8 leading-relaxed">
-              Etiam ac tortor id purus commodo vulputate. Vestibulum porttitor
-              erat felis and sed vehicula tortor malesuada gravida. Mauris
-              volutpat enim quis pulv gont congue. Suspendisse ullamcorper.
+              Navigating visa requirements can be complex, but we make it easy.
+              Our team of experts provides comprehensive support for visa
+              applications, eligibility checks, and document verification. We
+              ensure a smooth and hassle-free experience for your travel needs.
             </p>
 
             {/* Feature Boxes */}
@@ -160,10 +163,13 @@ const About = () => {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4">
-              <button className="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md">
-                Find Out More
-              </button>
-              <button className="flex items-center gap-3 text-gray-700 hover:text-primary transition-colors group">
+              <Link
+                href="/about"
+                className="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md w-full capitalize text-center"
+              >
+                More About us
+              </Link>
+              {/* <button className="flex items-center gap-3 text-gray-700 hover:text-primary transition-colors group">
                 <div className="w-12 h-12 rounded-full border-2 border-gray-300 group-hover:border-secondary flex items-center justify-center transition-colors">
                   <Play
                     size={20}
@@ -171,8 +177,8 @@ const About = () => {
                     fill="currentColor"
                   />
                 </div>
-                <span className="font-medium">Watch Tour</span>
-              </button>
+                <span className="font-medium">How It Works</span>
+              </button> */}
             </div>
           </motion.div>
 

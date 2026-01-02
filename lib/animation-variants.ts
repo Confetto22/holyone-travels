@@ -208,5 +208,5 @@ export const viewportOptions = {
 
 export const viewportOptionsHalf = {
   once: true,
-  amount: 0.5, // Trigger when 50% of element is visible
+  amount: 0.2, // Trigger when 50% of element is visible
 };

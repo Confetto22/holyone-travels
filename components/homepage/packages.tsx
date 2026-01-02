@@ -12,61 +12,56 @@ import {
 
 type Package = {
   id: string;
-  destination: string;
-  location: string;
-  country: string;
-  duration: string;
+  title: string;
+  pricing: string;
+  includes: string[];
   image: string;
-  badges: {
-    type: "sale" | "solo" | "family";
-    text: string;
-  }[];
-  originalPrice?: number;
-  discountedPrice: number;
-  currency: string;
+  popular: boolean;
 };
 
 const Packages = () => {
   const packages: Package[] = [
     {
-      id: "rome-florence-venice",
-      destination: "Rome, Florence & Venice",
-      location: "Paris",
-      country: "France",
-      duration: "5 Days/6 Nights",
+      id: "1",
+      title: "Starter Guidance Package",
+      pricing: "$100 - $150",
+      popular: false,
+      includes: [
+        "Visa eligibility assessment",
+        "School or pathway recommendation",
+        "Document review",
+        "Email support",
+      ],
       image:
         "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800&q=80",
-      badges: [
-        { type: "sale", text: "Sale on!" },
-        { type: "solo", text: "Solo Tour" },
+    },
+    {
+      id: "2",
+      title: "Starter Guidance Package",
+      pricing: "$100 - $150",
+      popular: true,
+      includes: [
+        "Visa eligibility assessment",
+        "School or pathway recommendation",
+        "Document review",
+        "Email support",
       ],
-      originalPrice: 800.0,
-      discountedPrice: 750.0,
-      currency: "$",
+      image:
+        "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800&q=80",
     },
     {
-      id: "old-town-discovery",
-      destination: "Old Town Discovery Walk",
-      location: "Qatar",
-      country: "Qatar",
-      duration: "02/Hours",
+      id: "3",
+      title: "Starter Guidance Package",
+      pricing: "$100 - $150",
+      popular: false,
+      includes: [
+        "Visa eligibility assessment",
+        "School or pathway recommendation",
+        "Document review",
+        "Email support",
+      ],
       image:
-        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
-      badges: [{ type: "family", text: "Family Tour" }],
-      discountedPrice: 69.0,
-      currency: "$",
-    },
-    {
-      id: "phuket-krabi",
-      destination: "Phuket & Krabi Island",
-      location: "Thailand",
-      country: "Thailand",
-      duration: "5 Days/6 Nights",
-      image:
-        "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&q=80",
-      badges: [{ type: "family", text: "Family Tour" }],
-      discountedPrice: 580.0,
-      currency: "$",
+        "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800&q=80",
     },
   ];
 
@@ -97,14 +92,13 @@ const Packages = () => {
             variants={fadeInUp}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
           >
-            Popular Travel Packages
+            Visa Support Packages
           </motion.h2>
           <motion.p
             variants={fadeInUp}
             className="text-gray-600 text-lg max-w-2xl mx-auto"
           >
-            A curated list of the most popular travel packages based on
-            different destinations.
+            Popular Visa Packages
           </motion.p>
         </motion.div>
 
@@ -120,94 +114,49 @@ const Packages = () => {
             <motion.div
               key={pkg.id}
               variants={fadeInUp}
-              whileHover="hover"
-              initial="rest"
-              animate="rest"
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              className={`relative bg-white rounded-xl  border ${
+                pkg.popular ? " border-primary/40" : "border-gray-200"
+              }`}
             >
-              <motion.div variants={hoverLift} className="h-full">
-                {/* Image Section */}
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={pkg.image}
-                    alt={pkg.destination}
-                    fill
-                    className="object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                  {/* Badges */}
-                  <div className="absolute top-4 right-4 flex flex-col gap-2 items-end">
-                    {pkg.badges.map((badge, index) => (
-                      <span
-                        key={index}
-                        className={`${getBadgeColor(
-                          badge.type
-                        )} px-3 py-1 rounded-lg text-xs font-semibold shadow-md`}
-                      >
-                        {badge.text}
-                      </span>
-                    ))}
-                  </div>
-                  {/* Image Carousel Dots */}
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
-                    <div className="w-2 h-2 rounded-full bg-white" />
-                    <div className="w-2 h-2 rounded-full bg-white" />
-                  </div>
+              {pkg.popular && (
+                <div className="bg-red-600 absolute -top-4 left-0 right-0 mx-auto max-w-[40%] text-xs font-semibold text-white text-center rounded-4xl py-2">
+                  most popular!
                 </div>
+              )}
 
+              <div className="h-full  gap-5 p-6 grid g">
                 {/* Content Section */}
-                <div className="p-6">
-                  {/* Destination */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {pkg.destination}
-                  </h3>
 
-                  {/* Location & Duration */}
-                  <div className="flex items-center gap-2 text-gray-600 text-sm mb-4">
-                    <MapPin size={16} className="text-primary" />
-                    <span>
-                      {pkg.location}, {pkg.country}
-                    </span>
-                    <ArrowRight size={16} className="mx-1" />
-                    <span>{pkg.duration}</span>
-                  </div>
+                {/* Destination */}
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 ">
+                  {pkg.title}
+                </h3>
 
-                  {/* Pricing */}
-                  <div className="mb-4">
-                    <p className="text-xs text-gray-500 mb-1">per person</p>
-                    <div className="flex items-baseline gap-2">
-                      {pkg.originalPrice && (
-                        <span className="text-gray-400 line-through text-lg">
-                          {pkg.currency}
-                          {pkg.originalPrice.toFixed(2)}
-                        </span>
-                      )}
-                      <span className="text-2xl font-bold text-gray-900">
-                        {pkg.currency}
-                        {pkg.discountedPrice.toFixed(2)}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Action Button */}
-                  <button className="w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 mb-4">
-                    Book Now
-                    <ExternalLink size={18} />
-                  </button>
-
-                  {/* Additional Info */}
-                  <div className="flex items-center gap-6 text-sm text-gray-600">
-                    <div className="flex items-center gap-2">
-                      <Info size={16} className="text-primary" />
-                      <span>Experience</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Info size={16} className="text-primary" />
-                      <span>Inclusion</span>
-                    </div>
-                  </div>
+                {/* Location & Duration */}
+                <div className="flex items-center gap-1 text-black/70  text-2xl font-bold ">
+                  <span>{pkg.pricing}</span>{" "}
                 </div>
-              </motion.div>
+
+                <menu>
+                  <p className="font-semibold  text-primary mb-4">includes:</p>
+                  <ul className="flex flex-col gap-2 pl-4">
+                    {pkg.includes.map((include) => (
+                      <li
+                        className="text-xs text-black/60 lowercase list-disc "
+                        key={include}
+                      >
+                        {include}
+                      </li>
+                    ))}
+                  </ul>
+                </menu>
+
+                {/* Action Button */}
+                <button className="w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 mb-4 cursor-pointer mt-5">
+                  Learn More
+                  <ExternalLink size={18} />
+                </button>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -217,4 +166,3 @@ const Packages = () => {
 };
 
 export default Packages;
-

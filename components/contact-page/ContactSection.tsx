@@ -8,56 +8,52 @@ import {
   staggerContainer,
   viewportOptions,
 } from "@/lib/animation-variants";
+import { FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
 
 interface ContactInfoProps {
   icon: React.ReactNode;
   title: string;
-  details: string[];
+  detail: string;
+  href: string;
 }
 
 const contactDetails: ContactInfoProps[] = [
   {
     icon: <Phone className="w-6 h-6 text-white" />,
-    title: "Phone",
-    details: ["+990-737 621 432", "+990-137 324 465"],
+    title: "Business Number / WhatsApp",
+    detail: "+1 548 325 8804",
+    href: "tel:15483258804",
   },
   {
     icon: <Mail className="w-6 h-6 text-white" />,
     title: "Email Now",
-    details: ["info@example.com", "example@example.com"],
+    detail: "holyonepathwaypartners@gmail.com",
+    href: "mailto:holyonepathwaypartners@gmail.com",
   },
   {
     icon: <MapPin className="w-6 h-6 text-white" />,
     title: "Location",
-    details: [
-      "168/170, Avenue 01, Old York Drive Rich Mirpur",
-      "DOHS, Bangladesh",
-    ],
-  },
-  {
-    icon: <CalendarDays className="w-6 h-6 text-white" />,
-    title: "Opening Time",
-    details: ["8:00Am - 10:Pm, Friday Close"],
+    detail: "Canada (serving clients worldwide)",
+    href: "#",
   },
 ];
 
-const ContactInfoCard = ({ icon, title, details }: ContactInfoProps) => (
+const ContactInfoCard = ({ icon, title, detail, href }: ContactInfoProps) => (
   <motion.div
     variants={fadeInUp}
     whileHover={{ x: 10 }}
-    className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4"
+    className=" border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4"
   >
-    <div className="shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-      {icon}
-    </div>
-    <div>
-      <h4 className="text-gray-500 text-sm font-medium mb-1">{title}</h4>
-      <div className="text-gray-900 font-bold text-base md:text-lg leading-snug">
-        {details.map((line, index) => (
-          <div key={index}>{line}</div>
-        ))}
+    <Link href={href} target="_blank">
+      <span className="shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+        {icon}
+      </span>
+      <div className="">
+        <h4 className="text-gray-500 text-sm font-medium mb-1">{title}</h4>
+        <p className="text-gray-900 font-bold text-wrap break-all">{detail}</p>
       </div>
-    </div>
+    </Link>
   </motion.div>
 );
 
@@ -161,6 +157,14 @@ const ContactSection = () => {
             {contactDetails.map((item, index) => (
               <ContactInfoCard key={index} {...item} />
             ))}
+            <Link
+              href={"https://wa.me/15483258804"}
+              target="_blank"
+              className="bg-[#41bb4e] text-white py-3 flex items-center gap-2 px-4 rounded-lg justify-center text-center hover:text-[#41bb4e] hover:bg-white hover:border hover:border-[#41bb4e] ease-in duration-200"
+            >
+              <FaWhatsapp className="size-9 " />
+              chat on whatsapp
+            </Link>
           </motion.div>
 
           {/* Form Column */}
