@@ -38,7 +38,7 @@ export default function RootLayout({
       >
         <Header />
         <main className="grid grid-cols-1 lg:justify-between lg:grid-cols-7">
-          <section className="lg:col-span-5 relative">{children}</section>
+          <section className="lg:col-span-5 relative ">{children}</section>
 
           <div className="payment-panel sticky top-0 self-start lg:col-span-2 hidden lg:flex flex-col items-center justify-center ">
             <div className="bg-white p-6 text-gray-900 shadow-lg w-full ">

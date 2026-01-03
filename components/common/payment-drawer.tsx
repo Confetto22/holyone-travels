@@ -117,7 +117,7 @@ const PaymentDrawer = () => {
               </button>
 
               <p className="text-sm italic opacity-90">
-                Micro-services begin same day. <br />
+                Micro-services & Digital Products begin same day. <br />
                 Visa packages begin within 24–48 hours.
               </p>
             </div>

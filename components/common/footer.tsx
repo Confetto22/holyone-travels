@@ -67,11 +67,10 @@ const Footer = () => {
   ];
 
   const destinations = [
-    { label: "Maldives Tour", href: "#" },
-    { label: "Bali, Indonesia Tour", href: "#" },
-    { label: "Thailand Tour", href: "#" },
-    { label: "Philippines Tour", href: "#" },
-    { label: "Hawaii, USA Tour", href: "#" },
+    { label: "Canada", href: "#" },
+    { label: "Europe", href: "#" },
+    { label: "New Zealand", href: "#" },
+    { label: "USA", href: "#" },
   ];
 
   const popularSearches = [
@@ -157,14 +156,14 @@ const Footer = () => {
                     Holyone
                   </h2>
                   <p className="text-xs text-gray-400 tracking-wider">
-                    Travel.co
+                    Pathway Partners
                   </p>
                 </div>
               </div>
 
               <div>
                 <h3 className="font-bold text-white mb-2 text-sm">
-                  Holyone Travel Agency
+                  Holyone Pathway Partners
                 </h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Holyone Pathway Partners provides visa guidance, document

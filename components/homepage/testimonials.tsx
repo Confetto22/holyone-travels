@@ -25,7 +25,7 @@ const Testimonials = () => {
     {
       id: "1",
       name: "James Bonde",
-      role: "Holyone Traveler",
+      role: "Visa Client",
       avatar:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
       rating: 5,
@@ -36,7 +36,7 @@ const Testimonials = () => {
     {
       id: "2",
       name: "James Bonde",
-      role: "Holyone Traveler",
+      role: "Visa Client",
       avatar:
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
       rating: 5,
@@ -47,7 +47,7 @@ const Testimonials = () => {
     {
       id: "3",
       name: "James Bonde",
-      role: "Holyone Traveler",
+      role: "Visa Client",
       avatar:
         "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
       rating: 5,
@@ -58,7 +58,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="bg-[#f0f8ff] py-16 px-4 relative overflow-hidden">
+    <section className="bg-[#f0f8ff] py-16 px-8 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <motion.svg
@@ -122,14 +122,13 @@ const Testimonials = () => {
             variants={fadeInUp}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
           >
-            Hear It from Travelers
+            Hear It from Our Clients
           </motion.h2>
           <motion.p
             variants={fadeInUp}
             className="text-gray-700 text-lg max-w-3xl mx-auto"
           >
-            We go beyond just booking trips—we create unforgettable travel
-            experiences that match your dreams!
+            We go beyond just applications—we open doors to new beginnings!
           </motion.p>
         </motion.div>
 

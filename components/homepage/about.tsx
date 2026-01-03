@@ -79,7 +79,7 @@ const About = () => {
   ];
 
   return (
-    <section className="bg-white py-16 px-4">
+    <section className="bg-white py-16 px-8">
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Section */}
@@ -126,15 +126,15 @@ const About = () => {
 
             {/* Main Heading */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Simplifying Your Visa Application Journey
+              Your Professional Visa & Relocation Partner
             </h2>
 
             {/* Paragraph */}
             <p className="text-gray-600 text-base mb-8 leading-relaxed">
-              Navigating visa requirements can be complex, but we make it easy.
-              Our team of experts provides comprehensive support for visa
-              applications, eligibility checks, and document verification. We
-              ensure a smooth and hassle-free experience for your travel needs.
+              Securing a visa can be complex, but we make it simple. Our team of
+              specialists provides expert guidance for study, work, and
+              relocation pathways. From eligibility checks to final document
+              submission, we ensure a professional, streamlined experience.
             </p>
 
             {/* Feature Boxes */}

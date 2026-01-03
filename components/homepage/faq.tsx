@@ -73,8 +73,9 @@ const Faq = () => {
             variants={fadeInUp}
             className="text-gray-600 text-lg max-w-2xl mx-auto"
           >
-            We&apos;re committed to offering more than just products—we provide
-            exceptional experiences.
+            We&apos;re committed to offering more than just document
+            processing—we provide expert consultation and life-changing
+            pathways.
           </motion.p>
         </motion.div>
 

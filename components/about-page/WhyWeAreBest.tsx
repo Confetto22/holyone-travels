@@ -28,24 +28,23 @@ const WhyWeAreBest = () => {
               Your Trusted Visa Consultants
             </h2>
             <h3 className="text-xl md:text-2xl font-semibold text-gray-900">
-              Welcome to Holyone Travel Agency – Your Partner in Global
+              Welcome to Holyone Pathway Partners – Your Partner in Global
               Mobility!{" "}
               <span className="inline-block w-3 h-3 bg-blue-400 rounded-full ml-1 align-middle"></span>
             </h3>
 
             <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
               <p>
-                Holyone Travel Agency specializes in simplifying the complex
-                world of visa applications. Whether you are traveling for
-                tourism, business, or education, our expert technicians provide
-                personalized guidance to ensure your travel documents are in
-                perfect order.
+                Holyone Pathway Partners specializes in study visas, work
+                permits, and permanent residency guidance. We provide
+                personalized consultation to ensure your application meets all
+                immigration requirements.
               </p>
               <p>
-                We believe that borders shouldn't be barriers. With our high
-                success rate and attention to detail, we transform the daunting
-                process of visa acquisition into a seamless step towards your
-                next adventure.
+                We believe that borders shouldn't be barriers. With our expert
+                guidance and attention to detail, we transform the complex
+                process of relocation into a clear, manageable pathway to your
+                future.
               </p>
             </div>
 

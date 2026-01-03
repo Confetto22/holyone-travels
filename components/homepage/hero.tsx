@@ -13,13 +13,13 @@ import Link from "next/link";
 const Hero = () => {
   const buttons = [
     {
-      text: "Book a Consultation",
-      href: "#",
+      text: "Book Consultation",
+      href: "/contact",
       styling: "bg-primary text-white hover:bg-white hover:text-primary",
     },
     {
       text: "Explore Services",
-      href: "#",
+      href: "/services",
       styling: "bg-white text-primary hover:bg-primary hover:text-white",
     },
   ];
@@ -38,14 +38,13 @@ const Hero = () => {
               variants={fadeInUp}
               className="text-white font-bold  text-3xl md:text-5xl text-center leading-tight"
             >
-              Study, Work & Relocate Abroad — With Clear, Professional Visa
-              Guidance.
+              Study, Work & Relocate Abroad — With Professional Visa &
+              Consultation Guidance.
             </motion.h1>
             <motion.h2 className=" text-center text-white/70">
-              We provide structured visa guidance, documentation support,
-              digital resources, and consultations for individuals looking to
-              relocate to Canada, Europe & New Zealand — without confusion or
-              false promises.
+              We provide expert support for Study Visas, Work Visas, Relocation
+              Guidance, Consultations & Documentation Support. Your trusted
+              pathway to Canada, Europe & New Zealand.
             </motion.h2>
             <div className="flex md:flex-row flex-col items-center gap-5">
               {buttons.map((button) => (
@@ -59,8 +58,7 @@ const Hero = () => {
               ))}
             </div>
             <p className="text-white/70 text-center">
-              Trusted by students, professionals, and families across Africa,
-              Europe & North America.
+              Trusted by clients across Africa, Europe & North America.
             </p>
           </motion.div>
         </div>

@@ -43,9 +43,13 @@ const ContactInfoCard = ({ icon, title, detail, href }: ContactInfoProps) => (
   <motion.div
     variants={fadeInUp}
     whileHover={{ x: 10 }}
-    className=" border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4"
+    className=" border border-gray-100 rounded-2xl  shadow-sm hover:shadow-md transition-shadow  "
   >
-    <Link href={href} target="_blank">
+    <Link
+      href={href}
+      target="_blank"
+      className=" flex items-start gap-4 py-5 rounded-2xl px-6"
+    >
       <span className="shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
         {icon}
       </span>

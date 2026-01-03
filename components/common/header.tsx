@@ -42,52 +42,53 @@ const Header = () => {
           pathname.includes("/checkout") ? "bg-primary/60" : "bg-transparent "
         }`}
       >
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link href={"/"} className="flex items-center gap-2">
-              <h3 className="text-black text-xl font-semibold"> Holyone</h3>
-            </Link>
+        <div className="flex items-center justify-between max-w-7xl py-3 mx-auto">
+          {/* Logo */}
+          <Link href={"/"} className="flex items-center gap-2">
+            <h3 className="text-black text-xl font-semibold">
+              {" "}
+              Holyone Pathway Partners
+            </h3>
+          </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-6">
-              {navLinks.map((navLink) => (
-                <Link
-                  key={navLink.ref}
-                  href={navLink.refLink}
-                  className={`hover:text-secondary transition-colors capitalize ${
-                    pathname === navLink.refLink
-                      ? "text-secondary"
-                      : "text-black/80"
-                  }`}
-                >
-                  {navLink.ref}
-                </Link>
-              ))}
-            </nav>
-
-            {/* Desktop User Actions */}
-            <div className="hidden md:flex items-center gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-secondary text-white px-6 py-2 rounded-full hover:bg-secondary/90 transition-colors font-medium"
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-6">
+            {navLinks.map((navLink) => (
+              <Link
+                key={navLink.ref}
+                href={navLink.refLink}
+                className={`hover:text-secondary transition-colors capitalize ${
+                  pathname === navLink.refLink
+                    ? "text-secondary"
+                    : "text-black/80"
+                }`}
               >
-                Book Consultation
-              </motion.button>
-            </div>
+                {navLink.ref}
+              </Link>
+            ))}
+          </nav>
 
-            {/* Mobile Hamburger Button */}
-            <div className="md:hidden flex gap-3 items-center">
-              <PaymentDrawer />
-              <button
-                onClick={() => setIsMobileMenuOpen(true)}
-                className="text-primary/70 p-1 cursor-pointer hover:opacity-70"
-                aria-label="Open Menu"
-              >
-                <Menu className="size-7" />
-              </button>
-            </div>
+          {/* Desktop User Actions */}
+          <div className="hidden md:flex items-center gap-4">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-secondary text-white px-6 py-2 rounded-full hover:bg-secondary/90 transition-colors font-medium"
+            >
+              Book Consultation
+            </motion.button>
+          </div>
+
+          {/* Mobile Hamburger Button */}
+          <div className="md:hidden flex gap-3 items-center">
+            <PaymentDrawer />
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="text-primary/70 p-1 cursor-pointer hover:opacity-70"
+              aria-label="Open Menu"
+            >
+              <Menu className="size-7" />
+            </button>
           </div>
         </div>
       </motion.header>

@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
               <p>
                 At{" "}
                 <span className="font-bold text-gray-900">
-                  Brand Travel Agency
+                  Holyone Pathway Partners
                 </span>
                 , we are committed to protecting your privacy and ensuring the
                 security of your personal information. This Privacy Policy

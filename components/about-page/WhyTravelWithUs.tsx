@@ -60,8 +60,8 @@ const WhyTravelWithUs = () => {
             Why Choose Us?
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-gray-600 text-lg">
-            We specialize in crafting personalized journeys that suit every
-            traveler’s dream.
+            We specialize in providing expert visa guidance and clear relocation
+            pathways for students, workers, and families.
           </motion.p>
         </motion.div>
 

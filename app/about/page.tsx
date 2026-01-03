@@ -1,7 +1,6 @@
 import PageHead from "@/components/common/page-head";
 import WhyWeAreBest from "@/components/about-page/WhyWeAreBest";
 import BestService from "@/components/about-page/BestService";
-import BehindTheJourney from "@/components/about-page/BehindTheJourney";
 import WhyTravelWithUs from "@/components/about-page/WhyTravelWithUs";
 import TrustedCompanies from "@/components/about-page/TrustedCompanies";
 import Testimonials from "@/components/homepage/testimonials";
@@ -9,7 +8,7 @@ import Faq from "@/components/homepage/faq";
 
 const About = () => {
   return (
-    <section>
+    <section className="">
       <PageHead
         prevPage="Home"
         prevLink="/"
@@ -18,7 +17,7 @@ const About = () => {
       />
       <WhyWeAreBest />
       {/* <BestService /> */}
-      <BehindTheJourney />
+      {/* <BehindTheJourney /> */}
       <WhyTravelWithUs />
       <TrustedCompanies />
       <Testimonials />

@@ -76,7 +76,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="bg-white py-16 px-4">
+    <section className="bg-white py-16 px-8">
       <div className="container mx-auto max-w-7xl">
         {/* Header Section */}
         <motion.div
