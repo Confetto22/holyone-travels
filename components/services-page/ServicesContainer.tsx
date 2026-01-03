@@ -23,12 +23,11 @@ import {
 const MainServiceCard = ({ item }: { item: MainServiceItem }) => (
   <Link href={`/services/${item.id}`} className="block h-full">
     <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all cursor-pointer flex flex-col h-full group">
-      <div className="w-16 h-16 rounded-2xl bg-gray-100 group-hover:bg-primary/20 flex items-center justify-center mb-6 transition-colors">
+      <div className="w-16 h-16 rounded-2xl bg-gray-100 bg-primary/20 flex items-center justify-center mb-6 transition-colors">
         {React.cloneElement(
           item.icon as React.ReactElement<{ className?: string }>,
           {
-            className:
-              "w-8 h-8 text-gray-500 group-hover:text-primary transition-colors",
+            className: "w-8 h-8 text-gray-500 text-primary transition-colors",
           }
         )}
       </div>
@@ -47,7 +46,7 @@ const MainServiceCard = ({ item }: { item: MainServiceItem }) => (
           </li>
         ))}
       </ul> */}
-      <div className="mt-auto font-bold flex items-center gap-2 text-gray-400 group-hover:text-primary transition-colors">
+      <div className="mt-auto font-bold flex items-center gap-2 text-primary transition-colors">
         View Details <ArrowRight className="w-4 h-4" />
       </div>
     </div>
@@ -56,7 +55,7 @@ const MainServiceCard = ({ item }: { item: MainServiceItem }) => (
 
 const MicroServiceCard = ({ item }: { item: MicroServiceItem }) => (
   <Link href={`/services/${item.id}`} className="block">
-    <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-primary transition-all cursor-pointer group">
+    <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-primary transition-all cursor-pointer h-full group">
       <div className="flex justify-between items-start mb-4">
         <div className="p-3 rounded-lg bg-primary/5 group-hover:bg-primary transition-colors">
           {React.cloneElement(
@@ -78,7 +77,7 @@ const MicroServiceCard = ({ item }: { item: MicroServiceItem }) => (
 
 const DigitalServiceCard = ({ item }: { item: DigitalServiceItem }) => (
   <Link href={`/services/${item.id}`} className="block">
-    <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-lg hover:border-primary px-2 transition-all cursor-pointer flex flex-col md:flex-row group">
+    <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-lg hover:border-primary px-2 transition-all cursor-pointer flex flex-col md:flex-row group h-full">
       <div className="md:w-1/3 relative h-48 md:h-auto shrink-0 overflow-hidden rounded-xl">
         <Image
           src={item.image}
