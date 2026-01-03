@@ -42,13 +42,10 @@ const Header = () => {
           pathname.includes("/checkout") ? "bg-primary/60" : "bg-transparent "
         }`}
       >
-        <div className="flex items-center justify-between max-w-7xl py-3 mx-auto">
+        <div className="flex items-center justify-between max-w-7xl px-6 xl:px-1 py-3 mx-auto">
           {/* Logo */}
           <Link href={"/"} className="flex items-center gap-2">
-            <h3 className="text-black text-xl font-semibold">
-              {" "}
-              Holyone Pathway Partners
-            </h3>
+            <h3 className="text-black text-xl font-semibold"> H.P.F</h3>
           </Link>
 
           {/* Desktop Navigation */}
@@ -69,13 +66,21 @@ const Header = () => {
           </nav>
 
           {/* Desktop User Actions */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex md:flex-row-reverse items-center gap-4">
+            <button className="hidden  md:flex items-center justify-center rounded-full  lg:hidden hover:opacity-70">
+              <PaymentDrawer />
+            </button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-secondary text-white px-6 py-2 rounded-full hover:bg-secondary/90 transition-colors font-medium"
+              className=""
             >
-              Book Consultation
+              <Link
+                href="/contact"
+                className="bg-secondary text-white px-6 py-2 rounded-full hover:bg-secondary/90 transition-colors font-medium"
+              >
+                Book Consultation
+              </Link>
             </motion.button>
           </div>
 

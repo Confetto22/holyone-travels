@@ -1,4 +1,4 @@
-import { PanelRight, Phone, Sparkle } from "lucide-react";
+import { Info, PanelRight, Phone, Sparkle } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -12,7 +12,7 @@ const PaymentDrawer = () => {
   return (
     <Sheet>
       <SheetTrigger className="text-primary">
-        <PanelRight />
+        <Info className="text-secondary cursor-pointer p-1" size={33} />
       </SheetTrigger>
       <SheetContent className="flex flex-col h-full">
         <SheetHeader>

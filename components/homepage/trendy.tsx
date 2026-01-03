@@ -98,7 +98,7 @@ const DigitalProducts = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white rounded-xl overflow-hidden transition-shadow border border-gray-200 flex flex-col group"
+                className="bg-white rounded-xl max-w-[400px] md:max-w-full mx-auto overflow-hidden transition-shadow border border-gray-200 flex flex-col group"
               >
                 <Link
                   href={`/services/${product.id}`}

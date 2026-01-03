@@ -160,7 +160,7 @@ const Features = () => {
                 {/* Icon */}
                 <div className="mb-4">
                   <div
-                    className={`${iconColorClass} transition-transform duration-300 group-hover:scale-110`}
+                    className={`${iconColorClass} transition-transform duration-300 group-hover:scale-105 group-hover:translate-x-1`}
                   >
                     <IconComponent size={48} strokeWidth={1.5} />
                   </div>

@@ -42,13 +42,13 @@ const Packages = () => {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
+          className="grid grid-cols-1 max-w-[400px] md:max-w-full mx-auto md:grid-cols-2 lg:grid-cols-3 gap-3"
         >
           {mainServices.map((pkg) => (
             <motion.div
               key={pkg.id}
               variants={fadeInUp}
-              className={`relative bg-white rounded-xl border flex flex-col ${
+              className={`relative bg-white rounded-xl border flex flex-col last-of-type:md:col-span-2 last-of-type:lg:col-span-1 last-of-type:md:place-self-center  ${
                 pkg.popular
                   ? "border-primary shadow-lg ring-1 ring-primary"
                   : "border-gray-200"
