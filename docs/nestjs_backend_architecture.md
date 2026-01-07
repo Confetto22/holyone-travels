@@ -10,11 +10,13 @@
 ## 📋 Executive Summary
 
 Holyone Travels is a travel and visa services platform offering three main categories of services:
+
 1. **Main Service Packages** - Comprehensive visa guidance packages (Starter, Professional, Premium)
 2. **Micro Services** - À la carte services (eligibility checks, document reviews, SOP writing, etc.)
 3. **Digital Products** - Downloadable guides and resources for various countries
 
 The backend needs to handle:
+
 - **Order management** for all service types
 - **Payment processing** (Stripe integration)
 - **User account management** with customer dashboard
@@ -36,7 +38,7 @@ ORM: Prisma
 Authentication: JWT + Passport.js
 Payment Gateway: Stripe
 Email Service: Resend / SendGrid
-File Storage: AWS S3 / Cloudinary
+File Storage: Cloudinary
 API Documentation: Swagger/OpenAPI
 Validation: class-validator + class-transformer
 Caching: Redis (optional for performance)
@@ -50,9 +52,11 @@ Testing: Jest (unit) + Supertest (e2e)
 The backend should be organized into the following NestJS modules:
 
 ### 1. **Auth Module** (`auth`)
+
 **Purpose:** User authentication and authorization
 
 **Features:**
+
 - User registration (customer signup)
 - Login with email/password
 - JWT token generation and validation
@@ -61,6 +65,7 @@ The backend should be organized into the following NestJS modules:
 - Role-based access control (Customer, Admin, Consultant)
 
 **Endpoints:**
+
 ```
 POST   /auth/register
 POST   /auth/login
@@ -74,9 +79,11 @@ GET    /auth/me
 ---
 
 ### 2. **Users Module** (`users`)
+
 **Purpose:** User profile and account management
 
 **Features:**
+
 - User CRUD operations
 - Profile updates
 - User preferences
@@ -84,6 +91,7 @@ GET    /auth/me
 - Contact information
 
 **Endpoints:**
+
 ```
 GET    /users/:id
 PATCH  /users/:id
@@ -93,6 +101,7 @@ GET    /users/:id/documents
 ```
 
 **User Schema:**
+
 ```typescript
 {
   id: string (UUID)
@@ -111,9 +120,11 @@ GET    /users/:id/documents
 ---
 
 ### 3. **Services Module** (`services`)
+
 **Purpose:** Manage all service offerings
 
 **Features:**
+
 - Service catalog management
 - Service types (main, micro, digital)
 - Service details with pricing
@@ -121,6 +132,7 @@ GET    /users/:id/documents
 - Service availability
 
 **Endpoints:**
+
 ```
 GET    /services                    # List all services
 GET    /services/:id                # Get service details
@@ -133,6 +145,7 @@ DELETE /services/:id                # Admin: Delete service
 ```
 
 **Service Schema:**
+
 ```typescript
 {
   id: string
@@ -156,9 +169,11 @@ DELETE /services/:id                # Admin: Delete service
 ---
 
 ### 4. **Orders Module** (`orders`)
+
 **Purpose:** Handle all order processing and management
 
 **Features:**
+
 - Create orders for all service types
 - Order status tracking
 - Order history
@@ -168,6 +183,7 @@ DELETE /services/:id                # Admin: Delete service
 - Generate order confirmation numbers
 
 **Endpoints:**
+
 ```
 POST   /orders                      # Create new order
 GET    /orders                      # List user's orders (customer view)
@@ -179,6 +195,7 @@ PATCH  /admin/orders/:id/assign     # Admin: Assign consultant
 ```
 
 **Order Schema:**
+
 ```typescript
 {
   id: string (UUID)
@@ -187,12 +204,12 @@ PATCH  /admin/orders/:id/assign     # Admin: Assign consultant
   status: enum (PENDING, CONFIRMED, IN_PROGRESS, COMPLETED, CANCELLED)
   totalAmount: decimal
   currency: string (default: USD)
-  
+
   // Order Details
   serviceId: string (FK)
   serviceType: enum (MAIN, MICRO, DIGITAL)
   serviceSnapshot: JSON (store service details at time of purchase)
-  
+
   // Customer Information
   customerInfo: JSON {
     fullName: string
@@ -200,7 +217,7 @@ PATCH  /admin/orders/:id/assign     # Admin: Assign consultant
     phone: string
     country: string
   }
-  
+
   // Service-Specific Data
   serviceDetails: JSON {
     destination?: string
@@ -210,16 +227,17 @@ PATCH  /admin/orders/:id/assign     # Admin: Assign consultant
     purposeOfTravel?: string
     additionalNotes?: string
   }
-  
+
   // Assignment (for premium packages)
   consultantId: string (FK, optional)
-  
+
   createdAt: DateTime
   updatedAt: DateTime
 }
 ```
 
 **OrderItem Schema:** (for cart functionality if needed)
+
 ```typescript
 {
   id: string
@@ -234,9 +252,11 @@ PATCH  /admin/orders/:id/assign     # Admin: Assign consultant
 ---
 
 ### 5. **Payments Module** (`payments`)
+
 **Purpose:** Payment processing and transaction management
 
 **Features:**
+
 - Stripe payment integration
 - Create payment intents
 - Process payments
@@ -246,6 +266,7 @@ PATCH  /admin/orders/:id/assign     # Admin: Assign consultant
 - Invoice generation
 
 **Endpoints:**
+
 ```
 POST   /payments/create-intent      # Create Stripe payment intent
 POST   /payments/confirm            # Confirm payment
@@ -256,6 +277,7 @@ GET    /orders/:id/invoice          # Download invoice PDF
 ```
 
 **Payment Schema:**
+
 ```typescript
 {
   id: string (UUID)
@@ -264,20 +286,20 @@ GET    /orders/:id/invoice          # Download invoice PDF
   currency: string
   status: enum (PENDING, PROCESSING, SUCCEEDED, FAILED, REFUNDED)
   paymentMethod: string (card, paypal, etc.)
-  
+
   // Stripe Integration
   stripePaymentIntentId: string
   stripeChargeId: string
-  
+
   // Payment Details
   cardLast4: string (optional)
   cardBrand: string (optional)
-  
+
   // Metadata
   failureReason: string (optional)
   refundAmount: decimal (optional)
   refundedAt: DateTime (optional)
-  
+
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -286,9 +308,11 @@ GET    /orders/:id/invoice          # Download invoice PDF
 ---
 
 ### 6. **Documents Module** (`documents`)
+
 **Purpose:** Document upload and management for visa applications
 
 **Features:**
+
 - Upload documents (passport, photos, bank statements, etc.)
 - Document categorization
 - Document verification by admin
@@ -296,6 +320,7 @@ GET    /orders/:id/invoice          # Download invoice PDF
 - Delete documents
 
 **Endpoints:**
+
 ```
 POST   /documents/upload            # Upload document
 GET    /documents                   # List user's documents
@@ -305,24 +330,25 @@ PATCH  /admin/documents/:id/verify  # Admin: Verify document
 ```
 
 **Document Schema:**
+
 ```typescript
 {
   id: string (UUID)
   userId: string (FK)
   orderId: string (FK, optional)
-  
+
   fileName: string
-  fileUrl: string (S3/Cloudinary URL)
+  fileUrl: string (Cloudinary URL)
   fileSize: number
   mimeType: string
-  
+
   category: enum (PASSPORT, PHOTO, BANK_STATEMENT, TRAVEL_ITINERARY, OTHER)
   status: enum (PENDING, VERIFIED, REJECTED)
-  
+
   verifiedBy: string (admin ID, optional)
   verifiedAt: DateTime (optional)
   rejectionReason: string (optional)
-  
+
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -331,9 +357,11 @@ PATCH  /admin/documents/:id/verify  # Admin: Verify document
 ---
 
 ### 7. **Email Module** (`email`)
+
 **Purpose:** Email automation and notifications
 
 **Features:**
+
 - Order confirmation emails
 - Welcome emails
 - Payment failure notifications
@@ -342,6 +370,7 @@ PATCH  /admin/documents/:id/verify  # Admin: Verify document
 - Email templates with dynamic data
 
 **Email Templates Needed:**
+
 1. **Order Confirmation** - Sent immediately after purchase
 2. **Welcome Email** - Sent within 1 hour
 3. **Payment Failed** - Sent if payment fails
@@ -351,6 +380,7 @@ PATCH  /admin/documents/:id/verify  # Admin: Verify document
 7. **Order Status Update** - When status changes
 
 **Service Methods:**
+
 ```typescript
 sendOrderConfirmation(order: Order)
 sendWelcomeEmail(user: User)
@@ -365,9 +395,11 @@ sendConsultantAssignment(order: Order, consultant: User)
 ---
 
 ### 8. **Dashboard Module** (`dashboard`)
+
 **Purpose:** Customer dashboard data and analytics
 
 **Features:**
+
 - Customer overview (active orders, documents status)
 - Order history with filters
 - Upcoming consultations
@@ -375,6 +407,7 @@ sendConsultantAssignment(order: Order, consultant: User)
 - Account statistics
 
 **Endpoints:**
+
 ```
 GET    /dashboard/overview          # Customer dashboard summary
 GET    /dashboard/orders/active     # Active orders
@@ -385,9 +418,11 @@ GET    /dashboard/documents/status  # Document upload status
 ---
 
 ### 9. **Admin Module** (`admin`)
+
 **Purpose:** Admin panel functionality
 
 **Features:**
+
 - Order management (view, update status, assign consultants)
 - Customer management
 - Revenue analytics
@@ -396,6 +431,7 @@ GET    /dashboard/documents/status  # Document upload status
 - Document verification
 
 **Endpoints:**
+
 ```
 GET    /admin/dashboard/stats       # Overview statistics
 GET    /admin/orders                # All orders with filters
@@ -406,6 +442,7 @@ GET    /admin/consultants           # Consultant management
 ```
 
 **Analytics Data:**
+
 ```typescript
 {
   totalRevenue: decimal
@@ -425,29 +462,32 @@ GET    /admin/consultants           # Consultant management
 ---
 
 ### 10. **Consultations Module** (`consultations`) _(Optional Enhancement)_
+
 **Purpose:** Manage consultation bookings for premium packages
 
 **Features:**
+
 - Schedule consultations
 - Calendar integration
 - Video call links (Zoom/Google Meet)
 - Consultation notes
 
 **Consultation Schema:**
+
 ```typescript
 {
   id: string
   orderId: string (FK)
   consultantId: string (FK)
   userId: string (FK)
-  
+
   scheduledAt: DateTime
   duration: number (minutes)
   status: enum (SCHEDULED, COMPLETED, CANCELLED)
-  
+
   meetingLink: string
   notes: text (optional)
-  
+
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -470,7 +510,7 @@ model User {
   emailVerified Boolean   @default(false)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-  
+
   orders        Order[]
   documents     Document[]
   consultations Consultation[]
@@ -499,7 +539,7 @@ model Service {
   isActive        Boolean         @default(true)
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
-  
+
   orders          Order[]
 }
 
@@ -524,7 +564,7 @@ model Order {
   consultantId    String?
   createdAt       DateTime     @default(now())
   updatedAt       DateTime     @updatedAt
-  
+
   user            User         @relation(fields: [userId], references: [id])
   service         Service      @relation(fields: [serviceId], references: [id])
   payment         Payment?
@@ -557,7 +597,7 @@ model Payment {
   refundedAt             DateTime?
   createdAt              DateTime      @default(now())
   updatedAt              DateTime      @updatedAt
-  
+
   order                  Order         @relation(fields: [orderId], references: [id])
 }
 
@@ -585,7 +625,7 @@ model Document {
   rejectionReason String?
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
-  
+
   user            User           @relation(fields: [userId], references: [id])
   order           Order?         @relation(fields: [orderId], references: [id])
 }
@@ -617,7 +657,7 @@ model Consultation {
   notes         String?
   createdAt     DateTime            @default(now())
   updatedAt     DateTime            @updatedAt
-  
+
   order         Order               @relation(fields: [orderId], references: [id])
   user          User                @relation(fields: [userId], references: [id])
 }
@@ -634,6 +674,7 @@ enum ConsultationStatus {
 ## 🔐 Authentication & Authorization
 
 ### JWT Strategy
+
 ```typescript
 // JWT Payload
 {
@@ -646,11 +687,13 @@ enum ConsultationStatus {
 ### Role-Based Access Control (RBAC)
 
 **Customer Role:**
+
 - Access own orders, documents, profile
 - Create orders and upload documents
 - View own dashboard
 
 **Admin Role:**
+
 - Full access to all orders and customers
 - Manage services
 - View analytics
@@ -658,12 +701,14 @@ enum ConsultationStatus {
 - Assign consultants
 
 **Consultant Role:**
+
 - View assigned orders
 - Access customer documents
 - Schedule consultations
 - Add notes to orders
 
 ### Guards
+
 ```typescript
 @UseGuards(JwtAuthGuard, RolesGuard)
 @Roles('ADMIN')
@@ -676,6 +721,7 @@ enum ConsultationStatus {
 ### Stripe Integration Flow
 
 1. **Create Payment Intent** (Frontend initiates)
+
    ```
    POST /payments/create-intent
    Body: { orderId, amount, currency }
@@ -685,6 +731,7 @@ enum ConsultationStatus {
 2. **Frontend collects payment** (Stripe Elements)
 
 3. **Confirm Payment**
+
    ```
    POST /payments/confirm
    Body: { orderId, paymentIntentId }
@@ -697,6 +744,7 @@ enum ConsultationStatus {
    ```
 
 ### Security Measures
+
 - Verify webhook signatures
 - Use environment-specific API keys
 - Never expose secret keys to frontend
@@ -710,6 +758,7 @@ enum ConsultationStatus {
 ### Email Templates with Resend + React Email
 
 **Example: Order Confirmation Email**
+
 ```tsx
 // emails/OrderConfirmation.tsx
 export const OrderConfirmation = ({ order, user }) => (
@@ -726,6 +775,7 @@ export const OrderConfirmation = ({ order, user }) => (
 ```
 
 ### Email Sending Service
+
 ```typescript
 // email.service.ts
 async sendOrderConfirmation(order: Order) {
@@ -742,32 +792,32 @@ async sendOrderConfirmation(order: Order) {
 
 ## 📂 File Upload Strategy
 
-### AWS S3 Integration
+### Cloudinary Integration
+
 ```typescript
-// documents.service.ts
+// documents.service.ts (Cloudinary)
 async uploadDocument(file: Express.Multer.File, userId: string) {
-  const key = `documents/${userId}/${Date.now()}-${file.originalname}`;
-  
-  await this.s3.upload({
-    Bucket: process.env.S3_BUCKET,
-    Key: key,
-    Body: file.buffer,
-    ContentType: file.mimetype,
-  });
-  
-  const url = `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${key}`;
-  
-  return this.documentRepository.create({
-    userId,
-    fileName: file.originalname,
-    fileUrl: url,
-    fileSize: file.size,
-    mimeType: file.mimetype,
+  return new Promise((resolve, reject) => {
+    const uploadStream = cloudinary.uploader.upload_stream(
+      { folder: `documents/${userId}` },
+      (error, result) => {
+        if (error) return reject(error);
+        resolve(this.documentRepository.create({
+          userId,
+          fileName: file.originalname,
+          fileUrl: result.secure_url,
+          fileSize: file.size,
+          mimeType: file.mimetype,
+        }));
+      }
+    );
+    uploadStream.end(file.buffer);
   });
 }
 ```
 
 ### File Validation
+
 - Max file size: 10MB
 - Allowed types: PDF, JPG, PNG
 - Virus scanning (ClamAV integration recommended)
@@ -778,6 +828,7 @@ async uploadDocument(file: Express.Multer.File, userId: string) {
 ## 🔍 API Endpoint Summary
 
 ### Public Endpoints
+
 ```
 POST   /auth/register
 POST   /auth/login
@@ -786,6 +837,7 @@ GET    /services/:id
 ```
 
 ### Authenticated Customer Endpoints
+
 ```
 GET    /auth/me
 GET    /users/:id
@@ -801,6 +853,7 @@ GET    /dashboard/overview
 ```
 
 ### Admin Endpoints
+
 ```
 GET    /admin/dashboard/stats
 GET    /admin/orders
@@ -813,6 +866,7 @@ PATCH  /documents/:id/verify
 ```
 
 ### Webhook Endpoints
+
 ```
 POST   /payments/webhook
 ```
@@ -822,16 +876,19 @@ POST   /payments/webhook
 ## 🧪 Testing Strategy
 
 ### Unit Tests
+
 - Service layer logic
 - Business rules validation
 - Utility functions
 
 ### Integration Tests
+
 - API endpoint testing
 - Database operations
-- External service mocks (Stripe, S3, Email)
+- External service mocks (Stripe, Cloudinary, Email)
 
 ### E2E Tests
+
 - Complete order flow
 - Payment processing
 - User registration and login
@@ -844,13 +901,15 @@ POST   /payments/webhook
 ## 🚀 Deployment Recommendations
 
 ### Infrastructure
+
 - **Hosting:** AWS (EC2, ECS, or Lambda), Heroku, or Railway
 - **Database:** AWS RDS PostgreSQL or Supabase
-- **File Storage:** AWS S3
+- **File Storage:** Cloudinary
 - **CDN:** CloudFront
 - **Redis:** AWS ElastiCache (for caching)
 
 ### Environment Variables
+
 ```env
 # Database
 DATABASE_URL=postgresql://...
@@ -863,11 +922,9 @@ JWT_EXPIRATION=7d
 STRIPE_SECRET_KEY=...
 STRIPE_WEBHOOK_SECRET=...
 
-# AWS S3
-AWS_ACCESS_KEY_ID=...
-AWS_SECRET_ACCESS_KEY=...
-S3_BUCKET=...
-S3_REGION=...
+CLOUDINARY_CLOUD_NAME=...
+CLOUDINARY_API_KEY=...
+CLOUDINARY_API_SECRET=...
 
 # Email
 RESEND_API_KEY=...
@@ -878,6 +935,7 @@ FRONTEND_URL=https://holyonetravels.com
 ```
 
 ### CI/CD Pipeline
+
 1. Run tests
 2. Build Docker image
 3. Push to registry
@@ -890,11 +948,13 @@ FRONTEND_URL=https://holyonetravels.com
 ## 📊 Performance Optimization
 
 ### Caching Strategy
+
 - Cache service catalog (Redis, TTL: 1 hour)
 - Cache user sessions
 - Database query optimization with indexes
 
 ### Database Indexes
+
 ```sql
 CREATE INDEX idx_orders_user_id ON orders(user_id);
 CREATE INDEX idx_orders_status ON orders(status);
@@ -904,6 +964,7 @@ CREATE INDEX idx_documents_user_id ON documents(user_id);
 ```
 
 ### API Rate Limiting
+
 ```typescript
 @UseGuards(ThrottlerGuard)
 @Throttle(10, 60) // 10 requests per 60 seconds
@@ -929,6 +990,7 @@ CREATE INDEX idx_documents_user_id ON documents(user_id);
 ## 📈 Future Enhancements
 
 ### Phase 2 Features
+
 - [ ] Multi-language support (i18n)
 - [ ] Multi-currency support
 - [ ] Referral program
@@ -938,6 +1000,7 @@ CREATE INDEX idx_documents_user_id ON documents(user_id);
 - [ ] Mobile app API
 
 ### Phase 3 Features
+
 - [ ] AI-powered document verification
 - [ ] Automated visa eligibility checker
 - [ ] Consultation video platform integration
@@ -949,6 +1012,7 @@ CREATE INDEX idx_documents_user_id ON documents(user_id);
 ## 🎯 Implementation Priorities
 
 ### MVP (Weeks 1-4)
+
 1. ✅ Auth Module (registration, login, JWT)
 2. ✅ Users Module (basic CRUD)
 3. ✅ Services Module (read-only, seed from existing data)
@@ -957,12 +1021,14 @@ CREATE INDEX idx_documents_user_id ON documents(user_id);
 6. ✅ Email Module (order confirmation only)
 
 ### Phase 2 (Weeks 5-8)
+
 1. ✅ Documents Module (upload, view)
 2. ✅ Dashboard Module (customer overview)
 3. ✅ Admin Module (basic order management)
 4. ✅ Email automation (all templates)
 
 ### Phase 3 (Weeks 9-12)
+
 1. ✅ Advanced admin features
 2. ✅ Consultations Module
 3. ✅ Analytics and reporting
@@ -978,14 +1044,14 @@ CREATE INDEX idx_documents_user_id ON documents(user_id);
 ```typescript
 // main.ts
 const config = new DocumentBuilder()
-  .setTitle('Holyone Travels API')
-  .setDescription('Travel & Visa Services Platform API')
-  .setVersion('1.0')
+  .setTitle("Holyone Travels API")
+  .setDescription("Travel & Visa Services Platform API")
+  .setVersion("1.0")
   .addBearerAuth()
   .build();
-  
+
 const document = SwaggerModule.createDocument(app, config);
-SwaggerModule.setup('api/docs', app, document);
+SwaggerModule.setup("api/docs", app, document);
 ```
 
 Access docs at: `https://api.holyonetravels.com/api/docs`
@@ -995,12 +1061,14 @@ Access docs at: `https://api.holyonetravels.com/api/docs`
 ## ✅ Success Metrics
 
 ### Technical Metrics
+
 - API response time: < 200ms (95th percentile)
 - Uptime: 99.9%
 - Test coverage: > 80%
 - Zero security vulnerabilities
 
 ### Business Metrics
+
 - Order completion rate: > 85%
 - Payment success rate: > 95%
 - Average order processing time: < 24 hours
@@ -1011,11 +1079,13 @@ Access docs at: `https://api.holyonetravels.com/api/docs`
 ## 🤝 Team Collaboration
 
 ### API Contracts
+
 - Frontend and backend teams should agree on API contracts early
 - Use TypeScript interfaces shared via npm package or monorepo
 - Document all breaking changes
 
 ### Version Control
+
 - Use semantic versioning (v1.0.0)
 - Maintain API version in URL: `/api/v1/...`
 - Deprecation policy: 6 months notice
@@ -1025,17 +1095,20 @@ Access docs at: `https://api.holyonetravels.com/api/docs`
 ## 📞 Support & Maintenance
 
 ### Monitoring
+
 - **Error Tracking:** Sentry
 - **Performance Monitoring:** New Relic / Datadog
 - **Logging:** Winston / Pino
 - **Health Checks:** `/health` endpoint
 
 ### Backup Strategy
+
 - Database backups: Daily automated backups
-- File storage: Versioning enabled on S3
+- File storage: Versioning enabled on Cloudinary
 - Retention: 30 days
 
 ### Incident Response
+
 1. Error detection via monitoring
 2. Alert team via Slack/PagerDuty
 3. Investigate and fix
@@ -1047,6 +1120,7 @@ Access docs at: `https://api.holyonetravels.com/api/docs`
 ## 🎓 Developer Onboarding
 
 ### Setup Guide
+
 ```bash
 # Clone repository
 git clone https://github.com/holyone-travels/backend.git
@@ -1068,6 +1142,7 @@ npm run test
 ```
 
 ### Code Standards
+
 - Use ESLint + Prettier
 - Follow NestJS style guide
 - Write meaningful commit messages
@@ -1078,11 +1153,13 @@ npm run test
 ## 📚 Resources
 
 ### NestJS Documentation
+
 - [Official Docs](https://docs.nestjs.com)
 - [Prisma Docs](https://www.prisma.io/docs)
 - [Stripe Node SDK](https://stripe.com/docs/api)
 
 ### Learning Resources
+
 - NestJS Fundamentals Course
 - Prisma Schema Design Best Practices
 - Stripe Payment Integration Guide
@@ -1094,13 +1171,15 @@ npm run test
 This backend architecture provides a **scalable, secure, and maintainable** foundation for Holyone Travels. The modular design allows for incremental development, easy testing, and future enhancements.
 
 ### Key Strengths
+
 ✅ **Modular Architecture** - Easy to understand and maintain  
 ✅ **Type Safety** - TypeScript + Prisma = fewer bugs  
 ✅ **Secure** - JWT auth, RBAC, payment security  
 ✅ **Scalable** - Can handle growth with caching and optimization  
-✅ **Well-Documented** - Clear API contracts and Swagger docs  
+✅ **Well-Documented** - Clear API contracts and Swagger docs
 
 ### Next Steps
+
 1. Review this architecture with stakeholders
 2. Set up development environment
 3. Create Prisma schema and migrations
@@ -1111,8 +1190,9 @@ This backend architecture provides a **scalable, secure, and maintainable** foun
 ---
 
 **Questions or Clarifications Needed:**
+
 - Preferred payment gateway configuration (test vs production)
-- File storage preference (AWS S3 vs Cloudinary vs other)
+- File storage preference (Cloudinary vs other)
 - Email service preference (Resend vs SendGrid vs other)
 - Admin panel: separate backend or integrated?
 - Multi-tenancy requirements (if any)

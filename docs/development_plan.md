@@ -26,7 +26,7 @@ This development plan provides a **streamlined roadmap** for implementing the Ho
 - ✅ 5-model database (PostgreSQL + Prisma)
 - ✅ Payment processing (Stripe)
 - ✅ Email automation (Resend - not tracked in DB)
-- ✅ Document management (AWS S3)
+- ✅ Document management (Cloudinary)
 - ✅ Simple admin endpoints
 - ✅ Customer portal
 
@@ -40,7 +40,7 @@ This development plan provides a **streamlined roadmap** for implementing the Ho
 2. **Service** - Service catalog
 3. **Order** - Order management with JSON fields
 4. **Payment** - Stripe payments
-5. **Document** - File uploads to S3
+5. **Document** - File uploads to Cloudinary
 
 ### ❌ Models Removed (Email-Based Instead)
 
@@ -181,7 +181,7 @@ INSERT INTO documents (
   user_id, order_id, file_name, file_url, file_size,
   mime_type, category, status
 ) VALUES (
-  :userId, :orderId, :s3FileName, :s3Url, :fileSize,
+  :userId, :orderId, :cloudinaryPublicId, :cloudinaryUrl, :fileSize,
   :mimeType, :category, 'PENDING'
 );
 ```
@@ -448,33 +448,33 @@ GET  /payments/:id             (protected, owner only)
 **Tasks:**
 
 - [ ] Create Document model migration
-- [ ] Set up AWS S3 bucket
-- [ ] Install AWS SDK
+- [ ] Set up Cloudinary account
+- [ ] Install Cloudinary SDK
 - [ ] Implement file upload
-- [ ] Implement S3 upload
+- [ ] Implement Cloudinary upload
 - [ ] Add file validation (size, type)
 - [ ] Implement document listing
 - [ ] Implement document deletion
 - [ ] Admin: Document verification
 - [ ] Write document tests
 
-**S3 Upload:**
+**Cloudinary Upload:**
 
 ```typescript
-async uploadToS3(file: Express.Multer.File, userId: string) {
-  const key = `documents/${userId}/${Date.now()}-${file.originalname}`;
-
-  await this.s3.send(new PutObjectCommand({
-    Bucket: process.env.AWS_S3_BUCKET,
-    Key: key,
-    Body: file.buffer,
-    ContentType: file.mimetype
-  }));
-
-  return {
-    fileName: key,
-    fileUrl: `https://${process.env.AWS_S3_BUCKET}.s3.amazonaws.com/${key}`
-  };
+async uploadToCloudinary(file: Express.Multer.File, userId: string) {
+  return new Promise((resolve, reject) => {
+    const uploadStream = cloudinary.uploader.upload_stream(
+      { folder: `documents/${userId}` },
+      (error, result) => {
+        if (error) return reject(error);
+        resolve({
+          fileName: result.public_id,
+          fileUrl: result.secure_url
+        });
+      }
+    );
+    uploadStream.end(file.buffer);
+  });
 }
 ```
 
@@ -490,7 +490,7 @@ PATCH  /admin/documents/:id/verify (admin only)
 **Deliverables:**
 
 - ✅ Document upload
-- ✅ S3 integration
+- ✅ Cloudinary integration
 - ✅ Admin verification
 
 ---
@@ -749,11 +749,10 @@ JWT_EXPIRATION=7d
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 
-# AWS S3
-AWS_ACCESS_KEY_ID=...
-AWS_SECRET_ACCESS_KEY=...
-AWS_S3_BUCKET=holyone-documents
-AWS_REGION=us-east-1
+# Cloudinary
+CLOUDINARY_CLOUD_NAME=...
+CLOUDINARY_API_KEY=...
+CLOUDINARY_API_SECRET=...
 
 # Email
 RESEND_API_KEY=re_...
@@ -767,7 +766,7 @@ ADMIN_EMAIL=admin@holyonetravels.com
 - [ ] Database migrations run
 - [ ] Database seeded with services
 - [ ] Stripe webhook configured
-- [ ] S3 bucket created and accessible
+- [ ] Cloudinary account configured
 - [ ] Resend domain verified
 - [ ] Admin user created
 - [ ] Tests passing

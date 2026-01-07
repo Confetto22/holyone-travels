@@ -55,7 +55,7 @@ The following models were removed as their functionality will be handled through
 
 ### 5. **Document** - Document Upload
 
-- File storage (AWS S3)
+- File storage (Cloudinary)
 - Categorization (passport, bank statement, etc.)
 - Verification status (pending, verified, rejected)
 

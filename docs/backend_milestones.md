@@ -19,11 +19,11 @@
 
 ### 0.1 Initialize NestJS Project
 
-- [ ] Create new NestJS project: `npx @nestjs/cli new holyone-backend`
-- [ ] Choose `npm` as package manager
-- [ ] Navigate to project: `cd holyone-backend`
-- [ ] Test server: `npm run start:dev` (should run on port 3000)
-- [ ] Verify endpoint: Visit `http://localhost:3000` (should see "Hello World!")
+- [x] Create new NestJS project: `npx @nestjs/cli new holyone-backend`
+- [x] Choose `npm` as package manager
+- [x] Navigate to project: `cd holyone-backend`
+- [x] Test server: `npm run start:dev` (should run on port 3000)
+- [x] Verify endpoint: Visit `http://localhost:3000` (should see "Hello World!")
 
 ### 0.2 Install Core Dependencies
 
@@ -34,15 +34,16 @@ npm install class-validator class-transformer
 npm install @nestjs/passport passport passport-jwt
 npm install @nestjs/jwt bcryptjs
 npm install stripe
-npm install @aws-sdk/client-s3
+npm install cloudinary streamifier
+npm install -D @types/streamifier
 npm install resend react-email
 
 npm install -D @types/bcryptjs @types/passport-jwt
 npm install -D prisma
 ```
 
-- [ ] All dependencies installed successfully
-- [ ] No version conflicts
+- [x] All dependencies installed successfully
+- [x] No version conflicts
 
 ### 0.3 Set Up Environment Variables
 
@@ -59,10 +60,9 @@ JWT_EXPIRATION="7d"
 STRIPE_SECRET_KEY="sk_test_..."
 STRIPE_WEBHOOK_SECRET="whsec_..."
 
-AWS_ACCESS_KEY_ID="your-aws-key"
-AWS_SECRET_ACCESS_KEY="your-aws-secret"
-AWS_S3_BUCKET="holyone-documents"
-AWS_REGION="us-east-1"
+CLOUDINARY_CLOUD_NAME="your-cloud-name"
+CLOUDINARY_API_KEY="your-api-key"
+CLOUDINARY_API_SECRET="your-api-secret"
 
 RESEND_API_KEY="re_..."
 FROM_EMAIL="orders@holyonetravels.com"
@@ -688,21 +688,20 @@ nest g service email
 
 ---
 
-## 📂 Milestone 7: Document Upload
+## 📂 Milestone 7: Document Upload (Cloudinary)
 
-### 7.1 Set Up AWS S3
+### 7.1 Set Up Cloudinary
 
-- [ ] Create AWS account
-- [ ] Create S3 bucket
-- [ ] Set up IAM user with S3 permissions
-- [ ] Get access keys
+- [ ] Create Cloudinary account (cloudinary.com)
+- [ ] Get API credentials (Cloud Name, API Key, API Secret)
 - [ ] Add to `.env`
+- [ ] Update `ConfigModule` to validate these variables
 
-### 7.2 Install AWS SDK
+### 7.2 Install Cloudinary SDK
 
 ```bash
-npm install @aws-sdk/client-s3
-npm install @aws-sdk/s3-request-presigner
+npm install cloudinary streamifier
+npm install -D @types/streamifier
 ```
 
 ### 7.3 Add Document Model
@@ -765,18 +764,18 @@ npm install -D @types/multer
 - [ ] Add file size limit (10MB)
 - [ ] Add file type validation (PDF, JPG, PNG)
 
-### 7.6 Implement S3 Upload Service
+### 7.6 Implement Cloudinary Upload Service
 
-- [ ] Create S3 client
-- [ ] Implement upload method
-- [ ] Generate unique file names
-- [ ] Store in organized folder structure
+- [ ] Create Cloudinary provider/service
+- [ ] Configure with credentials
+- [ ] Implement upload method using `upload_stream`
+- [ ] Generate proper folder structure (`documents/:userId`)
 
 ### 7.7 Implement Upload Endpoint
 
 - [ ] `POST /documents/upload` (protected)
 - [ ] Accept file and metadata
-- [ ] Upload to S3
+- [ ] Upload to Cloudinary
 - [ ] Save record to database
 - [ ] Return document info
 
@@ -790,11 +789,11 @@ npm install -D @types/multer
 
 - [ ] Upload PDF file works
 - [ ] Upload image works
-- [ ] File appears in S3 bucket
+- [ ] File appears in Cloudinary dashboard
 - [ ] Database record created
 - [ ] Can retrieve documents
 
-**Checkpoint:** ✅ Document upload to S3 working
+**Checkpoint:** ✅ Document upload to Cloudinary working
 
 ---
 
@@ -1035,7 +1034,7 @@ npm run build
 - [ ] ✅ Order creation and management
 - [ ] ✅ Stripe payment integration
 - [ ] ✅ Email notifications
-- [ ] ✅ Document upload to S3
+- [ ] ✅ Document upload to Cloudinary
 - [ ] ✅ Customer dashboard
 - [ ] ✅ Admin panel
 
@@ -1091,7 +1090,7 @@ After completing all milestones:
 - [NestJS Docs](https://docs.nestjs.com)
 - [Prisma Docs](https://www.prisma.io/docs)
 - [Stripe Docs](https://stripe.com/docs)
-- [AWS S3 SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/)
+- [Cloudinary SDK](https://cloudinary.com/documentation/node_integration)
 
 ---
 

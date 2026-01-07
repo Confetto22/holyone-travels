@@ -521,7 +521,7 @@ INSERT INTO documents (
   user_id, order_id, file_name, original_name, file_url,
   file_size, mime_type, category, status
 ) VALUES (
-  :userId, :orderId, :s3FileName, :originalName, :s3Url,
+  :userId, :orderId, :cloudinaryPublicId, :originalName, :cloudinaryUrl,
   :fileSize, :mimeType, :category, 'PENDING'
 )
 ```

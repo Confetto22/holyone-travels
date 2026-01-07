@@ -386,7 +386,7 @@ enum DocumentStatus {
 
 **Key Fields:**
 
-- `fileUrl`: S3/Cloudinary URL
+- `fileUrl`: Cloudinary URL
 - `category`: Document type (PASSPORT, BANK_STATEMENT, etc.)
 - `status`: Verification status (PENDING, VERIFIED, REJECTED)
 - `rejectionReason`: Reason for rejection (if applicable)
@@ -641,7 +641,7 @@ const activeOrders = await prisma.order.findMany({
 
 - **Passwords:** Always hashed with bcrypt (salt rounds: 10)
 - **Payment Info:** Never store full card numbers (only last 4 digits)
-- **Documents:** Stored in secure S3 with signed URLs
+- **Documents:** Stored in secure Cloudinary storage with signed URLs
 
 ### Access Control
 
@@ -694,7 +694,7 @@ AND created_at < NOW() - INTERVAL '1 year';
 
 ### Database Backups
 
-- **Daily:** Automated backups via AWS RDS
+- **Daily:** Automated backups
 - **Retention:** 30 days
 - **Point-in-time recovery:** Enabled
 
